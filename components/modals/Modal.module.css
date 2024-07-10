@@ -1,0 +1,89 @@
+.modalOverlay {
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgba(69, 69, 69, 0.5);
+    inset: 0px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 2147483647;
+}
+.modalBody {
+    margin: 0px 16px;
+    max-width: 575px;
+    width: 100%;
+
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px 0px;
+    height: fit-content;
+    max-height: calc(100% - 16px);
+
+    outline: none;
+    overflow: inherit;
+    padding: 0px;
+    position: relative;
+
+    transition: all 100ms ease 0s;
+}
+
+.line {
+    border-bottom: 1px solid rgb(209, 209, 209);
+    height: 18px;
+    width: 100%;
+}
+
+
+.content_after_open {
+    top: 0vh;
+}
+
+.modalHeader {
+    display: inline-flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-top: 5px;
+    font-family: Poppins, sans-serif;
+    font-size: 32px;
+}
+
+.professorSignup {
+    display: flex;
+    font-size: 16px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    line-height: 18px;
+    margin-top: 26px;
+}
+
+.professorSignup>button {
+    color: rgb(0, 85, 253);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: inherit;
+    margin-left: 3px;
+    text-decoration: none;
+}
+
+.googleAuthButton {
+    margin-top: 24px;
+    width: 100%;
+    background: white;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 100px;
+    color: black;
+    display: flex;
+    font-stretch: normal;
+    font-weight: 700;
+    -webkit-box-pack: center;
+    justify-content: center;
+    left: 24px;
+    letter-spacing: normal;
+    line-height: 1.54;
+    outline: none;
+    padding: 11px 46px;
+    transition: transform 0.2s ease 0s;
+}
+
+
+
