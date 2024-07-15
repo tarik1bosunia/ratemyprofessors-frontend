@@ -4,7 +4,6 @@ import { useAddDetails  } from "@/hooks";
 
 
 export default function AddDetailsModalForm(){
-   
     const {
         first_name,
         last_name,

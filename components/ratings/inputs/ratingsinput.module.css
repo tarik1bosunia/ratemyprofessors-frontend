@@ -1,0 +1,27 @@
+.tagdivUnselected:hover {
+    background-color: rgb(217, 232, 255);
+    color: rgb(21, 21, 21);
+    cursor: pointer;
+}
+
+.tagdivUnselected {
+    background-color: rgb(239, 239, 239);
+    border-radius: 14.5px;
+    color: rgb(78, 78, 78);
+    font-stretch: condensed;
+    line-height: 17px;
+    margin: 0px 10px 8px 0px;
+    padding: 8px 20px;
+    text-align: center;
+}
+
+.tagdivSelected {
+    background-color: rgb(217, 232, 255);
+    border-radius: 14.5px;
+    color: rgb(21, 21, 21);
+    font-stretch: condensed;
+    line-height: 17px;
+    margin: 0px 10px 8px 0px;
+    padding: 8px 20px;
+    text-align: center;
+  }

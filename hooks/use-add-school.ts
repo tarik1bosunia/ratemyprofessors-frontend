@@ -54,7 +54,6 @@ export default function useAddSchool() {
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // if not logged in open join rmp family modal
-
     addSchool({
       name_of_school,
       school_website,
@@ -90,3 +89,5 @@ export default function useAddSchool() {
     statesLoading,
   };
 }
+
+

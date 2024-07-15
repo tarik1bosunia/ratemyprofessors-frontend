@@ -1,15 +1,16 @@
 'use client'
 import { capitalizeFirstLetter } from '@/utils';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 type RatingSliderProps = {
-    labelId: string,
-    labelText: string,
-    value: string,
-    // onChange:(event:ChangeEvent<HTMLInputElement>) => void,
+  labelId: string;
+  labelText: string,
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  required?: boolean;
 }
 
-export default function RatingSlider({labelId, labelText, value}: RatingSliderProps) {
+export default function RatingSlider({labelId, labelText, value, required, onChange}: RatingSliderProps) {
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -23,8 +24,31 @@ export default function RatingSlider({labelId, labelText, value}: RatingSliderPr
   };
 
   const handleSelect = (index: number) =>{
-    if(selectedIndex == index) setSelectedIndex(null)
-    else setSelectedIndex(index)
+    if(selectedIndex == index) {
+      setSelectedIndex(null)
+      if (onChange) {
+        const event = {
+          target: {
+            name: labelId,
+            value: ''
+          }
+        } as ChangeEvent<HTMLInputElement>;
+        onChange(event);
+      }
+    }
+    else {
+      setSelectedIndex(index)
+        if (onChange) {
+          const event = {
+            target: {
+              name: labelId,
+              value: (index).toString()
+            }
+          } as ChangeEvent<HTMLInputElement>;
+          onChange(event);
+        }
+    }
+    
   }
 
   const ratings = [
@@ -34,6 +58,10 @@ export default function RatingSlider({labelId, labelText, value}: RatingSliderPr
     {label: "4 - Great", color: "bg-green-400"},
     {label: "5- Awsome", color: "bg-green-600"},
   ]
+
+  useEffect(() => {
+    setSelectedIndex( value != '' ? Number(value) : null);
+  }, [value]);
 
   return (
     <div className="mr-10 mb-5 ml-0 mt-0 min-w-[343px] text-left">
@@ -60,7 +88,8 @@ export default function RatingSlider({labelId, labelText, value}: RatingSliderPr
                   type="range"
                   name={labelId}
                   id={labelId}
-                  value={selectedIndex || 0}
+                  value={value}
+                  onChange={onChange}
                 />
               </div>
               <div className=""></div>

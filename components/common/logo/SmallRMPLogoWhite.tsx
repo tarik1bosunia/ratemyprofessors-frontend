@@ -3,7 +3,7 @@ import React from 'react'
 const SmallRMPLogoWhite = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="65" height="37" viewBox="0 0 65 37">
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fillRule="evenodd">
         <path fill="#FFF" d="M4.611 36.774l17.234-9.318-15.163-1.981z"/>
         <path fill="#FFF" d="M0 0v30.792h27.942L38.866 0z"/>
         <path fill="#FEFEFE" d="M38.215 0L27.817 30.792H65L64.869 0z"/>

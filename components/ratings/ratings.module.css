@@ -1,0 +1,95 @@
+
+.radioInputYes{
+  -moz-box-align: center;
+  align-items: center;
+  appearance: none;
+  border: 2px solid rgb(158, 158, 158);
+  border-radius: 50%;
+  display: flex;
+  height: 44px;
+  -moz-box-pack: center;
+  justify-content: center;
+  margin: 0px 0px 8px;
+  opacity: 0.5;
+  width: 44px;
+}
+.radioInputYes:checked {
+    opacity: 1;
+    background: rgb(142, 207, 111);
+    border: unset;
+  }
+
+.radioInputYes:hover {
+    cursor: pointer;
+    background: rgb(142, 207, 111);
+    border: unset;
+}
+
+.radioInputYes:checked::before {
+    background-size: cover;
+    content: "";
+    display: flex;
+    height: 15px;
+    width: 20px;
+    background-image: url("/icons/CheckMark.svg");
+  }
+
+  .radioInputYes:hover::before {
+    background-size: cover;
+    content: "";
+    display: flex;
+    height: 15px;
+    width: 20px;
+    background-image: url("/icons/CheckMark.svg");
+    cursor: pointer;
+  }
+
+  .radioInputYes:focus {
+    opacity: 1;
+  }
+
+  /* no */
+  .radioInputNo{
+    -moz-box-align: center;
+    align-items: center;
+    appearance: none;
+    border: 2px solid rgb(158, 158, 158);
+    border-radius: 50%;
+    display: flex;
+    height: 44px;
+    -moz-box-pack: center;
+    justify-content: center;
+    margin: 0px 0px 8px;
+    opacity: 0.5;
+    width: 44px;
+  }
+
+  .radioInputNo:hover {
+    cursor: pointer;
+    background: rgb(235, 87, 87);
+    border: unset;
+  }
+
+  .radioInputNo:hover::before {
+    background-size: cover;
+    content: "";
+    display: flex;
+    height: 15px;
+    width: 15px;
+    background-image: url("/icons/CloseIcon.svg");
+  }
+
+  .radioInputNo:checked {
+    opacity: 1;
+    background: rgb(235, 87, 87);
+    border: unset;
+  }
+
+  .radioInputNo:checked::before {
+    background-size: cover;
+    content: "";
+    display: flex;
+    height: 15px;
+    width: 15px;
+    background-image: url("/icons/CloseIcon.svg");
+  }

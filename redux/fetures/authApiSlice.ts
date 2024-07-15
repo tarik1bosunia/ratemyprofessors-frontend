@@ -114,6 +114,60 @@ const authApiSlice = apiSlice.injectEndpoints({
           body: professor,
         }),
       }),
+      rateSchool: builder.mutation({
+        query: ({reputation, facilites, internet, food, clubs, social, happiness, safety, comment, id}) => ({
+          url: `/ratings/school-rating/1/`,
+          method: 'POST',
+          body: {
+            reputation: parseInt(reputation), 
+            facilities: parseInt(facilites),
+            internet: parseInt(internet),
+            food: parseInt(food),
+            clubs: parseInt(clubs),
+            social: parseInt(social),
+            happiness: parseInt(happiness),
+            safety: parseInt(safety),
+            comment: comment,
+          },
+        }),
+      }),
+
+      getSchoolRatings: builder.query({
+        query: (school_id) => `/ratings/school-rating/${school_id}`,
+      }),
+
+      rateProfessor: builder.mutation({
+        query: ({        
+          course_code,
+          is_online_course,
+          rating,
+          difficulty,
+          is_take_professor_again,
+          was_class_taken_for_credit,
+          was_use_textbook,
+          was_attendence_mendatory,
+          grade,
+          tags,
+          comment,
+          id
+        }) => ({
+          url: `/ratings/professor-rating/${id}/`,
+          method: 'POST',
+          body: {
+            course_code,
+            is_online_course,
+            rating: rating,
+            difficulty: difficulty,
+            is_take_professor_again,
+            was_class_taken_for_credit,
+            was_use_textbook,
+            was_attendence_mendatory,
+            grade,
+            tags,
+            comment,
+          },
+        }),
+      }),
   
   }),
 });
@@ -131,6 +185,9 @@ export const {
   useCheckEmailMutation,
   useAddDetailsMutation,
   useAddSchoolMutation,
-  useAddProfessorMutation
+  useAddProfessorMutation,
   // useUpdateUserMutation
+  useRateSchoolMutation,
+  useGetSchoolRatingsQuery,
+  useRateProfessorMutation
 } = authApiSlice;

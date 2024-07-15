@@ -37,4 +37,10 @@ export interface Professor {
     id: number;
     name: string;
   }
+
+  export interface ProfessorsTag {
+    id: number;
+    tag: string;
+  }
+
   

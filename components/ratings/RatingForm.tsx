@@ -1,61 +1,68 @@
 'use client'
-import {RatingSliders} from '@/components/ratings'
-import { RxCaretUp } from "react-icons/rx";
-import { IoMdAlert } from "react-icons/io";
-import { useState } from 'react';
-export default function RatingForm(){
-    const [submitable, setSubmitable] = useState(false);
+
+import { ChangeEvent, FormEvent, useState } from 'react';
+import RatingInput from './RatingInput';
+import { ProfessorsTag } from '@/types';
+
+interface Config{
+    labelText: string;
+    labelId: string;
+    type: 'slider' | 'comment' | 'select' | 'multiple_select' | 'radio' | 'radio1item';
+    value: string | boolean | null | string[] |  ProfessorsTag[];
+    required?: boolean;
+    onChange?:((event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void) | ((value: string[] ) => void);
+    options?: { value: string; label: string }[] ;
+    childrenText?: string;
+    subInput?: Config
+}
+
+interface Props{
+    config: Config[];
+    isLoading: boolean;
+    btnText: string;
+    onChange:(event:ChangeEvent <HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement >) => void;
+    onSubmit: (event:FormEvent<HTMLFormElement>) => void;
+    ratingSubject: 'school' | 'professor',
+    submitable: boolean,
+}
+
+export default function RatingForm({onSubmit, onChange,  config, isLoading, btnText, ratingSubject, submitable}: Props){
     
     return (
         <div className="my-0 mx-auto max-w-[1280px] w-full mb-[58px] min-h-[calc(-240px+100vh)] overflow-hidden"> 
-        <form role="form" className="xxl:max-w-[926px]">
+        <form role="form" onSubmit={onSubmit} className="xxl:max-w-[926px]">
 
-            <RatingSliders />
-            <div className='mt-0 mr-10 mb-5 ml-0 min-w-[343px] text-left'>
-                <div className='bg-white border border-[#e4e4e4] rounded-[6px] shadow-[0_4px_4px_rgba(126,126,126,0.25)] p-[24px_28px_20px] text-left'>
-                    <div className='text-center'>
-                                            
-                    <div className='text-base font-bold mb-4'>Write a Review</div>
-                    <div className='text-left text-base mb-4'>
-                        Discuss your personal experience on this school. Whats&apos; great about it? What could use improvement?
-                    </div>
-                    <div className='text-left'>
-                        <div className='bg-[#f7f7f7] rounded-[3px] flex flex-col text-base  mb-4'>
-                            <div className='flex items-center justify-between p-[12px_22px_12px_10px]'>
-                                <div className='inline-flex font-bold'>
-                                    
-                                    <IoMdAlert />
-                                    <h2 className='ml-2'> Guideliens</h2>
-                                </div>
-                                <RxCaretUp />
-                            </div>
-                          
-                            <div>
-                            <div className='flex flex-col text-left p-[0px_22px_22px_60px]'>
-                                <ol className='font-base mb-2 list-disc'>
 
-                                    <li>Your rating could be removed if you use profanity or derogatory terms.</li>
-                                    <li>Refer to the rating categories to help you better elaborate your comments.</li>
-                                    <li>Don&apos;t forget to proof read!</li>
-                                </ol>
-                                <a href="/guidelines" target='_blank' className='font-bold text-sm -ml-[6px] w-fit underline'>View all Guidelines</a>
-                            </div>
-                            <div className='relative left'>
-                                <div className='flex flex-col items-end'>
-                                <textarea name="comment" placeholder="What do you want other students to know about this school?" rows={9} className="border border-[#d1d1d1] rounded-[3px] font-sans text-[16px] outline-none p-[16px] resize-none w-full"></textarea>
-                                <span className='text-[#7e7e7e] font-bold mt-[4px]'>
-                                    0/ 350
-                                </span>
-                                </div>
-                            </div>
-                            </div>
+           {
+             config.map((rating, index) => (
+                <RatingInput
+                key={index}
+                type={rating.type}
+                labelId={rating.labelId}
+                labelText={rating.labelText}
+                value={rating.value}
+                ratingSubject= {ratingSubject}
+                onChange={rating.onChange || onChange}
+                options={rating.options}
+                childrenText={rating.childrenText}
+                subInput={
+                    rating.subInput &&
+                    (
+                        <RatingInput
+                        type={rating.subInput.type}
+                        labelId={rating.subInput.labelId}
+                        labelText={rating.subInput.labelText}
+                        value={rating.subInput.value}
+                        ratingSubject={ratingSubject}
+                        onChange={rating.subInput.onChange || onChange }
+                        subInput={undefined}
+                    />
+                    )
+                }
+                />
+            ))
+           }
 
-                           
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
             <div className='m-[0px_40px_20px_0px] min-w-[343px] text-left'>
                 <div className='bg-white border border-[#e4e4e4] rounded-[6px] shadow-[0_4px_4px_rgba(126,126,126,0.25)] p-[24px_28px_20px] text-left'>
                     <div className='text-center'>
@@ -73,7 +80,9 @@ export default function RatingForm(){
                             <div className='flex justify-center'>
                                 <div className='relative text-left'>
                                     <button disabled={!submitable} type='submit' className={`${submitable? "bg-black hover:bg-gray-800  transform hover:scale-105" : "bg-gray-600 cursor-not-allowed"}  border border-[#0021ff] rounded-full text-white flex font-bold justify-center leading-[1.54] outline-none transition-transform duration-200 ease-in-out px-[66px] py-[9px]`}>
-                                        Submit Rating
+                                        {
+                                            btnText
+                                        }
                                     </button>
                                 </div>
                             </div>
@@ -82,6 +91,6 @@ export default function RatingForm(){
                 </div>
             </div>
         </form>
-    </div>
+        </div>
     )
 }

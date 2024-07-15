@@ -13,3 +13,6 @@ export {default as useUpdateUserProfile} from './use-update-user-profile'
 export {default as useModal} from './use-modal'
 export {default as useAddSchool} from './use-add-school'
 export {default as useAddProfessor} from './use-add-professor'
+
+export {default as useRateSchool} from './use-rate-school'
+export {default as useRateProfessor} from './use-rate-professor'

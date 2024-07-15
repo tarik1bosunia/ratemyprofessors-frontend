@@ -19,8 +19,11 @@
 </style> */}
 
 import Link from "next/link"
-import { InstagramIconWhite, TikTalkIconWhite, XIconWhite } from "./icons"
 import { SmallRMPLogoWhite } from "./logo"
+import InstagramIconWhite from '@/public/icons/white/InstagramIconWhite.svg'
+import XIconWhite from '@/public/icons/white/XIconWhite.svg'
+import TikTalkIconWhite from '@/public/icons/white/TikTalkIconWhite.svg'
+import Image from "next/image"
 
 export default function Footer(){
     return (
@@ -53,15 +56,16 @@ export default function Footer(){
                 <div className="flex justify-center mb-4 relative" style={{'WebkitBoxPack': 'center'}}>
                   
                   <Link href="https://www.instagram.com/ratemyprofessors/" className="" >
-                    <InstagramIconWhite />
+                    <Image src={InstagramIconWhite} alt="instagram icon" />
                   </Link>
         
                     <Link href="https://x.com/ratemyprofessor" className="" >
-                        <XIconWhite />
+                        <Image src={XIconWhite} alt="x icon white"/>
                     </Link>
 
                     <Link href="https://tiktok.com/@ratemyprofessors" className="" >
-                        <TikTalkIconWhite />
+                      
+                        <Image src={TikTalkIconWhite} alt="tiktalk icon white"/>
                     </Link>
 
                 </div>

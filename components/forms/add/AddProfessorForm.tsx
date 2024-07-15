@@ -1,6 +1,21 @@
 'use client';
 import { useAddProfessor } from "@/hooks";
 import AddForm from "./AddForm";
+import { ChangeEvent } from "react";
+
+interface Config {
+  labelText: string;
+  labelId: string;
+  type: string; // Ensure type is one of these options
+  value: string ; // Adjusted to allow boolean for checkbox
+  link?: {
+    linkText: string;
+    linkUrl: string;
+  };
+  required?: boolean;
+  options?: { value: number; label: string }[]; // Options for select input
+  onChange?: (event: ChangeEvent<any>) => void; // Adjusted to accept any event type
+}
 
 export default function AddProfessorForm() {
   const {
@@ -19,7 +34,7 @@ export default function AddProfessorForm() {
     departmentsLoading,
   } = useAddProfessor();
 
-  const config = [
+  const config: Config[] = [
     {
       labelText: "Name of School",
       labelId: "name_of_school",
@@ -52,10 +67,10 @@ export default function AddProfessorForm() {
       labelText: "Department",
       labelId: "department",
       type: 'select',
-      value: department,
+      value: String(department),
       required: true,
       options: departments.map((department) => ({
-        value: department.id,
+        value:  department.id,
         label: department.name,
       })),
       onChange: handleDepartmentChange,
@@ -71,7 +86,7 @@ export default function AddProfessorForm() {
       labelText: "I agree to the Terms of Use and Privacy Policy",
       labelId: "termsPrivacy",
       type: "checkbox",
-      value: termsPrivacy,
+      value: String(termsPrivacy),
       required: true,
       onChange: onChange,
     },
