@@ -1,3 +1,6 @@
+// site info
+export const SITE_NAME = "Rate My Professors"
+
 // auth buttons texts
 export const PROFILE_AUTH_BUTTON_TEXT = 'Profile'
 export const SETTINGS_AUTH_BUTTON_TEXT = 'Account Settings'
@@ -39,6 +42,7 @@ export const SEARCH_PROFESSOR_PLACEHOLDER =  "Professor name"
 export const SCHOOL_CHANGE_SEARCH_VIEW_BUTTON_TEXT = "I'd like to look up a professor by name"
 export const PROFESSOR_CHANGE_SEARCH_VIEW_BUTTON_TEXT = "I want to find a professor at a school"
 
+
 // join rmp family sections
 
 import LADY_WITH_PENCIL_IMAGE from '@/public/images/home_rmp_section/instructional-slide-pencil-lady.svg'
@@ -72,3 +76,62 @@ export const JOIN_RMP_FAMILY_SECTION_IMAGE_BOXES = [
         alt: 'Thumb War',
     },
 ]
+
+
+/*============= FOOTER =============== */
+
+export const FOOTER_LINKS = [
+    {
+        title: 'Help',
+        link: 'https://help.ratemyprofessors.com/',
+    },
+    {
+        title: 'Site Guidelines',
+        link: '/guidelines',
+    },
+    {
+        title: 'Terms & Conditions',
+        link: '/terms-of-use',
+    },
+    {
+        title: 'Privacy Policy',
+        link: '/privacy',
+    },
+    {
+        title: 'Copyright Compliance Policy',
+        link: '/copyright',
+    },
+    {
+        title: 'CA Notice at Collection',
+        link: '/privacy#sectionp10',
+    },
+    {
+        title: 'CA Do Not Sell or Share My Personal Information',
+        link: '/ccpa',
+    },
+
+]
+import InstagramIconWhite from '@/public/icons/white/InstagramIconWhite.svg'
+import XIconWhite from '@/public/icons/white/XIconWhite.svg'
+import TikTalkIconWhite from '@/public/icons/white/TikTalkIconWhite.svg'
+
+export const FOOTER_SOCIAL_LINKS = [
+    {
+        icon: InstagramIconWhite,
+        link: INSTARAM_SOCIAL_LINK,
+        alt: 'instagram icon'
+    },
+    {
+        icon: XIconWhite,
+        link: X_SOCIAL_LINK,
+        alt: 'x icon white'
+    },
+    {
+        icon: TikTalkIconWhite,
+        link: TIKTALK_SOCIAL_LINK,
+        alt: 'tiktalk icon white'
+    },
+]
+export const FOOTER_COPYRIGHT_TEXT = `© 2024 ${SITE_NAME}, LLC. All Rights Reserved`
+
+

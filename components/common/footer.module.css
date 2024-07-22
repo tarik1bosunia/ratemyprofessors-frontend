@@ -1,0 +1,17 @@
+.social_icons_footer{
+    box-sizing: content-box;
+    height: 18px;
+    padding-left: 20px;
+    width: 18px;
+}
+.footer_logo_bg_a{
+    place-content: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    margin-bottom: 0px;
+    padding-right: 16px;
+    z-index: 300001;
+}
