@@ -1,0 +1,34 @@
+.rmp_image_box{
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    max-height: 320px;
+}
+.rmp_image{
+    height: 226px;
+    margin-bottom: 24px;
+    max-width: 100%;
+    width: 340px;
+}
+.rmp_title{
+    font-size: 26px;
+    line-height: 26px;
+    margin: 0px auto;
+    max-width: 300px;
+    text-align: center;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+}
+.homepage_pkgds_pink_bacground{
+    left: calc(-575px + 50vw);
+    position: absolute;
+    top: 1020px;
+}
+.homepage_pkgds_blue_bacground{
+    position: absolute;
+    right: calc(-190px + 50vw);
+    top: 300px;
+}
