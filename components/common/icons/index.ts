@@ -9,4 +9,6 @@ export {default as  TikTalkIconWhite} from './white/TikTalkIconWhite'
 export {default as  XIconWhite} from './white/XIconWhite'
 
 export {default as  GoogleIcon} from './GoogleIcon'
+export {default as  SearchSchoolIcon} from './SearchSchoolIcon'
+export {default as  SearchProfessorIcon} from './SearchProfessorIcon'
 

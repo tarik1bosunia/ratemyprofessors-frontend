@@ -30,3 +30,11 @@ export const INSTARAM_SOCIAL_LINK = 'https://www.instagram.com/ratemyprofessors/
 
 // background images links
 export const BG_HEADER_LINK = '/images/bg.svg'
+
+// search placeholders
+export const SEARCH_SCHOOL_PLACEHOLDER = "Your school"
+export const SEARCH_PROFESSOR_PLACEHOLDER =  "Professor name"
+
+// change search view buttons texts
+export const SCHOOL_CHANGE_SEARCH_VIEW_BUTTON_TEXT = "I'd like to look up a professor by name"
+export const PROFESSOR_CHANGE_SEARCH_VIEW_BUTTON_TEXT = "I want to find a professor at a school"
