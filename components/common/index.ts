@@ -9,3 +9,4 @@ export {default as MyAccountDropdown} from './MyAccountDropdown'
 
 export {default as AccountNavbar} from './AccountNavBar'
 export {default as SocialLinksHeader} from './SocialLinksHeader'
+export {default as GoogleAuth} from './GoogleAuth'

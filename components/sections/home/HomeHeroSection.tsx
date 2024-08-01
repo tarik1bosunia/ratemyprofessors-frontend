@@ -16,13 +16,13 @@ const HomeHeroSection = () => {
   };
 
   const getSearchTitle = () => {
-    if (view === "school")
+    if (view === "professor")
       return (
         <>
           Find a <strong className="font-bold">professor</strong>
         </>
       );
-    if (view === "professor")
+    if (view === "school")
       return (
         <>
           Enter your <strong className="font-bold">school</strong> to get started{" "}
@@ -30,6 +30,7 @@ const HomeHeroSection = () => {
       );
   };
 
+  
   const getSearchIcon = () => {
     if (view === "school") return (<SearchSchoolIcon />);
     return ( <SearchProfessorIcon />);

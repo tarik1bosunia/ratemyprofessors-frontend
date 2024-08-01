@@ -1,0 +1,19 @@
+.googleAuthButton {
+    margin-top: 24px;
+    width: 100%;
+    background: white;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 100px;
+    color: black;
+    display: flex;
+    font-stretch: normal;
+    font-weight: 700;
+    -webkit-box-pack: center;
+    justify-content: center;
+    left: 24px;
+    letter-spacing: normal;
+    line-height: 1.54;
+    outline: none;
+    padding: 11px 46px;
+    transition: transform 0.2s ease 0s;
+}

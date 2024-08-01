@@ -13,7 +13,7 @@ export default function AccountLayout({
       <div className="my-0 mx-auto max-w-[1280px] w-full min-h-[calc(-240px + 100vh)]" >
         {children}
       </div>
-      </>
+    </>
  
   )
 }

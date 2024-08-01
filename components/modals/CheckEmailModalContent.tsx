@@ -1,9 +1,36 @@
+'use client'
+
 import { GoogleIcon } from "../common/icons";
 import { CheckEmailModalForm } from "../forms";
 import styles from "./Modal.module.css";
+import { GoogleAuth } from "@/components/common";
 
+
+declare global {
+  interface Window {
+    google: any;
+  }
+}
+
+// {
+//   "iss": "https://accounts.google.com",
+//   "azp": "573678907891-8b1nrjprjdqhjgoqkmnseu81jt033ohe.apps.googleusercontent.com",
+//   "aud": "573678907891-8b1nrjprjdqhjgoqkmnseu81jt033ohe.apps.googleusercontent.com",
+//   "sub": "105168924894714258917",
+//   "email": "bosuniamdtarik005@gmail.com",
+//   "email_verified": true,
+//   "nbf": 1722305208,
+//   "name": "MD Tarik Bosunia",
+//   "picture": "https://lh3.googleusercontent.com/a/ACg8ocIYXBvT5IQ6peB5uix49zrisSsbSeQl9vXat_M8w4X-_jJKvIHJ=s96-c",
+//   "given_name": "MD Tarik",
+//   "family_name": "Bosunia",
+//   "iat": 1722305508,
+//   "exp": 1722309108,
+//   "jti": "70886f8973c48c734859040c1eab2e50dc36b506"
+// }
 
 export default function CheckEmailModal() {
+
   
   return (
       <div className="flex flex-col my-0 mx-auto py-[48px] px-[116px]">
@@ -24,6 +51,12 @@ export default function CheckEmailModal() {
           </div>
           Sign up with Google
         </button>
+
+
+        
+
+        <GoogleAuth />
+
 
         <div className="flex flex-row mt-6">
           <div className={`${styles.line}`}></div>

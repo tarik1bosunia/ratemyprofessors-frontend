@@ -61,6 +61,7 @@ export default function useRegister(){
         })
 
     }
+    
 
     const handleBack = () => {
         closeRegistrationModal()

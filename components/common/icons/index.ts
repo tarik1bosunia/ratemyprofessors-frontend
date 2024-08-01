@@ -11,4 +11,6 @@ export {default as  XIconWhite} from './white/XIconWhite'
 export {default as  GoogleIcon} from './GoogleIcon'
 export {default as  SearchSchoolIcon} from './SearchSchoolIcon'
 export {default as  SearchProfessorIcon} from './SearchProfessorIcon'
+export {default as SearchSchoolIconWhite} from './white/SearchSchoolIconWhite'
+export {default as SearchProfessorIconWhite} from './white/SearchProfessorIconWhite'
 

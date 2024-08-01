@@ -26,7 +26,7 @@ export const SIGNUP_MODAL_NAME = ''
 // menu names
 export const AUTH_MENU_NAME = 'My Account'
 
-// social link
+// social links
 export const TIKTALK_SOCIAL_LINK = 'https://tiktok.com/@ratemyprofessors'
 export const X_SOCIAL_LINK = 'https://x.com/ratemyprofessor'
 export const INSTARAM_SOCIAL_LINK = 'https://www.instagram.com/ratemyprofessors/'
@@ -43,7 +43,7 @@ export const SCHOOL_CHANGE_SEARCH_VIEW_BUTTON_TEXT = "I'd like to look up a prof
 export const PROFESSOR_CHANGE_SEARCH_VIEW_BUTTON_TEXT = "I want to find a professor at a school"
 
 
-// join rmp family sections
+/*================ join rmp family section ================== */
 
 import LADY_WITH_PENCIL_IMAGE from '@/public/images/home_rmp_section/instructional-slide-pencil-lady.svg'
 import MYSTRY_LADY_IMAGE from '@/public/images/home_rmp_section/instructional-slide-mystery-lady.svg'

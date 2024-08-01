@@ -13,8 +13,7 @@ export default function useSocialAuth(){
 
     const {close: closeCheckEmailModal} =  useModal('checkemailModal')
 
-    const googleAuth = (credential: string) => {
-        console.log("credential from use social auth: ", credential)
+    const useGoogleAuth = (credential: string) => {
         socialAuth({provider: 'google', credential})
         .unwrap()
         .then((data) => {
@@ -38,7 +37,7 @@ export default function useSocialAuth(){
     }
 
     return {
-        googleAuth,
+        useGoogleAuth,
         isLoading,
     }
 

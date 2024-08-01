@@ -7,12 +7,15 @@ interface User {
 }
 interface socialAuthArgs {
   provider: string;
-  state: string;
-  code: string;
+  credential: string;
 }
 interface CreateUserResponse {
   success: boolean;
   user: User;
+  token: {
+    access: string,
+    refresh: string
+  }
 }
 
 interface AddSchoolArgs {
@@ -30,15 +33,18 @@ const authApiSlice = apiSlice.injectEndpoints({
       query: () => "/users/me/",
     }),
     socialAuthenticate: builder.mutation<CreateUserResponse, socialAuthArgs>({
-      query: ({ provider, state, code }) => ({
-        url: `/o/${provider}/?state=${encodeURIComponent(
-          state
-        )}&code=${encodeURIComponent(code)}`,
+      query: ({ provider, credential}) => ({
+        
+        url: `user/${provider}/`,
         method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
+        // headers: {
+        //   Accept: "application/json",
+        //   "Content-Type": "application/x-www-form-urlencoded",
+        // },
+        body:{
+          access_token: credential,
+        }
+        
       }),
     }),
     login: builder.mutation({
@@ -189,5 +195,6 @@ export const {
   // useUpdateUserMutation
   useRateSchoolMutation,
   useGetSchoolRatingsQuery,
-  useRateProfessorMutation
+  useRateProfessorMutation,
+  
 } = authApiSlice;
