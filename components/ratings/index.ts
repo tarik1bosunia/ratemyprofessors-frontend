@@ -1,8 +1,11 @@
-export {default as Rating} from './Rating'
-export {default as Ratings} from './Ratings'
+export {default as AverageRating} from './AverageRating'
+export {default as AverageRatings} from './AverageRatings'
 export {default as RatingSlider} from './RatingSlider'
 export {default as RatingForm} from './RatingForm'
 export {default as RateSchool} from './RateSchool'
 export {default as RateProfessor} from './RateProfessor'
 export {default as RatingHeader} from './RatingsHeader'
 export {default as RatingRadioInput} from './RatingRadioInput'
+
+export {default as ShowSchoolRatings} from './ShowSchoolRatings'
+export {default as SchoolRating} from './SchoolRating'

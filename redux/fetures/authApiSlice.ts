@@ -138,9 +138,7 @@ const authApiSlice = apiSlice.injectEndpoints({
         }),
       }),
 
-      getSchoolRatings: builder.query({
-        query: (school_id) => `/ratings/school-rating/${school_id}`,
-      }),
+
 
       rateProfessor: builder.mutation({
         query: ({        
@@ -194,7 +192,6 @@ export const {
   useAddProfessorMutation,
   // useUpdateUserMutation
   useRateSchoolMutation,
-  useGetSchoolRatingsQuery,
   useRateProfessorMutation,
   
 } = authApiSlice;

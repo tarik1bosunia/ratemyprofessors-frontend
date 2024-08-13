@@ -6,3 +6,16 @@ npm install react-icons --save
 npm install classnames
 
 npm i jwt-decode
+
+Ensure all packages are up to date
+npm install
+npm update
+
+Clear cache and restart the development server:
+rm -rf node_modules
+rm package-lock.json
+npm cache clean --force
+npm install
+npm run dev
+
+https://youtu.be/xqWSROBHJuQ

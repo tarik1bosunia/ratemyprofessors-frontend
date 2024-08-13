@@ -1,4 +1,4 @@
-import { Country, State, Department, ProfessorsTag } from "@/types";
+import { Country, State, Department, ProfessorsTag, SchoolRatings } from "@/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type {
   BaseQueryFn,
@@ -122,6 +122,9 @@ export const apiSlice = createApi({
     searchProfessors: builder.query({
       query: (query) => `/search/professors/?q=${query}`,
     }),
+    getSchoolRatings: builder.query<SchoolRatings[], number>({
+      query: (school_id) => `/ratings/school-rating/${school_id}`,
+    }),
 
   }),
 });
@@ -132,5 +135,6 @@ export const {
   useGetDepartmentsQuery,
   useSearchSchoolsQuery,
   useSearchProfessorsQuery,
-  useGetProfessorsTagsQuery
+  useGetProfessorsTagsQuery,
+  useGetSchoolRatingsQuery,
 } = apiSlice;

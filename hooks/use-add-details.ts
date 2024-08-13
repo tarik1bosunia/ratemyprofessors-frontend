@@ -1,3 +1,4 @@
+'use client'
 import { useState, ChangeEvent, FormEvent } from "react";
 import { toast } from "react-toastify";
 import { useAddDetailsMutation } from "@/redux/fetures/authApiSlice";

@@ -1,3 +1,4 @@
+'use client'
 import { School } from "@/types";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { toast } from "react-toastify";
@@ -25,7 +26,6 @@ export default function useAddSchool() {
     country,
     termsPrivacy
   } = formData;
-  
 
   const { data: countries = [], isLoading: countriesLoading } = useGetCountriesQuery();
   const { data: states = [], isLoading: statesLoading } = useGetStatesByCountryQuery(Number(country));
@@ -71,6 +71,7 @@ export default function useAddSchool() {
       });
   };
 
+  
   return {
     name_of_school,
     school_website,

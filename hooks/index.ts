@@ -16,3 +16,5 @@ export {default as useAddProfessor} from './use-add-professor'
 
 export {default as useRateSchool} from './use-rate-school'
 export {default as useRateProfessor} from './use-rate-professor'
+export {default as useShowProfessorRatings} from './use-show-professor-ratings'
+export {default as useShowSchoolRatings} from './use-show-school-ratings'

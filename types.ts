@@ -43,4 +43,21 @@ export interface Professor {
     tag: string;
   }
 
+  export interface SchoolRatingsType {
+    id?: number,
+    safety: number,   
+    oppputunites: number,
+    location: number,
+    facility: number,
+    happiness: number, 
+    reputation: number,
+    clubs: number,
+    internet: number,
+    social: number,
+    food: number,
+    comment: string,
+    created_at: string,
+    user: number,
+}
+
   
