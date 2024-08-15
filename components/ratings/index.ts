@@ -9,3 +9,5 @@ export {default as RatingRadioInput} from './RatingRadioInput'
 
 export {default as ShowSchoolRatings} from './ShowSchoolRatings'
 export {default as SchoolRating} from './SchoolRating'
+export {default as SchoolRatingShow} from './SchoolRatingShow'
+export {default as RatingShow} from './RatingShow'

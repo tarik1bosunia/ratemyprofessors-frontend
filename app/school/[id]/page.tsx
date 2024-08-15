@@ -1,7 +1,6 @@
 import Link from "next/link";
-import AverageRatings from "@/components/ratings/AverageRatings";
-import { ShowSchoolRatings } from "@/components/ratings";
-import Tata from '@/components/ratings/Tata'
+
+import { SchoolRatingShow } from "@/components/ratings";
 
 interface Props {
   params: {
@@ -57,8 +56,8 @@ export default function Page({ params: { id } }: Props) {
       </header>
       <div className="py-10"></div>
       <div className="my-0 mx-auto max-w-[1280px] w-full mb-14 min-h-[calc(100vh-240px)] overflow-hidden">
-        <AverageRatings />
-      
+        <SchoolRatingShow />
+
         
       </div>
     </div>
