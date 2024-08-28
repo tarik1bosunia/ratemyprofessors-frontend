@@ -11,6 +11,7 @@ import {LocaleSwitcher, MyAccountDropdown, SocialLinksHeader} from "@/components
 
 import {useTranslations} from 'next-intl';
 import { HeaderAuth } from '@/components/header'
+import { ThemeSwitch } from '@/components/theme';
 
 
 export default function HomeHeaderSection(){
@@ -30,6 +31,7 @@ export default function HomeHeaderSection(){
 
                 <div className="flex flex-row gap-4 ">
                   <LocaleSwitcher />
+                  <ThemeSwitch />
                   <HeaderAuth />
                 </div>
               </div>

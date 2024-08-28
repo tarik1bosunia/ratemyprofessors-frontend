@@ -23,3 +23,6 @@ https://youtu.be/xqWSROBHJuQ
 
 # internationalization
 npm install next-intl
+
+# dark mode
+npm i next-themes
