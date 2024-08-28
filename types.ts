@@ -60,4 +60,19 @@ export interface Professor {
     user: number,
 }
 
+import {locales} from './config';
+
+export type Locale = (typeof locales)[number];
+
+export type SearchType = "schools" | "professors"
+
+export interface UsrProfileType{
+  id: number,
+  email: string,
+  first_name: string,
+  last_name: string,
+  school: string,
+  field_of_study: string,
+  expected_year_of_graduation: string
+}
   

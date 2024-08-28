@@ -12,6 +12,7 @@ import Link from "next/link"
 
 export default function SearchSchools(){
     const searchParams = useSearchParams ()
+    console.log(searchParams)
     const query = searchParams.get('q')
 
     const {

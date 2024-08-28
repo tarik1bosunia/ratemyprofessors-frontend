@@ -1,4 +1,4 @@
-import { Country, State, Department, ProfessorsTag, SchoolRatings } from "@/types";
+import { Country, State, Department, ProfessorsTag, SchoolRatingsType, UsrProfileType } from "@/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type {
   BaseQueryFn,
@@ -93,7 +93,7 @@ export const apiSlice = createApi({
         expected_year_of_graduation = 2000,
       }) => ({
         url: "user/update-personal-info/",
-        method: "POST",
+        method: "PUT",
         body: {
           first_name,
           last_name,
@@ -122,8 +122,12 @@ export const apiSlice = createApi({
     searchProfessors: builder.query({
       query: (query) => `/search/professors/?q=${query}`,
     }),
-    getSchoolRatings: builder.query<SchoolRatings[], number>({
+    getSchoolRatings: builder.query<SchoolRatingsType[], number>({
       query: (school_id) => `/ratings/school-rating/${school_id}`,
+    }),
+    retrieveUser: builder.query<UsrProfileType, void>({
+      query: () => "/user/profile/",
+      
     }),
 
   }),
@@ -137,4 +141,5 @@ export const {
   useSearchProfessorsQuery,
   useGetProfessorsTagsQuery,
   useGetSchoolRatingsQuery,
+  useRetrieveUserQuery
 } = apiSlice;

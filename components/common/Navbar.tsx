@@ -3,6 +3,7 @@ import HeaderSearch from "../header/HeaderSearch";
 import HeaderUserMenu from "../header/HeaderUserMenu";
 
 
+
 export default function Navbar(){
 
   return (
@@ -12,7 +13,7 @@ export default function Navbar(){
           {/* toast contaner */}
           <div className="my-0 mx-auto max-w-[1280px] w-full flex flex-row items-center box-border justify-between">
             <HeaderLogo />
-            <HeaderSearch  />
+            <HeaderSearch/>
             <HeaderUserMenu />
           </div>
         </header>

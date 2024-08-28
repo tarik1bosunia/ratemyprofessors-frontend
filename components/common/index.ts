@@ -10,3 +10,6 @@ export {default as MyAccountDropdown} from './MyAccountDropdown'
 export {default as AccountNavbar} from './AccountNavBar'
 export {default as SocialLinksHeader} from './SocialLinksHeader'
 export {default as GoogleAuth} from './GoogleAuth'
+
+export {default as LocaleSwitcherSelect} from './LocaleSwitcherSelect'
+export {default as LocaleSwitcher} from './LocaleSwitcher'

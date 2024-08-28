@@ -7,8 +7,6 @@ import {Professor} from '@/types'
 import { useAddProfessorMutation } from "@/redux/fetures/authApiSlice";
 import { useGetDepartmentsQuery } from "@/redux/services/apiSlice";
 
-
-
 export default function useAddProfessor() {
   const dispatch = useAppDispatch();
 

@@ -1,0 +1,48 @@
+{
+  "SEARCH": {
+    "SCHOOL_VIEW" : "Schools",
+    "PROFESSOR_VIEW" : "Professors"
+  },
+  
+  "Navigation": {
+      "AUTH_MENU_NAME": "My Account",
+      "LOGIN_GUEST_BUTTON_TEXT": "Log In",
+      "SIGNUP_GUEST_BUTTON_TEXT": "Sign Up"
+    },
+    "HomePage": {
+
+      "HERO": {
+        "SCHOOL_CHANGE_SEARCH_VIEW_BUTTON_TEXT": "I'd like to look up a professor by name",
+        "PROFESSOR_CHANGE_SEARCH_VIEW_BUTTON_TEXT": "I want to find a professor at a school",
+        "SEARCH_SCHOOL_PLACEHOLDER": "Your school",
+        "SEARCH_PROFESSOR_PLACEHOLDER": "Professor name",
+        "SEARCH_TITLE_FOR_PROFESSOR": "Find a <strong> professor </strong>",
+        "SEARCH_TITLE_FOR_SCHOOL": "Enter your <strong> school </strong> to get started"  
+      },
+      
+      "JOIN_RMP_FAMILY_SECTION": {
+          "JOIN_RMP_FAMILY_SECTION_TITLE": "Join the RMP Family",
+          "JOIN_RMP_FAMILY_SECTION_SUBTITLE": "Love RMP? Let's make it official.",
+          "MANAGE_AND_EDIT_YOUR_RATINGS": "Manage and edit your ratings",
+          "YOUR_RATINGS_ARE_ALWAYS_ANONYMOUS": "Your ratings are always anonymous",
+          "LIKE_OR_DISLIKE_RATINGS": "Like or dislike ratings"
+      }
+      
+    },
+    "LocaleSwitcher": {
+      "label": "Change language",
+      "locale": "{locale, select, bn {bn Bangla} en {🇺🇸 English} other {Unknown}}"
+    },
+    "FOOTER": {
+      "FOOTER_LINKS": {
+        "HELP": "Help",
+        "SITE_GUIDELINES": "Site Guidelines",
+        "TERMS_CONDITIONS": "Terms & Conditions",
+        "PRIVACY_POLICY": "Privacy Policy",
+        "COPYRIGHT": "Copyright Compliance Policy",
+        "CA_NOTICE": "CA Notice at Collection",
+        "CA_DO_NOT_SELL_OR_SHARE": "CA Do Not Sell or Share My Personal Information"
+      },
+      "FOOTER_COPYRIGHT_TEXT": "© 2024 {SITE_NAME}, LLC. All Rights Reserved"
+    }
+  }

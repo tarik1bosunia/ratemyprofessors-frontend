@@ -29,9 +29,7 @@ interface AddSchoolArgs {
 
 const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    retrieveUser: builder.query({
-      query: () => "/users/me/",
-    }),
+
     socialAuthenticate: builder.mutation<CreateUserResponse, socialAuthArgs>({
       query: ({ provider, credential}) => ({
         
@@ -177,7 +175,6 @@ const authApiSlice = apiSlice.injectEndpoints({
 });
 
 export const {
-  useRetrieveUserQuery,
   useSocialAuthenticateMutation,
   useLoginMutation,
   useRegistrationMutation,
@@ -193,5 +190,6 @@ export const {
   // useUpdateUserMutation
   useRateSchoolMutation,
   useRateProfessorMutation,
+  
   
 } = authApiSlice;

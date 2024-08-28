@@ -3,30 +3,34 @@ import { useState } from "react";
 import { PiCaretDownLight } from "react-icons/pi";
 
 import { usePathname  } from "next/navigation"
+import { useParams } from "next/navigation";
 
 import {
   SearchSchoolIconWhite,
   SearchProfessorIconWhite,
 } from "@/components/common/icons";
+import { useTranslations } from "next-intl";
+import { SearchType } from "@/types";
 
 const HeaderSearch = () => {
-  
-  
-  const [search, setSearch] = useState<"school" | "professor">("professor");
-  const [isOpenSearchTitleDropdown, setIsOpenSearchTitleDropdown] =
-    useState(false);
+  const t = useTranslations('SEARCH')
+  const  {searchtype: search_type} = useParams<{searchtype:string}>()
+  const [search, setSearch] = useState<SearchType>(search_type as SearchType);
+  console.log("search:: ", search)
+
+  const [isOpenSearchTitleDropdown, setIsOpenSearchTitleDropdown] = useState(false);
 
   const handleDropdown = () => {
     setIsOpenSearchTitleDropdown((prev) => !prev);
   };
   const getSearchIcon = () => {
-    if (search === "school") return <SearchSchoolIconWhite />;
+    if (search === "schools") return <SearchSchoolIconWhite />;
     return <SearchProfessorIconWhite />;
   };
 
   const getChangeSearchViewButtonText = () => {
-    if (search === "school") return "Schools";
-    return "Professors";
+    if (search === "schools")return t('SCHOOL_VIEW');
+    return t('PROFESSOR_VIEW');
   };
 
 
@@ -61,12 +65,12 @@ const HeaderSearch = () => {
             >
               <div className="py-1" role="none">
                 <a
-                  href={search === 'school' ? '/search/professors/?q=' : '/search/schools/?q='}
+                  href={search === 'schools' ? '/search/professors/?q=' : '/search/schools/?q='}
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                   role="menuitem"
                 >
-                   {
-                      search === "school" ? 'Professors' : 'Schools'
+                  {
+                      search === "schools" ?  t('PROFESSOR_VIEW') : t('SCHOOL_VIEW')
                   }
                 </a>
               </div>
@@ -76,7 +80,7 @@ const HeaderSearch = () => {
 
         <div className="w-full max-w-[795px]">
           <div className="flex items-center my-0 mx-auto max-w-[746px]">
-            {search === "professor" ? (
+            {search === "professors" ? (
               <div className="relative w-full">
                 <div></div>
                 <div className="max-w-[350px] flex justify-center items-center relative w-full">
@@ -86,6 +90,8 @@ const HeaderSearch = () => {
                     placeholder="Professor Name"
                     className="text-[16px] leading-[24px] p-[8px_36px_8px_20px] w-full border-0 rounded-[43px] text-[#9e9e9e] text-xl max-w-none outline-none"
                     value=""
+                    onChange={() => {}}
+                    
                   />
                 </div>
               </div>
@@ -101,6 +107,7 @@ const HeaderSearch = () => {
                   placeholder="Your school"
                   className="text-[16px] leading-[24px] p-[8px_36px_8px_20px] w-full border-0 rounded-[43px] text-[#9e9e9e] text-xl max-w-none outline-none"
                   value=""
+                  onChange={() => {}}
                 />
               </div>
             </div>

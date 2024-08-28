@@ -6,7 +6,10 @@ import { BigRMPLogoBlack } from "@/components/common/logo";
 import styles from "./hoemehero.module.css";
 import {SearchSchoolIcon, SearchProfessorIcon} from '@/components/common/icons'
 
+import {useTranslations} from 'next-intl';
+
 const HomeHeroSection = () => {
+  const t = useTranslations('HomePage')
   const [view, setView] = useState("school");
   const [searchQuery, setSearchQuery] = useState('');
   const router = useRouter();
@@ -19,13 +22,17 @@ const HomeHeroSection = () => {
     if (view === "professor")
       return (
         <>
-          Find a <strong className="font-bold">professor</strong>
+          {t.rich('HERO.SEARCH_TITLE_FOR_PROFESSOR', {
+            strong: (search_view) => (<strong className="font-bold">{search_view}</strong>)
+          })}
         </>
       );
     if (view === "school")
       return (
         <>
-          Enter your <strong className="font-bold">school</strong> to get started{" "}
+           {t.rich('HERO.SEARCH_TITLE_FOR_SCHOOL', {
+            strong: (search_view) => (<strong className="font-bold">{search_view}</strong>)
+          })}
         </>
       );
   };
@@ -37,13 +44,13 @@ const HomeHeroSection = () => {
   };
 
   const getSearchInputPlaceholder = () => {
-    if (view === "school") return SEARCH_SCHOOL_PLACEHOLDER;
-    return SEARCH_PROFESSOR_PLACEHOLDER;
+    if (view === "school") return t('HERO.SEARCH_SCHOOL_PLACEHOLDER');
+    return t('HERO.SEARCH_PROFESSOR_PLACEHOLDER');
   };
 
   const getChangeSearchViewButtonText = () => {
-    if (view === "school") return SCHOOL_CHANGE_SEARCH_VIEW_BUTTON_TEXT;
-    return PROFESSOR_CHANGE_SEARCH_VIEW_BUTTON_TEXT;  
+    if (view === "school") return t('HERO.SCHOOL_CHANGE_SEARCH_VIEW_BUTTON_TEXT');
+    return t('HERO.PROFESSOR_CHANGE_SEARCH_VIEW_BUTTON_TEXT');  
   };
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -57,6 +64,7 @@ const HomeHeroSection = () => {
 
   return (
     <div className={`${styles.bgHero} w-full`}>
+
       <div className="flex flex-col mb-[36px] items-center">
         <BigRMPLogoBlack />
       </div>

@@ -6,6 +6,9 @@ import Provider from '@/redux/provider'
 import { Setup } from "@/components/utils";
 import Script from "next/script";
 
+import {NextIntlClientProvider} from 'next-intl';
+import {getLocale, getMessages} from 'next-intl/server';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,16 +17,22 @@ export const metadata: Metadata = {
   description: "rate my professors",
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
+
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com"></meta>
       <body className={inter.className}>
-        
+      <NextIntlClientProvider messages={messages}>
         <Script src="https://accounts.google.com/gsi/client" async/>
         <Provider>
           <Setup />
@@ -31,6 +40,8 @@ export default function RootLayout({
           
           <Footer />
         </Provider>
+      </NextIntlClientProvider>
+
       </body>
     </html>
   );

@@ -19,3 +19,7 @@ npm install
 npm run dev
 
 https://youtu.be/xqWSROBHJuQ
+
+
+# internationalization
+npm install next-intl

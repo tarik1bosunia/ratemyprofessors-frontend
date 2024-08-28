@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl';
+
 // site info
 export const SITE_NAME = "Rate My Professors"
 
@@ -25,6 +27,7 @@ export const SIGNUP_MODAL_NAME = ''
 
 // menu names
 export const AUTH_MENU_NAME = 'My Account'
+
 
 // social links
 export const TIKTALK_SOCIAL_LINK = 'https://tiktok.com/@ratemyprofessors'
@@ -59,58 +62,78 @@ export const JOIN_RMP_FAMILY_SECTION_BG ={
     blue: RMP_BLUE_BACKGROUND_IMAGE,
 }
 
-export const JOIN_RMP_FAMILY_SECTION_IMAGE_BOXES = [
-    {
-        title: "Manage and edit your ratings",
+
+
+
+export const useTranslatedDataJOIN_RMP_FAMILY_SECTION = () => {
+    const t = useTranslations('HomePage.JOIN_RMP_FAMILY_SECTION');
+  
+    return [
+      {
+        title: t('MANAGE_AND_EDIT_YOUR_RATINGS'),
         image: LADY_WITH_PENCIL_IMAGE,
         alt: 'Lady with a pencil',
-    },
-    {
-        title: "Your ratings are always anonymous",
+      },
+      {
+        title: t('YOUR_RATINGS_ARE_ALWAYS_ANONYMOUS'),
         image: MYSTRY_LADY_IMAGE,
         alt: 'Person making an anonymous entry',
-    },
-    {
-        title: "Like or dislike ratings",
+      },
+      {
+        title: t('LIKE_OR_DISLIKE_RATINGS'),
         image: THUMB_WAR_IMAGE,
         alt: 'Thumb War',
-    },
-]
+      },
+    ];
+  };
 
 
 /*============= FOOTER =============== */
 
-export const FOOTER_LINKS = [
-    {
-        title: 'Help',
-        link: 'https://help.ratemyprofessors.com/',
-    },
-    {
-        title: 'Site Guidelines',
-        link: '/guidelines',
-    },
-    {
-        title: 'Terms & Conditions',
-        link: '/terms-of-use',
-    },
-    {
-        title: 'Privacy Policy',
-        link: '/privacy',
-    },
-    {
-        title: 'Copyright Compliance Policy',
-        link: '/copyright',
-    },
-    {
-        title: 'CA Notice at Collection',
-        link: '/privacy#sectionp10',
-    },
-    {
-        title: 'CA Do Not Sell or Share My Personal Information',
-        link: '/ccpa',
-    },
 
-]
+export const useFooterTranslatedData = () => {
+    const t = useTranslations('FOOTER');
+
+    const FOOTER_LINKS = [
+        {
+            title: t('FOOTER_LINKS.HELP'),
+            link: 'https://help.ratemyprofessors.com/',
+        },
+        {
+            title: t('FOOTER_LINKS.SITE_GUIDELINES'),
+            link: '/guidelines',
+        },
+        {
+            title: t('FOOTER_LINKS.TERMS_CONDITIONS'),
+            link: '/terms-of-use',
+        },
+        {
+            title: t('FOOTER_LINKS.PRIVACY_POLICY'),
+            link: '/privacy',
+        },
+        {
+            title: t('FOOTER_LINKS.COPYRIGHT'),
+            link: '/copyright',
+        },
+        {
+            title: t('FOOTER_LINKS.CA_NOTICE'),
+            link: '/privacy#sectionp10',
+        },
+        {
+            title: t('FOOTER_LINKS.CA_DO_NOT_SELL_OR_SHARE'),
+            link: '/ccpa',
+        },
+    ]
+
+    const FOOTER_COPYRIGHT_TEXT = t('FOOTER_COPYRIGHT_TEXT', {SITE_NAME: `${SITE_NAME}`})
+  
+    return {
+        FOOTER_LINKS,
+        FOOTER_COPYRIGHT_TEXT
+    }
+  };
+
+
 import InstagramIconWhite from '@/public/icons/white/InstagramIconWhite.svg'
 import XIconWhite from '@/public/icons/white/XIconWhite.svg'
 import TikTalkIconWhite from '@/public/icons/white/TikTalkIconWhite.svg'
@@ -132,6 +155,6 @@ export const FOOTER_SOCIAL_LINKS = [
         alt: 'tiktalk icon white'
     },
 ]
-export const FOOTER_COPYRIGHT_TEXT = `© 2024 ${SITE_NAME}, LLC. All Rights Reserved`
+// export const FOOTER_COPYRIGHT_TEXT = `© 2024 ${SITE_NAME}, LLC. All Rights Reserved`
 
 
