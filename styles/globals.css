@@ -14,3 +14,8 @@ body, div, a, button {
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Custom Utility Class */
+.custom-text-color {
+  @apply text-customBlue hover:text-customBrightBlue dark:text-white;
+}

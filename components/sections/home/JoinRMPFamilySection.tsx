@@ -19,15 +19,15 @@ const JoinRMPFamilySection = () => {
     <div className="rmp mb-[80px] relative z-40">
         <div className="my-0 mx-auto w-full max-w-[1280px]">
             <div className="mb-[88px] text-center">
-                <div className="font-black text-3xl mb-4">{t('JOIN_RMP_FAMILY_SECTION_TITLE')} </div>
-                <div className="text-2xl">{t('JOIN_RMP_FAMILY_SECTION_SUBTITLE')}</div>
+                <div className="font-black text-3xl mb-4 dark:text-white">{t('JOIN_RMP_FAMILY_SECTION_TITLE')} </div>
+                <div className="text-2xl dark:text-white">{t('JOIN_RMP_FAMILY_SECTION_SUBTITLE')}</div>
             </div>
             <div className="flex flex-row mb-[72px] justify-around">
                 {
                     JOIN_RMP_FAMILY_SECTION_IMAGE_BOXES.map((image_box, index)=>(
                         <div key={index} className={styles.rmp_image_box}>
                         <Image alt={image_box.alt} src={image_box.image} className={styles.rmp_image}/>
-                        <div className={styles.rmp_title}>{image_box.title}</div>
+                        <div className={`${styles.rmp_title} dark:text-white`}>{image_box.title}</div>
                     </div>
                     ))
                 }

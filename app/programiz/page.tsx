@@ -1,15 +1,54 @@
-export default function Page(){
-    return (
-        <div className="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
-        <div>
-          <span className="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
-            <svg className="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">...</svg>
-          </span>
+import HeaderUserMenu from "@/components/header/HeaderUserMenu";
+import HeaderSearch from "./HeaderSearch";
+import Image from "next/image";
+import { IoIosSearch } from "react-icons/io";
+import { RxHamburgerMenu } from "react-icons/rx";
+
+export default function Page() {
+  return (
+    <>
+    <header className="transition-all duration-200 ease-in top-0 left-0 fixed shadow-[0px_4px_12px_rgba(37,38,94,.06)] w-screen">
+      <nav className="flex w-full items-center h-12">
+        <div className="flex-1 relative w-full xl:max-w-[1172px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] mx-auto md:px-4">
+          
+          <div className="flex justify-between md:items-center relative">
+            {/* hamberger for small screen */}
+            <div className="block md:hidden ">
+              <button className=" border-0 flex-none m-2 outline-none">
+                <RxHamburgerMenu className="w-8 h-8" />
+              </button>
+            </div>
+            {/* brand logo */}
+            <div
+              title="rmp"
+              className="transition-all duration-200 ease-in opacity-100 mr-4 my-1"
+            >
+              <a href="/" className="w-[84px] h-auto ">
+                <Image
+                  className=""
+                  src="//cdn.programiz.com/sites/tutorial2program/files/pc_logo.svg"
+                  width={84}
+                  height={28}
+                  alt="rmp"
+                />
+              </a>
+            </div>
+            {/* search icon for small screen */}
+            <button className='border-0 outline-none block md:hidden '>
+              <IoIosSearch className='w-8 h-8' />
+            </button>
+            {/* search */}
+            <HeaderSearch />
+            <HeaderUserMenu />            
+
+          </div>
+
+
         </div>
-        <h3 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">Writes Upside-Down</h3>
-        <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-          The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
-        </p>
-      </div>
-    )
+      </nav>
+      
+    </header>
+    <div className="py-20"></div>
+    </>
+  );
 }

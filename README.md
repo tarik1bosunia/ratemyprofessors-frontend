@@ -26,3 +26,6 @@ npm install next-intl
 
 # dark mode
 npm i next-themes
+
+# requirements
+brand-logo: (width: 84px , height: 28px)

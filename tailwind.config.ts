@@ -19,6 +19,9 @@ const config: Config = {
       },
       colors: {
         customGray: 'rgb(126, 126, 126)',
+        customBlue: '#25265e', 
+        customBrightBlue: '#0556f3',
+        customPurple: '#6501e5'
       },
     },
 

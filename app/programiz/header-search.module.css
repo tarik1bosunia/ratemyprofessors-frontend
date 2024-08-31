@@ -1,0 +1,28 @@
+.searchForm{
+    width: calc(100% - 436px);
+    z-index: 999;
+    
+    display: flex;
+    flex: 1;
+    position: relative;
+    right: 0;
+    transition: all .1s ease-in;
+}
+.searchForm > div {
+    display: flex;
+    width: calc(100% - 160px);
+}
+
+.searchInputContainer{
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    width: 100%;
+    transition: all .2s ease-in;
+}
+.searchInputContainer button {
+    color: #a8a8bf;
+    line-height: 40%;
+    cursor: pointer;
+}
+

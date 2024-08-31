@@ -25,7 +25,7 @@ export default function HeaderAuth() {
       <button
         onClick={handleToggleDropdown}
         type="button"
-        className="font-bold text-xl text-white bg-black rounded-full px-4 py-2"
+        className="font-bold text-xl custom-text-color rounded-full px-4 py-2"
       >
         {t("AUTH_MENU_NAME")}
       </button>
@@ -38,13 +38,13 @@ export default function HeaderAuth() {
       <button
         onClick={openLoginModal}
         type="button"
-        className="font-bold text-xl text-white bg-black rounded-full px-4 py-2"
+        className="font-bold text-xl custom-text-color rounded-full px-4 py-2"
       >{t("LOGIN_GUEST_BUTTON_TEXT")}</button>
 
       <button
         onClick={openCheckemailModal}
         type="button"
-        className="font-bold text-xl text-white bg-black rounded-full px-4 py-2"
+        className="font-bold text-xl custom-text-color rounded-full px-4 py-2"
       >
         {t("SIGNUP_GUEST_BUTTON_TEXT")}
       </button>

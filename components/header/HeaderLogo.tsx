@@ -10,7 +10,8 @@ const HeaderLogo = () => {
         <RxHamburgerMenu className='w-8 h-8'/>
         </button>
       </div>
-      <a href="/"><Image src={SmallRMPLogoWhite} alt="rmp logo" /></a>
+      <a href="/">
+      <Image src={SmallRMPLogoWhite} alt="rmp logo" /></a>
       <button className='border-0 outline-none block md:hidden '>
         <IoIosSearch className='w-8 h-8' />
       </button>

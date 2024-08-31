@@ -1,0 +1,6 @@
+.hide_default_arrow{
+   appearance: none;           /* Hides the default arrow */
+  -webkit-appearance: none;   /* For Safari */
+  -moz-appearance: none;      /* For Firefox */
+  background-image: none;     /* Ensures no background image is applied */
+}

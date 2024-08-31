@@ -8,6 +8,7 @@ import {SearchSchoolIcon, SearchProfessorIcon} from '@/components/common/icons'
 
 import {useTranslations} from 'next-intl';
 
+
 const HomeHeroSection = () => {
   const t = useTranslations('HomePage')
   const [view, setView] = useState("school");
