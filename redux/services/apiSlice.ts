@@ -9,6 +9,42 @@ import { setAuth, logout } from "../fetures/authSlice";
 import { Mutex } from "async-mutex";
 import { RootState } from "@/redux/store";
 
+
+// types for professor view page
+type Tag = {
+  tags__tag: string;
+  tag_count: number;
+};
+
+type RatingCount = {
+  rating: number;
+  count: number;
+};
+
+type Rating = {
+  professor: number;
+  course_code: string;
+  is_online_course: boolean;
+  rating: number;
+  difficulty: number;
+  is_take_professor_again: boolean;
+  was_class_taken_for_credit: boolean;
+  was_use_textbook: boolean;
+  was_attendance_mandatory: boolean | null;
+  grade: string;
+  tags: number[];
+  comment: string;
+};
+
+type ProfessorRatingsType = {
+  ratings: Rating[];
+  total_ratings_count: number;
+  take_again_count: number;
+  avg_difficulty: number;
+  top_tags: Tag[];
+  rating_counts: RatingCount[];
+};
+
 // create a new mutex
 const mutex = new Mutex();
 const baseQuery = fetchBaseQuery({
@@ -130,6 +166,10 @@ export const apiSlice = createApi({
       
     }),
 
+    getProfessorRatings: builder.query<ProfessorRatingsType, string>({
+      query: (id) => `ratings/professors/${id}/`,
+  }),
+
   }),
 });
 
@@ -141,5 +181,6 @@ export const {
   useSearchProfessorsQuery,
   useGetProfessorsTagsQuery,
   useGetSchoolRatingsQuery,
-  useRetrieveUserQuery
+  useRetrieveUserQuery,
+  useGetProfessorRatingsQuery,
 } = apiSlice;

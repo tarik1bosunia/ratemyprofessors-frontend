@@ -1,8 +1,23 @@
 import { FaArrowDown } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa";
+import { useProfessorRatingsData } from "@/hooks";
 
-export default function TeacherInfo() {
+interface Tag {
+  tags__tag: string;
+  tag_count: number;
+}
+
+
+interface Props{
+  take_again_percentage: number;
+  avg_difficulty: number,
+  top_tags: Tag[];
+
+}
+
+export default function TeacherInfo({take_again_percentage=0, avg_difficulty=0, top_tags=[] }: Props) {
+  
   return (
     <div className="flex-[1_0_40%] p-[22px_0px] text-left">
       <div>
@@ -61,12 +76,12 @@ export default function TeacherInfo() {
 
       <div className="flex mb-6">
         <div className="flex flex-col items-center p-[0px_12px_16px_0px]">
-          <div className="text-black mb-1 text-3xl font-black">74%</div>
+          <div className="text-black mb-1 text-3xl font-black">{take_again_percentage}%</div>
           <div className="font-medium">Would take again</div>
         </div>
 
         <div className="flex flex-col items-center border-l border-l-[rgb(21,21,21)] p-[0px_0px_16px_12px]">
-          <div className="text-black mb-1 text-3xl font-black">3.6</div>
+          <div className="text-black mb-1 text-3xl font-black">{avg_difficulty}</div>
           <div className="font-medium">Level of Difficulty</div>
         </div>
       </div>
@@ -100,11 +115,11 @@ export default function TeacherInfo() {
           Professor Burch&apos;s Top Tags
         </div>
         <div className="flex flex-wrap">
-          <span className="bg-[#f1f1f1] rounded-[14.5px] font-condensed mr-[16px] mb-[8px] p-[8px_16px] text-center uppercase font-bold">Lots of homework</span>
-          <span className="bg-[#f1f1f1] rounded-[14.5px] font-condensed mr-[16px] mb-[8px] p-[8px_16px] text-center uppercase font-bold">Clear grading criteria</span>
-          <span className="bg-[#f1f1f1] rounded-[14.5px] font-condensed mr-[16px] mb-[8px] p-[8px_16px] text-center uppercase font-bold">Tough grader</span>
-          <span className="bg-[#f1f1f1] rounded-[14.5px] font-condensed mr-[16px] mb-[8px] p-[8px_16px] text-center uppercase font-bold">Skip class? You won&apos;t pass.</span>
-          <span className="bg-[#f1f1f1] rounded-[14.5px] font-condensed mr-[16px] mb-[8px] p-[8px_16px] text-center uppercase font-bold">Gives good feedback</span>
+          {
+            top_tags.map((tag, index)=> (
+              <span key={index} className="bg-[#f1f1f1] rounded-[14.5px] font-condensed mr-[16px] mb-[8px] p-[8px_16px] text-center uppercase font-bold">{tag.tags__tag}</span>
+            ))
+          }
         </div>
       </div>
     </div>

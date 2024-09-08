@@ -2,8 +2,6 @@ import RatingChart from "./RatingChart";
 
 export default function TeacherRatings()
 {
-
-  
     return (
         <div className="flex flex-[1_0_60%] flex-col pr-[22px]">
             <RatingChart />
