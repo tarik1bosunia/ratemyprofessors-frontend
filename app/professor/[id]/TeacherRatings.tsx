@@ -1,10 +1,15 @@
+import { ProssorRatingType } from "@/types";
 import RatingChart from "./RatingChart";
 
-export default function TeacherRatings()
+interface Props{
+    ratings: ProssorRatingType[]
+  }
+
+export default function TeacherRatings({ ratings }: Props)
 {
     return (
         <div className="flex flex-[1_0_60%] flex-col pr-[22px]">
-            <RatingChart />
+            <RatingChart ratings={ratings}/>
        
             <div className="mt-4">
                 <h3 className="text-base font-semibold pb-2.5 text-left">

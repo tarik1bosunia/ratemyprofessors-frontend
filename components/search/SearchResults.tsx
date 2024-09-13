@@ -23,6 +23,7 @@ export default function SearchResults<T>({
   if (data?.length === 0) {
     return <div>{noResultsMessage}</div>;
   }
+  console.log("data: ", data)
 
   return (
     <div className="my-0 mx-auto max-w-[1280px] min-h-screen w-full">

@@ -1,0 +1,152 @@
+{
+    "ratings": [
+        {
+            "professor": 1,
+            "course_code": "CS101",
+            "is_online_course": true,
+            "rating": 5,
+            "difficulty": 3,
+            "is_take_professor_again": true,
+            "was_class_taken_for_credit": true,
+            "was_use_textbook": false,
+            "was_attendance_mandatory": true,
+            "grade": "A",
+            "tags": [
+                1,
+                2,
+                3
+            ],
+            "comment": "The professor was great and the course was very informative."
+        },
+        {
+            "professor": 1,
+            "course_code": "CS101",
+            "is_online_course": true,
+            "rating": 5,
+            "difficulty": 3,
+            "is_take_professor_again": true,
+            "was_class_taken_for_credit": true,
+            "was_use_textbook": false,
+            "was_attendance_mandatory": true,
+            "grade": "A",
+            "tags": [
+                1,
+                2,
+                3
+            ],
+            "comment": "The professor was great and the course was very informative."
+        },
+        {
+            "professor": 1,
+            "course_code": "CS101",
+            "is_online_course": true,
+            "rating": 5,
+            "difficulty": 3,
+            "is_take_professor_again": true,
+            "was_class_taken_for_credit": true,
+            "was_use_textbook": false,
+            "was_attendance_mandatory": true,
+            "grade": "A",
+            "tags": [
+                1,
+                2,
+                3
+            ],
+            "comment": "The professor was great and the course was very informative."
+        },
+        {
+            "professor": 1,
+            "course_code": "CS101",
+            "is_online_course": true,
+            "rating": 5,
+            "difficulty": 3,
+            "is_take_professor_again": true,
+            "was_class_taken_for_credit": true,
+            "was_use_textbook": false,
+            "was_attendance_mandatory": true,
+            "grade": "A",
+            "tags": [
+                1,
+                2,
+                3
+            ],
+            "comment": "The professor was great and the course was very informative."
+        },
+        {
+            "professor": 1,
+            "course_code": "not_sure",
+            "is_online_course": true,
+            "rating": 3,
+            "difficulty": 2,
+            "is_take_professor_again": true,
+            "was_class_taken_for_credit": false,
+            "was_use_textbook": false,
+            "was_attendance_mandatory": null,
+            "grade": "",
+            "tags": [
+                3,
+                7,
+                10
+            ],
+            "comment": "zzzzzzzzz"
+        },
+        {
+            "professor": 1,
+            "course_code": "2hhh2h",
+            "is_online_course": true,
+            "rating": 4,
+            "difficulty": 3,
+            "is_take_professor_again": false,
+            "was_class_taken_for_credit": true,
+            "was_use_textbook": false,
+            "was_attendance_mandatory": true,
+            "grade": "2",
+            "tags": [
+                2,
+                4,
+                6
+            ],
+            "comment": "this is a great teacher"
+        }
+    ],
+    "total_ratings_count": 6,
+    "take_again_count": 5,
+    "avg_difficulty": "2.83",
+    "top_tags": [
+        {
+            "tags__tag": "Get Ready to Read",
+            "tag_count": 5
+        },
+        {
+            "tags__tag": "Participation Matters",
+            "tag_count": 5
+        },
+        {
+            "tags__tag": "Tough Grader",
+            "tag_count": 4
+        },
+        {
+            "tags__tag": "Extra credit",
+            "tag_count": 1
+        },
+        {
+            "tags__tag": "Amazing Lectures",
+            "tag_count": 1
+        }
+    ],
+    "rating_counts": [
+        {
+            "rating": 3,
+            "count": 1
+        },
+        {
+            "rating": 4,
+            "count": 1
+        },
+        {
+            "rating": 5,
+            "count": 4
+        }
+    ],
+    "take_again_percentage": 83
+}

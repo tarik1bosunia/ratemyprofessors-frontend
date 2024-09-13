@@ -1,6 +1,7 @@
 import { useSearchProfessorsQuery } from "@/redux/services/apiSlice";
 import { Professor } from "@/types";
 import SearchResults from "./SearchResults";
+import Link from "next/link";
 
 export default function ProfessorSearch({ query }: { query: string }) {
   return (
@@ -36,7 +37,7 @@ export default function ProfessorSearch({ query }: { query: string }) {
         </div>
       }
       renderItem={(professor: Professor) => (
-        <>
+        <Link href={`/professor/${professor.id}`}>
           <div className="flex flex-col mr-10">
             <div className="text-xs font-semibold mb-1 uppercase">quality</div>
             <div className="self-center bg-yellow-300 h-16 leading-9 mb-2 px-2.5 py-3.5 w-18 text-4xl font-extrabold">
@@ -54,7 +55,7 @@ export default function ProfessorSearch({ query }: { query: string }) {
               {professor.name_of_school}
             </div>
           </div>
-        </>
+        </Link>
       )}
     />
   );

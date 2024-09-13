@@ -1,20 +1,7 @@
 // hooks/useProfessorRatings.ts
 import { useGetProfessorRatingsQuery } from '@/redux/services/apiSlice';
 
-interface Rating {
-    professor: number;
-    course_code: string;
-    is_online_course: boolean;
-    rating: number;
-    difficulty: number;
-    is_take_professor_again: boolean;
-    was_class_taken_for_credit: boolean;
-    was_use_textbook: boolean;
-    was_attendance_mandatory: boolean | null;
-    grade: string;
-    tags: number[];
-    comment: string;
-}
+import {ProssorRatingType} from '@/types'
 
 interface Tag {
     tags__tag: string;
@@ -25,15 +12,25 @@ interface RatingCount {
     rating: number;
     count: number;
 }
+interface Professor {
+    id: number;
+    name_of_school: string;
+    first_name: string;
+    middle_name: string;
+    last_name: string;
+    department: number;
+    directory_listing_of_professor: string;
+  }
 
 interface ProfessorRatingsData {
-    ratings: Rating[];
+    ratings: ProssorRatingType[];
     total_ratings_count: number;
     take_again_count: number;
     avg_difficulty: number;
     top_tags: Tag[];
     rating_counts: RatingCount[];
     take_again_percentage: number;
+    professor: Professor
 }
 
 export default function useProfessorRatingsData(professorId: string) {

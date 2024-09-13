@@ -36,6 +36,16 @@ type Rating = {
   comment: string;
 };
 
+interface Professor {
+  id: number;
+  name_of_school: string;
+  first_name: string;
+  middle_name: string;
+  last_name: string;
+  department: number;
+  directory_listing_of_professor: string;
+}
+
 type ProfessorRatingsType = {
   ratings: Rating[];
   total_ratings_count: number;
@@ -43,6 +53,7 @@ type ProfessorRatingsType = {
   avg_difficulty: number;
   top_tags: Tag[];
   rating_counts: RatingCount[];
+  professor: Professor
 };
 
 // create a new mutex

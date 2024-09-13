@@ -24,17 +24,17 @@ export default function Page({ params: { id } }: Props) {
       <div>error feaching professor data</div>
     )
   }
-  const {ratings,  take_again_percentage, avg_difficulty, rating_counts, total_ratings_count, top_tags} = data
+  const {ratings, professor,  take_again_percentage, avg_difficulty, rating_counts, total_ratings_count, top_tags} = data
   const courses = ratings.map(rating => rating.course_code);
 
   console.log(data)
   return (
     <div className="my-0 mx-auto w-full lg:max-w-[1280px] min-h-[calc(-240px+100vh)] overflow-hidden">
         <div className="lg:min-w-[calc(926px)] flex flex-row justify-between mb-1.5 pl-6">
-          <TeacherInfo take_again_percentage={take_again_percentage} avg_difficulty={avg_difficulty} top_tags={top_tags}/>
-          <TeacherRatings />
+          <TeacherInfo professor={professor}  take_again_percentage={take_again_percentage} avg_difficulty={avg_difficulty} top_tags={top_tags}/>
+          <TeacherRatings ratings={ratings} />
         </div>
-        <TeacherRatingsTabs  total_ratings_count={total_ratings_count} courses={courses}/>
+        <TeacherRatingsTabs ratings={ratings}  total_ratings_count={total_ratings_count} courses={courses}/>
     </div>
 
   );

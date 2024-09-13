@@ -1,22 +1,35 @@
 'use client'
 import { useEffect, useRef } from "react";
+import {ProssorRatingType} from '@/types'
 
+interface Props{
+  ratings: ProssorRatingType[]
+}
 
-export default function RatingChart(){
+export default function RatingChart({ ratings }: Props){
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
       const canvas = canvasRef.current;
       if (canvas) {
         const ctx = canvas.getContext('2d');
+
+        const ratingCounts = [0, 0, 0, 0, 0]; 
+
+        ratings.forEach((rating) => {
+          if (rating.rating >= 1 && rating.rating <= 5) {
+            ratingCounts[rating.rating - 1]++;
+          }
+        });
+
         if (ctx) {
           // Sample data for the chart
           const data = [
-            { label: 'Awesome', count: 552, color: '#0055fd' },
-            { label: 'Great', count: 663, color: '#0055fd' },
-            { label: 'Good', count: 471, color: '#0055fd' },
-            { label: 'OK', count: 178, color: '#0055fd' },
-            { label: 'Awful', count: 102, color: '#0055fd' },
+            { label: 'Awesome', count: ratingCounts[4], color: '#0055fd' },
+            { label: 'Great', count: ratingCounts[3], color: '#0055fd' },
+            { label: 'Good', count: ratingCounts[2], color: '#0055fd' },
+            { label: 'OK', count: ratingCounts[1], color: '#0055fd' },
+            { label: 'Awful', count: ratingCounts[0], color: '#0055fd' },
           ];
   
           const maxCount = Math.max(...data.map(item => item.count));
@@ -75,7 +88,7 @@ export default function RatingChart(){
           requestAnimationFrame(animateBars);
         }
       }
-    }, []);
+    }, [ratings]);
   
     return (
         <div className="bg-[#f7f7f7] h-[325px] mb-[24px] w-[512px]">

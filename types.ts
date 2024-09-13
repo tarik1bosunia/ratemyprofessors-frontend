@@ -75,4 +75,20 @@ export interface UsrProfileType{
   field_of_study: string,
   expected_year_of_graduation: string
 }
+
+export interface ProssorRatingType {
+  professor: number;
+  course_code: string;
+  is_online_course: boolean;
+  rating: number;
+  difficulty: number;
+  is_take_professor_again: boolean;
+  was_class_taken_for_credit: boolean;
+  was_use_textbook: boolean;
+  was_attendance_mandatory: boolean | null;
+  grade: string;
+  tags: number[];
+  comment: string;
+  created_at: string
+}
   

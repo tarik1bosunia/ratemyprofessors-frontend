@@ -8,15 +8,26 @@ interface Tag {
   tag_count: number;
 }
 
+interface Professor {
+  id: number;
+  name_of_school: string;
+  first_name: string;
+  middle_name: string;
+  last_name: string;
+  department: number;
+  directory_listing_of_professor: string;
+}
+
 
 interface Props{
   take_again_percentage: number;
   avg_difficulty: number,
   top_tags: Tag[];
+  professor: Professor
 
 }
 
-export default function TeacherInfo({take_again_percentage=0, avg_difficulty=0, top_tags=[] }: Props) {
+export default function TeacherInfo({take_again_percentage=0, avg_difficulty=0, top_tags=[], professor}: Props) {
   
   return (
     <div className="flex-[1_0_40%] p-[22px_0px] text-left">
@@ -48,8 +59,8 @@ export default function TeacherInfo({take_again_percentage=0, avg_difficulty=0, 
 
       <div>
         <div className="text-[40px] hyphens-auto break-words pb-[10px] font-black">
-          <span>Andrew &nbsp;</span>
-          <span>Brush &nbsp;</span>
+          <span>{professor.first_name} &nbsp;</span>
+          <span>{professor.last_name} &nbsp;</span>
           <button className="ml-2 bg-none border-0 cursor-default h-fit outline-none p-0 w-fit">
             <FaRegBookmark className="h-8 w-8 text-customGray" />
           </button>
@@ -63,13 +74,13 @@ export default function TeacherInfo({take_again_percentage=0, avg_difficulty=0, 
             >
               {" "}
               &nbsp;
-              <b>Mathematics department</b>
+              <b>{professor.department} department</b>
             </a>{" "}
             &nbsp; at &nbsp;
           </span>
 
           <a href="/school/4413" className="font-bold">
-            Estrella Mountain Community College
+            {professor.name_of_school}
           </a>
         </div>
       </div>
@@ -88,7 +99,7 @@ export default function TeacherInfo({take_again_percentage=0, avg_difficulty=0, 
 
       <div className="flex flex-row justify-start">
         <a
-          href="/add/professor-rating/188"
+          href={`/add/professor-rating/${professor.id}`}
           className="mb-6 w-fit bg-[#0055fd] border border-[#0021ff] rounded-full text-white flex font-bold justify-center px-[46px] py-[11px] transition-transform duration-200 hover:bg-[#0021ff]"
         >
           <button className="flex items-center bg-none border-0 cursor-pointer outline-none p-0 text-white">
