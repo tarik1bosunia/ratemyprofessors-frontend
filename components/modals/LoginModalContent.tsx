@@ -5,7 +5,6 @@ import { GoogleIcon } from '@/components/common/icons';
 
 const LoginModalContent = () => {
   return (
-
         <div className="flex flex-col my-0 mx-auto py-[48px] px-[116px]">
             <div className={`${styles.modalHeader}`}>
                 <div className={`font-black mr-2`}>Student</div>

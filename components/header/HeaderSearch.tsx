@@ -9,7 +9,11 @@ import { useParams, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { SearchType } from "@/types";
 
-const HeaderSearch = () => {
+type Props = {
+  isSearchSmallScreen: boolean
+}
+
+const HeaderSearch = ({isSearchSmallScreen=false}:Props) => {
 
 
   const t = useTranslations("SEARCH");
@@ -46,7 +50,7 @@ const HeaderSearch = () => {
   };
 
   return (
-    <div className="">
+    <div className={`${isSearchSmallScreen ? 'block': 'hidden'} md:block`}>
       <div className="flex items-center w-full my-0 mx-auto">
         <div className="relative">
           {
@@ -67,7 +71,7 @@ const HeaderSearch = () => {
 
           {isOpenSearchTitleDropdown && (
             <div
-              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+              className="origin-top-left md:origin-top-right absolute left-0 md:right-0 mt-2 w-32  rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="options-menu"

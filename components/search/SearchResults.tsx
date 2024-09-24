@@ -41,7 +41,7 @@ export default function SearchResults<T>({
         <div>
           {data?.map((item: T) => (
             <Link
-              href={"#"}
+              href={`/school/${(item as any).id}`}
               key={(item as any).id}
               className="mb-6 flex items-center bg-gray-200 px-6 py-3 relative no-underline w-full"
             >

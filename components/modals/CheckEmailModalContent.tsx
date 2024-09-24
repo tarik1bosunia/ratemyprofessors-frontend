@@ -1,9 +1,11 @@
 'use client'
 
+import useModal from "@/hooks/use-modal";
 import { GoogleIcon } from "../common/icons";
 import { CheckEmailModalForm } from "../forms";
 import styles from "./Modal.module.css";
 import { GoogleAuth } from "@/components/common";
+import { CHECK_EMAIL_MODAL_NAME, PROFESSOR_SIGN_UP_SEARCH_MODAL_NAME } from "@/constants";
 
 
 declare global {
@@ -30,8 +32,12 @@ declare global {
 // }
 
 export default function CheckEmailModal() {
-
-  
+  const { open: openProfessorSignUpSearchModal } = useModal(PROFESSOR_SIGN_UP_SEARCH_MODAL_NAME);
+  const { close: closeCheckemailModal } = useModal(CHECK_EMAIL_MODAL_NAME);
+  const handleProfessorSignUp =() => {
+    closeCheckemailModal()
+    openProfessorSignUpSearchModal()
+  } 
   return (
       <div className="flex flex-col my-0 mx-auto py-[48px] px-[116px]">
         <div className={`${styles.modalHeader}`}>
@@ -40,7 +46,7 @@ export default function CheckEmailModal() {
         </div>
         <div className={`${styles.professorSignup}`}>
           Are you a professor?
-          <button role="button" className="" type="button">
+          <button role="button" className="" type="button" onClick={handleProfessorSignUp}>
             Sign up here
           </button>
         </div>

@@ -30,7 +30,7 @@ export default function Input({
 
           <label
             htmlFor={labelId}
-            className="_input_label text-base text-left whitespace-nowrap mb-2"
+            className="_input_label dark:text-white text-base text-left whitespace-nowrap mb-2"
           >
             {children}
           </label>
@@ -66,7 +66,7 @@ export default function Input({
                       required={required}
                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                     />
-                    <label htmlFor={labelId} className="ml-2 font-black">
+                    <label htmlFor={labelId} className="ml-2 font-black dark:text-white">
                       {children}
                     </label>
                   </div>

@@ -54,7 +54,7 @@ export default function AddProfessorForm() {
         labelId: "middle_name",
         type: "text",
         value: middle_name,
-        required: true,
+        required: false,
       },
       {
         labelText: "Last Name",

@@ -89,7 +89,6 @@ const HomeHeroSection = () => {
               aria-label="search"
               placeholder={getSearchInputPlaceholder()}
               className="search_input border-none text-[20px] h-[56px] mb-[19px] max-w-[545px] outline-none px-16 py-4 w-full rounded-full"
-
             />
           </form>
         </div>

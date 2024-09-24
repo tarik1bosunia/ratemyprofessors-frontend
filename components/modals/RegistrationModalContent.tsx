@@ -4,7 +4,6 @@ import styles from "./Modal.module.css";
 import {useRegister} from "@/hooks";
 
 
-
 export default function RegistrationModalContent() {
   const {handleBack} = useRegister()
   return (

@@ -31,7 +31,7 @@ export default function TeacherRatingsTabs({total_ratings_count = 0, courses=[],
                 </select>
             </div>
 
-        <ul className="list-none ">
+        <ul className="list-none " id="ratingsList">
             {
                 ratings.map((rating, index) => (
                     <li key={index}>

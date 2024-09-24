@@ -5,10 +5,10 @@ import { ThemeSwitch } from '@/components/theme'
 
 const HeaderUserMenu = () => {
   return (
-    <div className="flex flex-row justify-between">
+    <div className="hidden md:flex flex-row justify-between">
    
 
-    <div className="flex flex-row gap-4 ">
+    <div className=" flex flex-row md:gap-2 lg:gap-4 ">
       <LocaleSwitcher />
       <ThemeSwitch />
       <HeaderAuth />

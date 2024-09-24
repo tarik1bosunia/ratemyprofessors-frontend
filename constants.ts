@@ -22,6 +22,9 @@ export const SIGNUP_GUEST_BUTTON_TEXT = "Sign Up"
 
 //  modal names
 export const CHECK_EMAIL_MODAL_NAME = 'checkemailModal'
+export const PROFESSOR_SIGN_UP_SEARCH_MODAL_NAME = 'professorSignUpSearchModal'
+export const PROFESSOR_SIGN_UP_MODAL_NAME = 'professorSignUpModal'
+export const NAVIGATION_SMALL_SCREEN_MODAL_NAME = 'navigationSmallScreen'
 export const LOGIN_MODAL_NAME = 'loginModal'
 export const SIGNUP_MODAL_NAME = ''
 

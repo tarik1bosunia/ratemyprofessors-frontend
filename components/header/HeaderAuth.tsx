@@ -34,17 +34,17 @@ export default function HeaderAuth() {
   );
 
   const guestLinks = (isMobile: boolean) => (
-    <div>
+    <div className="flex flex-col  md:flex-row items-start md:items-center gap-2 md:gap-0 py-2">
       <button
         onClick={openLoginModal}
         type="button"
-        className="font-bold text-xl custom-text-color rounded-full px-4 py-2"
+        className="whitespace-nowrap font-bold text-base lg:text-xl custom-text-color rounded-full px-2 lg:px-4  lg:py-2"
       >{t("LOGIN_GUEST_BUTTON_TEXT")}</button>
 
       <button
         onClick={openCheckemailModal}
         type="button"
-        className="font-bold text-xl custom-text-color rounded-full px-4 py-2"
+        className="whitespace-nowrap font-bold text-base lg:text-xl custom-text-color rounded-full px-2 lg:px-4 Lg:py-2"
       >
         {t("SIGNUP_GUEST_BUTTON_TEXT")}
       </button>

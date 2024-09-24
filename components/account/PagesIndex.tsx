@@ -9,7 +9,7 @@ export default function PagesIndex({initialActiveTab}: PagesIndexProps) {
   return (
     <div className="p-[40px] w-full" style={{'minHeight': 'inherit'}}>
       <UserPagesTabs initialActiveTab={initialActiveTab}/>
-      <ProfileItemsArea initialActiveTab={initialActiveTab}/>
+      <ProfileItemsArea />
     </div>
   )
 }
