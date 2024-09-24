@@ -1,7 +1,6 @@
 'use client'
 
 import { FormEvent, ChangeEvent } from "react";
-import {Input} from "@/components/forms";
 import {Spinner} from "@/components/common";
 import RatingSlider from "./RatingSlider";
 
@@ -28,16 +27,13 @@ export default function RateGenerics({onSubmit, onChange,  config, isLoading, bt
             config.map((input, index) =>(
               
                 <RatingSlider
-
                     key={index}
                     labelId={input.labelId}
-                    type={input.type}
                     onChange={onChange}
                     value={input.value}
-                 >
-                    {input.labelText}
-
-                 >
+                    labelText={input.labelText}
+                 />
+                      
             ))
         }
 

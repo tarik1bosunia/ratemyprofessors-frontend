@@ -6,7 +6,7 @@ interface Config {
   labelText: string;
   labelId: string;
   type: string; // Ensure type is one of these options
-  value: string ; // Adjusted to allow boolean for checkbox
+  value: string | number | boolean; // Adjusted to allow boolean for checkbox
   link?: {
     linkText: string;
     linkUrl: string;

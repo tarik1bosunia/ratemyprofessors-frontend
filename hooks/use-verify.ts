@@ -11,8 +11,15 @@ export default function useVerify(){
 
     useEffect(() => {
         verify(undefined)
-        .then(() => {
-            dispatch(setAuth())
+        .then((response: any) => {
+            console.log(response.data)
+            // if (response?.data?.access && response?.data?.refresh) {
+            //     // Dispatch setAuth with access and refresh tokens
+            //     dispatch(setAuth({
+            //         access: response.data.access,
+            //         refresh: response.data.refresh,
+            //     }));
+            // }
             
         })
         .catch(() => {

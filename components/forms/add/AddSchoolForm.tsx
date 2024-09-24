@@ -59,7 +59,7 @@ export default function AddSchoolForm() {
       labelText: "State",
       labelId: "state",
       type: 'select',
-      value: state,
+      value: state ,
       required: true,
       options: states.map((state) => ({
         value: state.id,
