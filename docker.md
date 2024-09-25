@@ -32,6 +32,13 @@ docker push ghcr.io/tarik1bosunia/rt:latest
 ```sh
     sudo docker login ghcr.io
     sudo docker run -p 3000:3000 ghcr.io/tarik1bosunia/rt:latest
+    sudo docker run -d -p 3000:3000 ghcr.io/tarik1bosunia/rt:latest
+
+    to run the container in detached mode with an automatic restart policy:
+    sudo docker run -d --restart unless-stopped -p 3000:3000 ghcr.io/tarik1bosunia/rt:latest
+    Verify the Container is Running: sudo docker ps
+    Stop the container:sudo docker stop <container_id>
+    Restart the container: sudo docker start <container_id>
 ```
 
 // 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
@@ -40,3 +47,5 @@ docker push ghcr.io/tarik1bosunia/rt:latest
 // docker login ghcr.io
 // docker push ghcr.io/tarik1bosunia/nextjs-example:latest
 // docker run -p 3000:3000 ghcr.io/tarik1bosunia/nextjs-example:latest
+
+
