@@ -1,11 +1,10 @@
 'use client'
 
 import useModal from "@/hooks/use-modal";
-import { GoogleIcon } from "../common/icons";
 import { CheckEmailModalForm } from "../forms";
 import styles from "./Modal.module.css";
 import { GoogleAuth } from "@/components/common";
-import { CHECK_EMAIL_MODAL_NAME, PROFESSOR_SIGN_UP_SEARCH_MODAL_NAME } from "@/constants";
+import { CHECK_EMAIL_MODAL_NAME, LOGIN_MODAL_NAME, PROFESSOR_SIGN_UP_SEARCH_MODAL_NAME } from "@/constants";
 
 
 declare global {
@@ -34,14 +33,20 @@ declare global {
 export default function CheckEmailModal() {
   const { open: openProfessorSignUpSearchModal } = useModal(PROFESSOR_SIGN_UP_SEARCH_MODAL_NAME);
   const { close: closeCheckemailModal } = useModal(CHECK_EMAIL_MODAL_NAME);
+  const { open: openLoginModal } = useModal(LOGIN_MODAL_NAME);
   const handleProfessorSignUp =() => {
     closeCheckemailModal()
     openProfessorSignUpSearchModal()
   } 
+  const handleLoginClick = () =>{
+    closeCheckemailModal()
+    openLoginModal()
+  }
+
   return (
       <div className="flex flex-col my-0 mx-auto py-[48px] px-[116px]">
-        <div className={`${styles.modalHeader}`}>
-          <div className="font-black mr-2">Student</div>
+        <div className="inline-flex justify-center  text-3xl">
+          <div className="font-black mr-2 text-3xl">Student</div>
           Sign Up
         </div>
         <div className={`${styles.professorSignup}`}>
@@ -51,15 +56,6 @@ export default function CheckEmailModal() {
           </button>
         </div>
 
-        <button className={`${styles.googleAuthButton}`} type="submit">
-          <div className="h-6 pr-2">
-            <GoogleIcon />
-          </div>
-          Sign up with Google
-        </button>
-
-
-        
 
         <GoogleAuth />
 
@@ -76,6 +72,10 @@ export default function CheckEmailModal() {
         <div className="text-xs my-4 mx-0 w-full max-w-[343px]">
           Rate My Professors is designed for and targeted to U.S. audiences and
           is governed by and operated in accordance with U.S. laws.
+        </div>
+        <div className="flex justify-center text-base mt-6">
+          Already have an account?
+          <button onClick={handleLoginClick} className="text-[rgb(0,85,253)] text-[16px] font-bold leading-inherit ml-[3px] no-underline">Login</button>
         </div>
       </div>
 
