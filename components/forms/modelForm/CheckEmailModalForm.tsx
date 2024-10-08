@@ -1,12 +1,12 @@
 'use client';
+
+import { useTranslations } from "next-intl";
 import { ModalForm } from "@/components/forms"
-import { useCheckEmail, useModal  } from "@/hooks";
-import { setEmail } from "@/redux/fetures/modalSlice";
-import { useAppDispatch } from "@/redux/hooks";
-import { useEffect } from "react";
+import { useCheckEmail} from "@/hooks";
+
 
 export default function CheckEmailModalForm(){
-    const dispatch = useAppDispatch()
+    const t = useTranslations("Modals.CheckEmail.Form")
     const {
         email,
         isLoading,
@@ -17,7 +17,7 @@ export default function CheckEmailModalForm(){
 
     const config = [
         {
-            labelText: "Email",
+            labelText: t("Input.EMAIL_LABEL"),
             labelId: "email",
             type: "email",
             value: email,
@@ -32,7 +32,7 @@ export default function CheckEmailModalForm(){
         <ModalForm 
             config = {config} 
             isLoading = {isLoading}
-            btnText = "Continue"
+            btnText = {t("SUBMIT_BUTTON_TEXT")}
             onChange = {onChange}
             onSubmit = {onSubmit}
         />

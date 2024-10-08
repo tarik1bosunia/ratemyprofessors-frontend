@@ -89,5 +89,36 @@
         "CA_DO_NOT_SELL_OR_SHARE": "CA Do Not Sell or Share My Personal Information"
       },
       "FOOTER_COPYRIGHT_TEXT": "© 2024 {SITE_NAME}, LLC. All Rights Reserved"
+    },
+    "Modals":{
+      "CheckEmail":{
+        "TITLE": "Sign Up",
+        "SUBTITLE": "Are you a professor?",
+        "SUBTITLE_BUTTON": "Sign up here",
+        "SIGN_UP_WITH_EMAIL": "Or sign up with email",
+        "TERMS_CONDITIONS": "is designed for and targeted to Bangladesh audiences and is governed by and operated in accordance with Bangladesh laws.",
+        "ALREADY_ACCOUNT": "Already have an account?",
+        "LOGIN_BUTTON": "Login",
+        "Form":{
+          "Input":{
+            "EMAIL_LABEL": "Email"
+          },
+          "SUBMIT_BUTTON_TEXT": "Continue"
+        }
+      },
+      "Login":{
+        "TITLE": "Login",
+        "LOGIN_WITH_EMAIL": "Or Login with email",
+        "TERMS_CONDITIONS": "is designed for and targeted to Bangladesh audiences and is governed by and operated in accordance with Bangladesh laws.",
+        "DONOT_HAVE_ACCOUNT": "Don't have an account?",
+        "SIGNUP_BUTTON": "Sign Up",
+        "Form":{
+          "Input":{
+            "EMAIL_LABEL": "Email",
+            "PASSWORD_LABEL": "Password"
+          },
+          "SUBMIT_BUTTON_TEXT": "Login"
+        }
+      }
     }
   }

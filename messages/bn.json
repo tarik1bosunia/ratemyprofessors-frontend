@@ -84,5 +84,36 @@
       "CA_DO_NOT_SELL_OR_SHARE": "CA আমার ব্যক্তিগত তথ্য বিক্রি বা শেয়ার করবেন না"
     },
     "FOOTER_COPYRIGHT_TEXT": "© 2024 {SITE_NAME}, LLC। সর্বস্বত্ব সংরক্ষিত"
+  },
+  "Modals": {
+    "CheckEmail": {
+      "TITLE": "সাইন আপ",
+      "SUBTITLE": "আপনি কি একজন অধ্যাপক?",
+      "SUBTITLE_BUTTON": "এখানে সাইন আপ করুন",
+      "SIGN_UP_WITH_EMAIL": "অথবা ইমেইল দিয়ে সাইন আপ করুন",
+      "TERMS_CONDITIONS": "বাংলাদেশি দর্শকদের জন্য ডিজাইন করা হয়েছে এবং এটি বাংলাদেশ আইন অনুযায়ী পরিচালিত হয়।",
+      "ALREADY_ACCOUNT": "ইতিমধ্যেই একটি অ্যাকাউন্ট আছে?",
+      "LOGIN_BUTTON": "লগ ইন করুন",
+      "Form": {
+        "Input": {
+          "EMAIL_LABEL": "ইমেইল"
+        },
+        "SUBMIT_BUTTON_TEXT": "চালিয়ে যান"
+      }
+    },
+    "Login": {
+      "TITLE": "লগ ইন",
+      "LOGIN_WITH_EMAIL": "অথবা ইমেইল দিয়ে লগ ইন করুন",
+      "TERMS_CONDITIONS": "বাংলাদেশি দর্শকদের জন্য ডিজাইন করা হয়েছে এবং এটি বাংলাদেশ আইন অনুযায়ী পরিচালিত হয়।",
+      "DONOT_HAVE_ACCOUNT": "আপনার কি অ্যাকাউন্ট নেই?",
+      "SIGNUP_BUTTON": "সাইন আপ করুন",
+      "Form": {
+        "Input": {
+          "EMAIL_LABEL": "ইমেইল",
+          "PASSWORD_LABEL": "পাসওয়ার্ড"
+        },
+        "SUBMIT_BUTTON_TEXT": "লগ ইন"
+      }
+    }
   }
 }

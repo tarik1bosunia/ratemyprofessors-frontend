@@ -1,10 +1,11 @@
 'use client';
 import { ModalForm } from "@/components/forms"
 import { useLogin  } from "@/hooks";
+import { useTranslations } from "next-intl";
 
 
 export default function LoginModalForm(){
-   
+    const t = useTranslations("Modals.Login.Form")
     const {
         email,
         password,
@@ -15,14 +16,14 @@ export default function LoginModalForm(){
 
     const config = [
         {
-            labelText: "Email",
+            labelText: t("Input.EMAIL_LABEL"),
             labelId: "email",
             type: "email",
             value: email,
             required: true,
         },
         {
-            labelText: "Password",
+            labelText: t("Input.PASSWORD_LABEL"),
             labelId: "password",
             type: "password",
             value: password,
@@ -35,7 +36,7 @@ export default function LoginModalForm(){
         <ModalForm 
             config = {config} 
             isLoading = {isLoading}
-            btnText = "Login"
+            btnText = {t("SUBMIT_BUTTON_TEXT")}
             onChange = {onChange}
             onSubmit = {onSubmit}
         />

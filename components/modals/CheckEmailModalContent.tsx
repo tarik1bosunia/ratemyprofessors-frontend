@@ -4,7 +4,8 @@ import useModal from "@/hooks/use-modal";
 import { CheckEmailModalForm } from "../forms";
 import styles from "./Modal.module.css";
 import { GoogleAuth } from "@/components/common";
-import { CHECK_EMAIL_MODAL_NAME, LOGIN_MODAL_NAME, PROFESSOR_SIGN_UP_SEARCH_MODAL_NAME } from "@/constants";
+import { CHECK_EMAIL_MODAL_NAME, LOGIN_MODAL_NAME, PROFESSOR_SIGN_UP_SEARCH_MODAL_NAME, SITE_NAME } from "@/constants";
+import { useTranslations } from "next-intl";
 
 
 declare global {
@@ -34,6 +35,7 @@ export default function CheckEmailModal() {
   const { open: openProfessorSignUpSearchModal } = useModal(PROFESSOR_SIGN_UP_SEARCH_MODAL_NAME);
   const { close: closeCheckemailModal } = useModal(CHECK_EMAIL_MODAL_NAME);
   const { open: openLoginModal } = useModal(LOGIN_MODAL_NAME);
+  const t = useTranslations("Modals.CheckEmail")
   const handleProfessorSignUp =() => {
     closeCheckemailModal()
     openProfessorSignUpSearchModal()
@@ -47,12 +49,12 @@ export default function CheckEmailModal() {
       <div className="flex flex-col my-0 mx-auto py-[48px] px-[116px]">
         <div className="inline-flex justify-center  text-3xl">
           <div className="font-black mr-2 text-3xl">Student</div>
-          Sign Up
+          {t('TITLE')}
         </div>
         <div className={`${styles.professorSignup}`}>
-          Are you a professor?
+          {t('SUBTITLE')}
           <button role="button" className="" type="button" onClick={handleProfessorSignUp}>
-            Sign up here
+          {t('SUBTITLE_BUTTON')}
           </button>
         </div>
 
@@ -63,19 +65,18 @@ export default function CheckEmailModal() {
         <div className="flex flex-row mt-6">
           <div className={`${styles.line}`}></div>
           <div className="text-[16px] m-2 min-w-[156px]">
-            Or sign up with email
+            {t("SIGN_UP_WITH_EMAIL")}
           </div>
           <div className={`${styles.line}`}></div>
         </div>
         <CheckEmailModalForm />
 
         <div className="text-xs my-4 mx-0 w-full max-w-[343px]">
-          Rate My Professors is designed for and targeted to U.S. audiences and
-          is governed by and operated in accordance with U.S. laws.
+         {SITE_NAME} {t("TERMS_CONDITIONS")}
         </div>
         <div className="flex justify-center text-base mt-6">
-          Already have an account?
-          <button onClick={handleLoginClick} className="text-[rgb(0,85,253)] text-[16px] font-bold leading-inherit ml-[3px] no-underline">Login</button>
+          {t("ALREADY_ACCOUNT")}
+          <button onClick={handleLoginClick} className="text-[rgb(0,85,253)] text-[16px] font-bold leading-inherit ml-[3px] no-underline">{t("LOGIN_BUTTON")}</button>
         </div>
       </div>
 
