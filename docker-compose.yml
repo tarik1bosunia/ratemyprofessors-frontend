@@ -11,16 +11,13 @@ services:
   server:
     build:
       context: .
-    image: nextjs-dev
+    image: ghcr.io/tarik1bosunia/rt:latest
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
+    env_file:
+      - .env.production  
     ports:
       - 3000:3000
-
-    volumes:
-      - .:/app
-      - /app/node_modules
-    command: yarn run dev  
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to

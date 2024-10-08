@@ -12,7 +12,7 @@ export default function useVerify(){
     useEffect(() => {
         verify(undefined)
         .then((response: any) => {
-            console.log(response.data)
+            // console.log(response.data)
             // if (response?.data?.access && response?.data?.refresh) {
             //     // Dispatch setAuth with access and refresh tokens
             //     dispatch(setAuth({

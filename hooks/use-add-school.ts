@@ -15,7 +15,7 @@ export default function useAddSchool() {
     location: '',
     state: 0,
     country: 0,
-    termsPrivacy: false,
+    terms_privacy: false,
   });
 
   const {
@@ -24,7 +24,7 @@ export default function useAddSchool() {
     location,
     state,
     country,
-    termsPrivacy
+    terms_privacy
   } = formData;
 
   const { data: countries = [], isLoading: countriesLoading } = useGetCountriesQuery();
@@ -54,13 +54,14 @@ export default function useAddSchool() {
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // if not logged in open join rmp family modal
+    console.log("add school form data: ", formData)
     addSchool({
       name_of_school,
       school_website,
       location,
       state,
       country,
-      termsPrivacy
+      terms_privacy
     })
       .unwrap()
       .then(() => {
@@ -78,7 +79,7 @@ export default function useAddSchool() {
     location,
     state,
     country,
-    termsPrivacy,
+    terms_privacy,
     isLoading,
     onChange,
     handleCountryChange,

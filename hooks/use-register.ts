@@ -51,7 +51,7 @@ export default function useRegister(){
             closeRegistrationModal()
             const {access, refresh} = data.token
             dispatch(setAuth({access, refresh}))
-            console.log(data.token);
+            // console.log(data.token);
             // open  add few More details modal
             openAddDetaisModal()
             toast.success("Please check your email to verify your account!")

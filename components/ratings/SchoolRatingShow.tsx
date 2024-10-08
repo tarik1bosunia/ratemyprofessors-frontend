@@ -18,7 +18,7 @@ export default function SchoolRatingShow() {
     food,
     schoolRatings,
   } = useShowSchoolRatings();
-  console.log("school ratings aveageRatings.tsx: ", schoolRatings);
+  // console.log("school ratings aveageRatings.tsx: ", schoolRatings);
 
   return (
     <>

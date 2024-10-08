@@ -24,7 +24,7 @@ interface AddSchoolArgs {
   location: string;
   state: Number;
   country: Number;
-  termsPrivacy: boolean;
+  terms_privacy: boolean;
 }
 
 const authApiSlice = apiSlice.injectEndpoints({
@@ -104,10 +104,10 @@ const authApiSlice = apiSlice.injectEndpoints({
       }),
       
       addSchool: builder.mutation<{ success: boolean }, AddSchoolArgs>({
-        query: ({ name_of_school, school_website, location, state, country, termsPrivacy }) => ({
+        query: ({ name_of_school, school_website, location, state, country, terms_privacy }) => ({
           url: "/ratings/schools/",
           method: "POST",
-          body: { name_of_school, school_website, location, state, country, termsPrivacy },
+          body: { name_of_school, school_website, location, state, country, terms_privacy },
         }),
       }),  
 

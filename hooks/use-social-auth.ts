@@ -14,7 +14,7 @@ export default function useSocialAuth(){
     const {close: closeCheckEmailModal} =  useModal('checkemailModal')
 
     const googleAuth = (credential: string) => {
-        console.log("credential from use social auth: ", credential)
+        // console.log("credential from use social auth: ", credential)
         socialAuth({provider: 'google', credential})
         .unwrap()
         .then((data) => {
@@ -27,7 +27,7 @@ export default function useSocialAuth(){
             closeCheckEmailModal()
             const {access, refresh} = data.token
             dispatch(setAuth({access, refresh}))
-            console.log(data.token);
+            // console.log(data.token);
          
             toast.success("Google login successfull!")
            

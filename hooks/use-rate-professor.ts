@@ -56,8 +56,8 @@ export default function useRateProfessor(id: string)
 
     const onChange = (event:ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const {name, value} = event.target;
-        console.log(name, ' : ', value)
-        console.log('form data: ', formData)
+        // console.log(name, ' : ', value)
+        // console.log('form data: ', formData)
         
         if (event.target.type === 'radio') {
             handleRadioInputChange(event as ChangeEvent<HTMLInputElement>);

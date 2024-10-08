@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 
 // site info
-export const SITE_NAME = "TeachRate"
+export const SITE_NAME = "RateTeach"
 
 // auth buttons texts
 export const PROFILE_AUTH_BUTTON_TEXT = 'Profile'

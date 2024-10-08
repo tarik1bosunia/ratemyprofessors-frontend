@@ -7,7 +7,7 @@ export interface School {
     location: string;
     state: number; // Assuming state and country are referenced by their ID
     country: number;
-    termsPrivacy: boolean;
+    terms_privacy: boolean;
   }
 
 export interface Professor {

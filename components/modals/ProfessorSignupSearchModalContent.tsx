@@ -20,7 +20,7 @@ export default function ProfessorSignUpSearchModalContent() {
   const handleProfessorSignUp =(professor: any) => {
     setSelectedProfessor(professor); // Store selected professor in context
     closeprofessorSignUpSearchModal()
-    console.log("cloed professor signup search modal")
+    // console.log("cloed professor signup search modal")
     openProfessorSignUpModal()
   } 
 

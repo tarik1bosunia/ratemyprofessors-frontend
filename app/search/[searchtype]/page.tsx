@@ -20,7 +20,7 @@ export default function Page({params}: Props){
     const query = searchParams.get('q')
     const {searchtype} = params;
 
-    console.log("searchtype: ", searchtype)
+    // console.log("searchtype: ", searchtype)
 
     if(searchtype === 'schools'){
       return (

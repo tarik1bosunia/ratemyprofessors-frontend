@@ -13,7 +13,7 @@ const HeaderSearch = () => {
   const t = useTranslations("SEARCH");
   const { searchtype: search_type } = useParams<{ searchtype: string }>();
   const [search, setSearch] = useState<SearchType>(search_type as SearchType);
-  console.log("search:: ", search);
+  // console.log("search:: ", search);
 
   const [isOpenSearchTitleDropdown, setIsOpenSearchTitleDropdown] =
     useState(false);

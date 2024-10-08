@@ -9,10 +9,10 @@ import { useEffect } from "react";
 export default function GoogleAuth()
 {
     const {googleAuth, isLoading} = useSocialAuth()
-    console.log("client id: ", process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID)
+    // console.log("client id: ", process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID)
     const handleSignInWithGoogle = async(response: any) => {
   
-      console.log('google response: ', response);
+      // console.log('google response: ', response);
 
       const credential = response.credential as string;
 
