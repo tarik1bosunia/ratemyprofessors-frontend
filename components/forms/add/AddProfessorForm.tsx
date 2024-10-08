@@ -2,12 +2,13 @@
 import { useAddProfessor } from "@/hooks";
 import AddForm from "./AddForm";
 import { ChangeEvent } from "react";
+import { useTranslations } from "next-intl";
 
 interface Config {
   labelText: string;
   labelId: string;
   type: string; // Ensure type is one of these options
-  value: string ; // Adjusted to allow boolean for checkbox
+  value: string | boolean ; // Adjusted to allow boolean for checkbox
   link?: {
     linkText: string;
     linkUrl: string;
@@ -18,6 +19,7 @@ interface Config {
 }
 
 export default function AddProfessorForm() {
+  const t = useTranslations('AddProfessorPage.Form')
   const {
     name_of_school,
     first_name,
@@ -25,7 +27,7 @@ export default function AddProfessorForm() {
     last_name,
     department,
     directory_listing_of_professor,
-    termsPrivacy,
+    terms_privacy,
     isLoading,
     onChange,
     handleDepartmentChange,
@@ -36,35 +38,35 @@ export default function AddProfessorForm() {
 
   const config: Config[] = [
     {
-      labelText: "Name of School",
+      labelText: t("Input.SCHOOL_NAME_LABEL_TEXT"),
       labelId: "name_of_school",
       type: "text",
       value: name_of_school,
       required: true,
     },
     {
-      labelText: "First Name",
+      labelText: t('Input.FIRST_NAME_LABEL_TEXT'),
       labelId: "first_name",
       type: "text",
       value: first_name,
       required: true,
     },
     {
-        labelText: "Middle Name",
+        labelText: t('Input.MIDDLE_NAME_LABEL_TEXT'),
         labelId: "middle_name",
         type: "text",
         value: middle_name,
         required: false,
       },
       {
-        labelText: "Last Name",
+        labelText: t('Input.LAST_NAME_LABEL_TEXT'),
         labelId: "last_name",
         type: "text",
         value: last_name,
         required: true,
       },
     {
-      labelText: "Department",
+      labelText: t('Input.DEPARTMENT_LABEL_TEXT'),
       labelId: "department",
       type: 'select',
       value: String(department),
@@ -76,17 +78,17 @@ export default function AddProfessorForm() {
       onChange: handleDepartmentChange,
     },
     {
-        labelText: "Directory Listing of Professor",
+        labelText: t('Input.DIRECTORY_LISTING_LABEL_TEXT'),
         labelId: "directory_listing_of_professor",
         type: "text",
         value: directory_listing_of_professor,
         required: true,
       },
     {
-      labelText: "I agree to the Terms of Use and Privacy Policy",
-      labelId: "termsPrivacy",
+      labelText: t('Input.TERMS_PRIVACY_LABEL_TEXT'),
+      labelId: "terms_privacy",
       type: "checkbox",
-      value: String(termsPrivacy),
+      value:terms_privacy,
       required: true,
       onChange: onChange,
     },
@@ -97,7 +99,7 @@ export default function AddProfessorForm() {
     <AddForm 
       config={config} 
       isLoading={isLoading}
-      btnText="Add Professor"
+      btnText={t("SUBMIT_BUTTON_TEXT")}
       onChange={onChange}
       onSubmit={onSubmit}
     />

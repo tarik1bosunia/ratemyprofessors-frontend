@@ -18,7 +18,7 @@ export interface Professor {
     last_name: string,
     department: Number,
     directory_listing_of_professor: string,
-    termsPrivacy: boolean;
+    terms_privacy: boolean;
   }
 
 

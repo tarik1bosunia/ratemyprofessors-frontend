@@ -29,6 +29,29 @@
       }
       
     },
+    "AddProfessorPage": {
+      "ADD_PROFESSOR_TITLE": "Add a Professor",
+      "ADD_PROFESSOR_SUBTITLE": "Please use the search bar above to make sure that the professor does not already exist at this school.",
+
+      "Messages":{
+        "PROFESSOR_ADDED_SUCCESS_MESSAGE": "Professor added successfully!",
+        "PROFESSOR_ADDED_FAILED_MESSAGE_UNAUTHORISED": "Failed to add professor! UnAuthorised! Login First",
+        "PROFESSOR_ADDED_FAILED_MESSAGE_GENERIC": "Failed to add professor!"
+      },
+      "Form": {
+        "Input":{
+          "SCHOOL_NAME_LABEL_TEXT": "Name of School",
+          "FIRST_NAME_LABEL_TEXT": "First Name",
+          "MIDDLE_NAME_LABEL_TEXT": "Middle Name",
+          "LAST_NAME_LABEL_TEXT": "Last Name",
+          "DEPARTMENT_LABEL_TEXT": "Department",
+          "DIRECTORY_LISTING_LABEL_TEXT": "Directory Listing of Professor",
+          "TERMS_PRIVACY_LABEL_TEXT": "I agree to the Terms of Use and Privacy Policy"
+          
+        },
+        "SUBMIT_BUTTON_TEXT": "Add Professor"
+      }
+    },
     "AddSchoolPage": {
       "ADDSCHOOL_TITLE": "Add a School",
       "ADDSCHOOL_SUBTITLE": "Please use the search bar above to make sure that the school does not already exist.",

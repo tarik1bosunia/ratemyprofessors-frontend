@@ -6,22 +6,30 @@ import { useAppDispatch } from "@/redux/hooks";
 import {Professor} from '@/types'
 import { useAddProfessorMutation } from "@/redux/fetures/authApiSlice";
 import { useGetDepartmentsQuery } from "@/redux/services/apiSlice";
+import useModal from "./use-modal";
+import { LOGIN_MODAL_NAME } from "@/constants";
+import { useTranslations } from "next-intl";
 
 export default function useAddProfessor() {
+  const {open: openLoginModal} =  useModal(LOGIN_MODAL_NAME)
+  const t = useTranslations('AddProfessorPage.Messages')
+
   const dispatch = useAppDispatch();
 
   const { data: departments = [], isLoading: departmentsLoading } = useGetDepartmentsQuery();
   const [addProfessor, { isLoading }] = useAddProfessorMutation();
 
-  const [formData, setFormData] = useState<Professor>({
+  const initialFormData: Professor = {
     name_of_school: "",
     first_name: "",
     middle_name: "",
     last_name: "",
     department: 0,
     directory_listing_of_professor: "",
-    termsPrivacy: false,
-  });
+    terms_privacy: false,
+  }
+
+  const [formData, setFormData] = useState<Professor>(initialFormData);
 
   const {
     name_of_school,
@@ -30,7 +38,7 @@ export default function useAddProfessor() {
     last_name,
     department,
     directory_listing_of_professor,
-    termsPrivacy,
+    terms_privacy,
   } = formData;
 
   const handleDepartmentChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -56,11 +64,20 @@ export default function useAddProfessor() {
       .then(() => {
         // if not logged in open join rmp family modal
 
-        toast.success("Professor added successfully!");
+        // toast.success("Professor added successfully!");
+
+        setFormData(initialFormData)
+        toast.success(t("PROFESSOR_ADDED_SUCCESS_MESSAGE"));
 
       })
-      .catch(() => {
-        toast.error("Failed to add professor!");
+      .catch((error) => {
+        if (error.status === 401) { // Check if the error indicates unauthorized access
+          toast.error(t("PROFESSOR_ADDED_FAILED_MESSAGE_UNAUTHORISED"));
+          openLoginModal(); // Open the login modal
+        } else{
+          toast.error(t("PROFESSOR_ADDED_FAILED_MESSAGE_GENERIC"));
+        }
+        // toast.error("Failed to add professor!");
       });
   };
 
@@ -71,7 +88,7 @@ export default function useAddProfessor() {
     last_name,
     department,
     directory_listing_of_professor,
-    termsPrivacy,
+    terms_privacy,
     isLoading,
     onChange,
     handleDepartmentChange,
