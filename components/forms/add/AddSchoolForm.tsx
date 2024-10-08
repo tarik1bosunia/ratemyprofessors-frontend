@@ -1,6 +1,7 @@
 'use client';
 import { useAddSchool } from "@/hooks";
 import AddForm from "./AddForm";
+import { useTranslations } from "next-intl";
 
 export default function AddSchoolForm() {
   const {
@@ -20,31 +21,32 @@ export default function AddSchoolForm() {
     countriesLoading,
     statesLoading,
   } = useAddSchool();
+  const t = useTranslations('AddSchoolPage.Form')
 
   const config = [
     {
-      labelText: "Name of School",
+      labelText: t('Input.SCHOOL_NAME_LABEL_TEXT'),
       labelId: "name_of_school",
       type: "text",
       value: name_of_school,
       required: true,
     },
     {
-      labelText: "School Website",
+      labelText: t('Input.WEBISTE_LABEL_TEXT'),
       labelId: "school_website",
       type: "text",
       value: school_website,
       required: true,
     },
     {
-      labelText: "Location",
+      labelText: t('Input.LOCATION_LABEL_TEXT'),
       labelId: "location",
       type: 'text',
       value: location,
       required: true,
     },
     {
-      labelText: "Country",
+      labelText: t('Input.COUNTRY_LABEL_TEXT'),
       labelId: "country",
       type: 'select',
       value: country,
@@ -56,7 +58,7 @@ export default function AddSchoolForm() {
       onChange: handleCountryChange,
     },
     {
-      labelText: "State",
+      labelText: t('Input.STATE_LABEL_TEXT'),
       labelId: "state",
       type: 'select',
       value: state ,
@@ -68,7 +70,7 @@ export default function AddSchoolForm() {
       onChange: handleStateChange,
     },
     {
-      labelText: "I agree to the Terms of Use and Privacy Policy",
+      labelText: t("Input.TERMS_PRIVACY_LABEL_TEXT"),
       labelId: "terms_privacy",
       type: "checkbox",
       value: terms_privacy,
@@ -82,7 +84,7 @@ export default function AddSchoolForm() {
     <AddForm 
       config={config} 
       isLoading={isLoading}
-      btnText="Add School"
+      btnText= {t("SUBMIT_BUTTON_TEXT")}
       onChange={onChange}
       onSubmit={onSubmit}
     />

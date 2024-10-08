@@ -7,9 +7,11 @@ import { useAddSchoolMutation } from "@/redux/fetures/authApiSlice";
 import { useGetCountriesQuery, useGetStatesByCountryQuery } from "@/redux/services/apiSlice";
 import useModal from "@/hooks/use-modal";
 import { LOGIN_MODAL_NAME } from "@/constants";
+import { useTranslations } from "next-intl";
 
 export default function useAddSchool() {
   const {open: openLoginModal} =  useModal(LOGIN_MODAL_NAME)
+  const t = useTranslations('AddSchoolPage.Messages')
 
   const initialFormData: School = {
     name_of_school: '',
@@ -58,8 +60,6 @@ export default function useAddSchool() {
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // if not logged in open join rmp family modal
-    console.log("add school form data: ", formData)
     addSchool({
       name_of_school,
       school_website,
@@ -71,13 +71,16 @@ export default function useAddSchool() {
       .unwrap()
       .then(() => {
         setFormData(initialFormData)
-        toast.success("School added successfully!");
+        toast.success(t("SCHOOL_ADDED_SUCCESS_MESSAGE"));
       })
       .catch((error) => {
-        toast.error("Failed to add school!");
+        
         if (error.status === 401) { // Check if the error indicates unauthorized access
+          toast.error(t("SCHOOL_ADDED_FAILED_MESSAGE_UNAUTHORISED"));
           openLoginModal(); // Open the login modal
-        } 
+        } else{
+          toast.error(t("SCHOOL_ADDED_FAILED_MESSAGE_GENERIC"));
+        }
         
       });
   };

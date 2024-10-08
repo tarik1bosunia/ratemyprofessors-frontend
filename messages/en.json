@@ -29,6 +29,28 @@
       }
       
     },
+    "AddSchoolPage": {
+      "ADDSCHOOL_TITLE": "Add a School",
+      "ADDSCHOOL_SUBTITLE": "Please use the search bar above to make sure that the school does not already exist.",
+
+      "Messages":{
+        "SCHOOL_ADDED_SUCCESS_MESSAGE": "School added successfully!",
+        "SCHOOL_ADDED_FAILED_MESSAGE_UNAUTHORISED": "Failed to add school! UnAuthorised! Login First",
+        "SCHOOL_ADDED_FAILED_MESSAGE_GENERIC": "Failed to add school!"
+      },
+      "Form": {
+        "Input":{
+          "SCHOOL_NAME_LABEL_TEXT": "Name of School",
+          "WEBISTE_LABEL_TEXT": "School Website",
+          "LOCATION_LABEL_TEXT": "Location",
+          "COUNTRY_LABEL_TEXT": "Country",
+          "STATE_LABEL_TEXT": "state/division",
+          "TERMS_PRIVACY_LABEL_TEXT": "I agree to the Terms of Use and Privacy Policy"
+          
+        },
+        "SUBMIT_BUTTON_TEXT": "Add School"
+      }
+    },
     "LocaleSwitcher": {
       "label": "Change language",
       "locale": "{locale, select, bn {bn Bangla} en {🇺🇸 English} other {Unknown}}"
