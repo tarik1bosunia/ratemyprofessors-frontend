@@ -5,18 +5,23 @@ import { toast } from "react-toastify";
 import { useAddSchoolMutation } from "@/redux/fetures/authApiSlice";
 
 import { useGetCountriesQuery, useGetStatesByCountryQuery } from "@/redux/services/apiSlice";
+import useModal from "@/hooks/use-modal";
+import { LOGIN_MODAL_NAME } from "@/constants";
 
 export default function useAddSchool() {
+  const {open: openLoginModal} =  useModal(LOGIN_MODAL_NAME)
 
-
-  const [formData, setFormData] = useState<School>({
+  const initialFormData: School = {
     name_of_school: '',
     school_website: '',
     location: '',
     state: 0,
     country: 0,
     terms_privacy: false,
-  });
+  };
+
+
+  const [formData, setFormData] = useState<School>(initialFormData);
 
   const {
     name_of_school,
@@ -65,10 +70,15 @@ export default function useAddSchool() {
     })
       .unwrap()
       .then(() => {
+        setFormData(initialFormData)
         toast.success("School added successfully!");
       })
-      .catch(() => {
+      .catch((error) => {
         toast.error("Failed to add school!");
+        if (error.status === 401) { // Check if the error indicates unauthorized access
+          openLoginModal(); // Open the login modal
+        } 
+        
       });
   };
 
