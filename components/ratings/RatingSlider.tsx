@@ -101,7 +101,8 @@ export default function RatingSlider({labelId, labelText, value, required, onCha
                         <div 
                             key={index} 
                             className={`
-                                bg-gray-300 h-10 w-16 opacity-50 touch-none transition-all duration-200 ease-in-out ${index == 0 && 'rounded-l-[20px]'} ${index == ratings.length-1 && 'rounded-r-[20px]'} border-r-3 border-white
+                                border-r-[3px] border-r-white
+                                bg-gray-300 h-10 w-16 opacity-50 touch-none transition-all duration-200 ease-in-out ${index == 0 && 'rounded-l-[20px]'} ${index == ratings.length-1 && 'rounded-r-[20px]'}
                                 ${hoveredIndex !== null && hoveredIndex >= index ? rating.color : ''}
                                 ${selectedIndex !== null && hoveredIndex == null &&  selectedIndex >= index ? `${rating.color} opacity-1`: ''}
                             `}

@@ -30,7 +30,7 @@ export default function Page({ params: { id } }: Props) {
               </div>
               <div className="flex flex-row ml-0 mt-[5px] ">
                 <Link
-                  href="/search/professors/4985?q=*"
+                  href={`/search/professors/${id}?q=*`}
                   className="text-black font-bold"
                 >
                   View all Professors
@@ -39,13 +39,13 @@ export default function Page({ params: { id } }: Props) {
             </div>
             <div className="flex">
               <Link
-                href={"/add/school-rating/4985"}
+                href={`/add/school-rating/${id}`}
                 className="bg-blue-600 border border-blue-700 rounded-full text-white flex  font-bold justify-center outline-none px-12 py-3 transition-transform duration-200 text-base leading-5 mt-4 max-w-xs no-underline"
               >
                 Rate this school
               </Link>
               <Link
-                href={"/compare/schools/4985"}
+                href={`/compare/schools/${id}`}
                 className="ml-2 bg-white border border-blue-700 rounded-full text-blue-700 flex font-bold justify-center outline-none px-12 py-3 transition-transform duration-200 text-base leading-5 mt-4 max-w-xs no-underline"
               >
                 Compare this school

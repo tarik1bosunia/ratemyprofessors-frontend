@@ -56,6 +56,16 @@ type ProfessorRatingsType = {
   professor: Professor
 };
 
+type SchoolType = {
+  id: number;
+  name_of_school: string;
+  school_website: string;
+  location: string;
+  state: number; // Assuming state refers to an ID, adjust if it's different
+  country: number; // Assuming country refers to an ID, adjust if it's different
+  terms_privacy: boolean;
+};
+
 // create a new mutex
 const mutex = new Mutex();
 const baseQuery = fetchBaseQuery({
@@ -181,6 +191,14 @@ export const apiSlice = createApi({
       query: (id) => `ratings/professors/${id}/`,
   }),
 
+  // http://localhost:8000/api/ratings/schools/1
+
+  getSchool: builder.query<SchoolType, string>({
+      query: (id) => `ratings/schools/${id}/`,
+  }),
+
+
+
   }),
 });
 
@@ -194,4 +212,5 @@ export const {
   useGetSchoolRatingsQuery,
   useRetrieveUserQuery,
   useGetProfessorRatingsQuery,
+  useGetSchoolQuery,
 } = apiSlice;
