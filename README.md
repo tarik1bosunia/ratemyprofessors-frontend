@@ -29,3 +29,10 @@ npm i next-themes
 
 # requirements
 brand-logo: (width: 84px , height: 28px)
+
+# install for piechart
+```sh
+https://www.chartjs.org/docs/latest/getting-started/installation.html
+yarn add chart.js
+npm install recharts
+```

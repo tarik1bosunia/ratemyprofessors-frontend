@@ -108,7 +108,7 @@ export default function TeacherInfo({take_again_percentage=0, avg_difficulty=0, 
           </button>
         </a>
         <a
-          href="/compare/professors/889563"
+          href={`/compare/professors/${professor.id}`}
           className="mb-[24px] ml-[12px] no-underline w-fit bg-[#ffffff] border border-[#0021ff] rounded-full text-[#0021ff] flex font-bold justify-center leading-[1.54] px-[46px] py-[11px] transition-transform duration-200 hover:bg-[#0021ff] hover:transform-none hover:cursor-pointer hover:text-white"
         >
           Compare

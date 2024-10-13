@@ -1,5 +1,5 @@
 import { ProssorRatingType } from "@/types";
-import RatingChart from "./RatingChart";
+import {RatingChart} from "@/components/ratings";
 
 interface Props{
     ratings: ProssorRatingType[]

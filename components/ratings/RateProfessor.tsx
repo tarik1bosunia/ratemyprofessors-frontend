@@ -13,7 +13,7 @@ type Config = {
   requiered?: boolean;
   type : 'slider' | 'comment' | 'select' | 'multiple_select' | 'radio' | 'radio1item'
   onChange?: ((event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void) | ((value: string[] ) => void)
-  options?: { value: string; label: string }[]; 
+  options?: { value: string | number; label: string }[]; 
   childrenText?: string;
   subInput?: Config
 }
@@ -31,7 +31,7 @@ export default function RateProfessor() {
     is_take_professor_again,
     was_class_taken_for_credit,
     was_use_textbook,
-    was_attendence_mendatory,
+    was_attendance_mandatory,
     grade,
     tags,
     comment,
@@ -40,6 +40,7 @@ export default function RateProfessor() {
     submitable,
     isLoading,
     grades,
+    course_codes,
     professors_tags,
     handleProfesorsTagChange,
     handleSingleRadioInputChange,
@@ -52,7 +53,7 @@ export default function RateProfessor() {
       labelText: "Select Course Code",
       type: "select",
       value: course_code,
-      options: grades,
+      options: course_codes,
       childrenText: "select course code",
       subInput: {
         labelId: "is_online_course",
@@ -97,10 +98,10 @@ export default function RateProfessor() {
 
     },
     {
-      labelId: "was_attendence_mendatory",
+      labelId: "was_attendance_mandatory",
       labelText: "Was attendance mandatory?",
       type: "radio",
-      value: was_attendence_mendatory,
+      value: was_attendance_mandatory,
     },
 
     {

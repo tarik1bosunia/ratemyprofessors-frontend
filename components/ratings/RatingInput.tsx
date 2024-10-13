@@ -21,7 +21,7 @@ interface RatingInputProps {
   value: string | boolean | null | string[] |  ProfessorsTag[];
   required?: boolean;
   ratingSubject: "school" | "professor";
-  options?: { value: string; label: string }[] ;
+  options?: { value: string | number; label: string }[] ;
   subInput: React.ReactNode 
 }
 

@@ -15,7 +15,7 @@ type FormDataType = {
     is_take_professor_again: boolean | null,
     was_class_taken_for_credit: boolean | null,
     was_use_textbook: boolean | null,
-    was_attendence_mendatory: boolean | null,
+    was_attendance_mandatory: boolean | null,
     grade: string,
     tags: string[],
     comment: string
@@ -24,10 +24,11 @@ type FormDataType = {
 
 export default function useRateProfessor(id: string)
 {
+
     const router = useRouter()
     const [rateProfessor, {isLoading}] = useRateProfessorMutation()
     const { data: professors_tags = [], isLoading: professorsTagsLoading } = useGetProfessorsTagsQuery();
-    const [formData, setFormData] = useState<FormDataType>({
+    const initialFormData: FormDataType = {
         course_code: '',
         is_online_course: false,
         rating: '',
@@ -35,11 +36,12 @@ export default function useRateProfessor(id: string)
         is_take_professor_again: null,
         was_class_taken_for_credit: null,
         was_use_textbook: null,
-        was_attendence_mendatory: null,
+        was_attendance_mandatory: null,
         grade: '',
         tags: [],
         comment: ''
-    })
+    }
+    const [formData, setFormData] = useState<FormDataType>(initialFormData)
     const {
         course_code,
         is_online_course,
@@ -48,7 +50,7 @@ export default function useRateProfessor(id: string)
         is_take_professor_again,
         was_class_taken_for_credit,
         was_use_textbook,
-        was_attendence_mendatory,
+        was_attendance_mandatory,
         grade,
         tags,
         comment,
@@ -104,7 +106,7 @@ export default function useRateProfessor(id: string)
             is_take_professor_again,
             was_class_taken_for_credit,
             was_use_textbook,
-            was_attendence_mendatory,
+            was_attendance_mandatory,
             grade,
             tags: tagsAsIntegers,
             comment,
@@ -112,7 +114,8 @@ export default function useRateProfessor(id: string)
         })
         .unwrap()
         .then(() => {
- 
+                    // Reset form data to initial values
+        setFormData(initialFormData);
             toast.success("rate professor successfull!")
         })
         .catch(() => {
@@ -211,6 +214,21 @@ export default function useRateProfessor(id: string)
         }, 
     ]
 
+    const course_codes = [
+        {
+            label: "1001",
+            value: 0,
+        },
+        {
+            label : "BCH101",
+            value: 1
+        },
+        {
+            label : "aggf",
+            value: 2
+        },
+    ]
+
     return {
         course_code,
         is_online_course,
@@ -219,13 +237,14 @@ export default function useRateProfessor(id: string)
         is_take_professor_again,
         was_class_taken_for_credit,
         was_use_textbook,
-        was_attendence_mendatory,
+        was_attendance_mandatory,
         grade,
         tags,
         comment,
         onSubmit, onChange, setFormData, submitable, isLoading,
         handleRadioInputChange,
         grades,
+        course_codes,
         professors_tags,
         professorsTagsLoading,
         handleProfesorsTagChange,

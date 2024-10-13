@@ -11,7 +11,7 @@ interface Config{
     value: string | boolean | null | string[] |  ProfessorsTag[];
     required?: boolean;
     onChange?:((event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void) | ((value: string[] ) => void);
-    options?: { value: string; label: string }[] ;
+    options?: { value: string | number; label: string }[] ;
     childrenText?: string;
     subInput?: Config
 }
