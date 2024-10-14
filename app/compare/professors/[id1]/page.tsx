@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 
-import { ProfessorDetails } from "@/components/ratings/compare";
+import { ProfessorDetails, Search } from "@/components/ratings/compare";
 
 
 interface Props {
@@ -41,27 +41,7 @@ export default function Page({ params: { id1 } }: Props) {
           </div>
         </div>
         <div className="flex flex-col justify-between w-full">
-          <form action="" className="mb-4 text-left w-full">
-            <div>
-              <div className="relative w-full">
-                <div className="absolute top-4 left-7 w-fit z-10">
-                  <CiApple className="text-2xl" />
-                </div>
-                <div
-                  className={`relative w-full max-w-none rounded-[32px] ${
-                    isFocused ? "shadow-[0_2px_2px_rgba(126,126,126,0.25)]" : ""
-                  }`}
-                >
-                  <input
-                    type="text"
-                    className="border-0 text-[rgb(49,49,49)] text-[20px] h-[56px] outline-none p-[16px_60px] w-full rounded-[43px] max-w-none"
-                    onFocus={() => setIsFocused(true)}
-                    onBlur={() => setIsFocused(false)}
-                  />
-                </div>
-              </div>
-            </div>
-          </form>
+        <Search id1={id1}/>
           
           <div className="flex flex-row justify-between w-full">
             <ProfessorDetails id={id1} onClose={onClose}/>
