@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
-import { Navbar, Footer } from "@/components/common";
+import { Footer } from "@/components/common";
 import Provider from '@/redux/provider'
 import { ThemeProvider } from "./providers";
 import { Setup } from "@/components/utils";

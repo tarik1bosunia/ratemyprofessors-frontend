@@ -1,8 +1,9 @@
 import { useProfessorRatingsData } from "@/hooks";
 import { RxCross2 } from "react-icons/rx";
 import RatingChart from "../RatingChart";
-import { PieChart } from "@/components/charts/PieChart";
 import { useRouter } from "next/navigation";
+import { CustomPieChart } from "@/components/customcharts";
+
 
 interface Props {
   id: string;
@@ -165,8 +166,8 @@ export default function ProfessorDetails({ id, onClose }: Props) {
         </div>
       </div>
       <div className="mt-3"></div>
-      <PieChart chartData={chartDataTakeAgain} chartConfig={chartConfigTakeAgain} title="Taken For Credit"/>
-      <PieChart chartData={chartDataAddendenceMendatory} chartConfig={chartConfigAddendenceMendatory} title="Attendence mendatory"/>
+      <CustomPieChart chartData={chartDataTakeAgain} chartConfig={chartConfigTakeAgain} title="Taken For Credit"/>
+      <CustomPieChart chartData={chartDataAddendenceMendatory} chartConfig={chartConfigAddendenceMendatory} title="Attendence mendatory"/>
       
     </div>
   );

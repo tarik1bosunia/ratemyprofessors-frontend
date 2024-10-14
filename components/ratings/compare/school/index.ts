@@ -1,0 +1,7 @@
+export {default as CompareSchoolHeader} from './CompareSchoolHeader'
+export {default as CompareSchoolBody} from './CompareSchoolBody'
+export {default as CompareSchoolHeaderBox} from './CompareSchoolHeaderBox'
+export {default as SchoolGradeSquareContainer} from './SchoolGradeSquareContainer'
+export {default as CategoryRow} from './CategoryRow'
+export {default as DisplaySlider} from './DisplaySlider'
+export {default as DisplaySliderBox} from './DisplaySliderBox'

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 // import { TrendingUp } from "lucide-react"
-import { Label, Pie, PieChart as PieChartR,  } from "recharts"
+import { Label, Pie, PieChart,  } from "recharts"
 
 import {
   Card,
@@ -36,7 +36,7 @@ interface Props{
   chartData: ChartDataEntry[]
 }
 
-export function PieChart({title, chartConfig, chartData}: Props) {
+export default function CustomPieChart({title, chartConfig, chartData}: Props) {
 
   const totalvalue = React.useMemo(() => {
     return chartData.reduce((acc, curr) => acc + curr.value, 0)
@@ -53,7 +53,7 @@ export function PieChart({title, chartConfig, chartData}: Props) {
           config={chartConfig}
           className="mx-auto aspect-square max-h-[250px]"
         >
-          <PieChartR>
+          <PieChart>
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
@@ -100,11 +100,12 @@ export function PieChart({title, chartConfig, chartData}: Props) {
               content={<ChartLegendContent nameKey="name" />}
               className="-translate-y-2 flex-wrap gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
             />
-          </PieChartR>
+          </PieChart>
         </ChartContainer>
       </CardContent>
     </Card>
   )
 }
+
 
 

@@ -11,6 +11,7 @@ yarn add sharp
 # build dokcer image
 ```sh
 docker build . -t ghcr.io/tarik1bosunia/rt:latest
+docker build --no-cache -t ghcr.io/tarik1bosunia/rt:latest .
 ```
 
 # generated gitbub token
