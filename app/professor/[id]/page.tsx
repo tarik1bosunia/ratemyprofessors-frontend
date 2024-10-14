@@ -27,7 +27,6 @@ export default function Page({ params: { id } }: Props) {
   const {ratings, professor,  take_again_percentage, avg_difficulty, rating_counts, total_ratings_count, top_tags} = data
   const courses = ratings.map(rating => rating.course_code);
 
-  // console.log(data)
   return (
     <div className="my-0 mx-auto w-full lg:max-w-[1280px] min-h-[calc(-240px+100vh)] overflow-hidden">
         <div className="lg:min-w-[calc(926px)] flex flex-row justify-between mb-1.5 pl-6">

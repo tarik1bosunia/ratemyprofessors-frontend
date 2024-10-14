@@ -22,7 +22,7 @@ export default function Page({ params: { id1, id2 } }: Props) {
   const [isFocused, setIsFocused] = useState(false);
 
   const onClose = (id?: string) => {
-    console.log("clicked");
+
     if (id === id1) {
       // If id1 is closed, redirect to id2
       router.push(`/compare/professors/${id2}`);

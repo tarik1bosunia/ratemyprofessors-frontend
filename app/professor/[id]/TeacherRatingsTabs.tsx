@@ -12,7 +12,7 @@ interface Props  {
 
 
 export default function TeacherRatingsTabs({total_ratings_count = 0, courses=[], ratings = []}: Props){
-    // console.log(ratings)
+
     return (
 
         <div className="xl:max-w-[calc(926px)]">

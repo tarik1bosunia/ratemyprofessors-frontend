@@ -26,7 +26,6 @@ export default function useSocialAuth(){
             closeCheckEmailModal()
             const {access, refresh} = data.token
             dispatch(setAuth({access, refresh}))
-            console.log(data.token);
          
             toast.success("Google login successfull!")
            

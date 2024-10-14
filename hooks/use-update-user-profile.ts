@@ -27,7 +27,6 @@ export default function useUpdateUserProfile() {
             ...prevState,
             [name]: value,
         }));
-        console.log(name, value);
     }
 
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {

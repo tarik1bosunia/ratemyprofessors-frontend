@@ -24,7 +24,6 @@ export default function Page({ params: { id1 } }: Props) {
   const [isFocused, setIsFocused] = useState(false);
 
   const onClose = () => {
-    console.log("clicked")
     router.push('/compare/professors')
   }
 

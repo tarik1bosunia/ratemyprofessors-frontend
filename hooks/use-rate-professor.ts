@@ -87,7 +87,6 @@ export default function useRateProfessor(id: string)
             ...prevFormData,
             tags: selectedTags,
           }));
-      console.log("formdata: ", formData)
     };
 
 

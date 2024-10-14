@@ -58,8 +58,6 @@ export default function ProfessorDetails({ id, onClose }: Props) {
     { mendatory: 0, notMendatory: 0 }
   );
 
-  console.log(data)
-
   const chartDataTakeAgain = [
     { name: "yes", value: countForCredit.takenForCredit, fill: "var(--color-yes)" },
     { name: "no", value: countForCredit.notTakenForCredit, fill: "var(--color-no)" },
