@@ -44,6 +44,6 @@ export default function GoogleAuth()
   
       window.google.accounts.id.prompt(); // also display the One Tap dialog
       
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
     return (  <div id="googleSignInButton"/>)
 }
