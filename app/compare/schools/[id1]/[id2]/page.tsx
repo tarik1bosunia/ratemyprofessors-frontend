@@ -38,9 +38,9 @@ export default function Page({ params: { id1, id2 } }: Props) {
     <div className="my-0 mx-auto w-full max-w-[1280px] min-h-[calc(100vh-240px)] overflow-hidden">
       <div className="bg-[#f7f7f7] flex flex-col justify-start mb-[144px] max-w-[888px] min-h-[379px] p-[24px]">
         
-        <CompareSchoolHeader />
+        <CompareSchoolHeader id1={id1} id2={id2} />
         
-        <CompareSchoolBody />
+        <CompareSchoolBody id1={id1} id2={id2}/>
    
       </div>
     </div>

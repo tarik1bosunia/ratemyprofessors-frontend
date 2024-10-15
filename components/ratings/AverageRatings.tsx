@@ -16,26 +16,26 @@ import SchoolRating from "./SchoolRating";
 type RatingType = {
   icon: string;
   title: string;
-  rating: number;
+  rating: number | string;
 };
 type AverageRatingsProps = {
-  safety: number;
-  oppputunites: number;
-  location: number;
-  facility: number;
-  happiness: number;
-  reputation: number;
-  clubs: number;
-  internet: number;
-  social: number;
-  food: number;
+  safety: number | string;
+  oppputunites: number | string;
+  location: number | string;
+  facilities: number | string;
+  happiness: number | string;
+  reputation: number | string;
+  clubs: number | string;
+  internet: number | string;
+  social: number | string;
+  food: number | string;
 };
 
 export default function AverageRatings({
   safety,
   oppputunites,
   location,
-  facility,
+  facilities,
   happiness,
   reputation,
   clubs,
@@ -61,8 +61,8 @@ export default function AverageRatings({
     },
     {
       icon: FacilitiesIcon,
-      title: "Facility",
-      rating: facility,
+      title: "Facilites",
+      rating: facilities,
     },
     {
       icon: HappinessIcon,

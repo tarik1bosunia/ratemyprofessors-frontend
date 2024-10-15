@@ -8,7 +8,7 @@ export default function ShowSchoolRatings() {
   //   safety,
   //   oppputunites,
   //   location,
-  //   facility,
+  //   facilities,
   //   happiness,
   //   reputation,
   //   clubs,

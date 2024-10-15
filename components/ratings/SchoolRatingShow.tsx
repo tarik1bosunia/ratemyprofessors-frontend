@@ -6,19 +6,25 @@ import RatingShow from "./RatingShow";
 
 export default function SchoolRatingShow() {
   const {
-    safety,
-    oppputunites,
-    location,
-    facility,
-    happiness,
-    reputation,
-    clubs,
-    internet,
-    social,
-    food,
+    averageRatings,
     schoolRatings,
-  } = useShowSchoolRatings();
+    overallQuality,
+  } = useShowSchoolRatings(1); 
   // console.log("school ratings aveageRatings.tsx: ", schoolRatings);
+
+  
+  const {
+    safety = "N/A",
+    oppputunites="N/A",
+    location = "N/A",
+    facilities ="N/A",
+    happiness = "N/A",
+    reputation = "N/A",
+    clubs = "N/A",
+    internet = "N/A",
+    social = "N/A",
+    food = "N/A",
+  } = averageRatings || {};
 
   return (
     <>
@@ -26,7 +32,7 @@ export default function SchoolRatingShow() {
         safety={safety}
         oppputunites={oppputunites}
         location={location}
-        facility={facility}
+        facilities={facilities}
         happiness={happiness}
         reputation={reputation}
         clubs={clubs}

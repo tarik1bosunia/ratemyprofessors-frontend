@@ -10,9 +10,6 @@ interface Props {
     };
 }
 
-
-
-
   
 export default function Page({ params: { id1 } }: Props) {
   const router = useRouter()

@@ -18,7 +18,7 @@ export default function RatingShow({ratings}: RatingShowProps) {
             safety={rating.safety}
             oppputunites={rating.oppputunites}
             location={rating.location}
-            facility={rating.facility}
+            facilities={rating.facilities}
             happiness={rating.happiness}
             reputation={rating.reputation}
             clubs={rating.clubs}

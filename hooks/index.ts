@@ -20,3 +20,5 @@ export {default as useShowProfessorRatings} from './use-show-professor-ratings'
 export {default as useShowSchoolRatings} from './use-show-school-ratings'
 export {default as useProfessorRatingsData} from './use-professor-ratings-data'
 export {default as useProfessorSignup} from './use-professor-signup'
+
+export {default as useCopyToClipBoard} from './use-copy-to-clipboard'

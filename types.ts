@@ -48,7 +48,7 @@ export interface Professor {
     safety: number,   
     oppputunites: number,
     location: number,
-    facility: number,
+    facilities: number,
     happiness: number, 
     reputation: number,
     clubs: number,

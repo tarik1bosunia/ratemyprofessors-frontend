@@ -30,8 +30,8 @@ export default function SchoolRating(rating: SchoolRatingsType) {
       rating: rating.location,
     },
     {
-      title: "Facility",
-      rating: rating.facility,
+      title: "Facilities",
+      rating: rating.facilities,
     },
     {
       title: "Happiness",
