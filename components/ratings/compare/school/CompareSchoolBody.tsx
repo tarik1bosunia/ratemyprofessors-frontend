@@ -121,13 +121,13 @@ export default function CompareSchoolBody({ id1, id2 }: Props) {
         {/* First School Header */}
         {
           id1 ? <CompareSchoolHeaderBox id={id1} overallQuality={overallQuality1}/>
-            : <CompareSchoolHeaderSearchBox />
+            : <CompareSchoolHeaderSearchBox id1={id1} id2={id2}/>
         }
         
         {/* Second School Header (if id2 exists) */}
         {
           id2  ? <CompareSchoolHeaderBox id={id2} overallQuality={overallQuality1} showChangeSchoolButton={true} handdleChangeSchoolButtonClick={handdleChangeSchoolButtonClick}/>
-              : <CompareSchoolHeaderSearchBox />
+              : <CompareSchoolHeaderSearchBox id1={id1} id2={id2}/>
         }
       </div>
 
