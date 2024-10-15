@@ -65,7 +65,7 @@ export default function useShowSchoolRatings(id: number) {
     user: 0,
   });
 
-  const [overallQuality, setOverallQuality] = useState(0);
+  const [overallQuality, setOverallQuality] = useState<number | "N/A">("N/A");
 
   // Fetch school ratings using RTK Query
   const { data: schoolRatings = [], isLoading: schoolRatingsIsLoading } = useGetSchoolRatingsQuery(id);

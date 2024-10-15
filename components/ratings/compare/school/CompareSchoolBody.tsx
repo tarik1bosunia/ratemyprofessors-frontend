@@ -2,6 +2,8 @@
 import { useShowSchoolRatings } from "@/hooks";
 import CategoryRow from "./CategoryRow";
 import CompareSchoolHeaderBox from "./CompareSchoolHeaderBox";
+import CompareSchoolHeaderSearchBox from "./CompareSchoolSearchBox";
+import { useRouter } from "next/navigation";
 
 interface Props {
   id1?: string;
@@ -15,6 +17,7 @@ type Config = {
 };
 
 export default function CompareSchoolBody({ id1, id2 }: Props) {
+  const router = useRouter()
   // Fetch data for both schools unconditionally
   const {
     averageRatings: averageRatings1,
@@ -107,16 +110,25 @@ export default function CompareSchoolBody({ id1, id2 }: Props) {
     },
   ];
 
-  console.log(schoolRatings1)
+  console.log(averageRatings1)
 
+  const handdleChangeSchoolButtonClick = ()=> {
+    router.push(`/compare/schools/${id1}`)
+  }
   return (
     <div className="flex flex-col mx-2 mb-8 max-w-[888px]">
       <div className="flex flex-row w-full items-center">
         {/* First School Header */}
-        <CompareSchoolHeaderBox overallQuality={id1 ? overallQuality1 : "N/A"} />
-
+        {
+          id1 ? <CompareSchoolHeaderBox id={id1} overallQuality={overallQuality1}/>
+            : <CompareSchoolHeaderSearchBox />
+        }
+        
         {/* Second School Header (if id2 exists) */}
-        <CompareSchoolHeaderBox overallQuality={id2 ? overallQuality2 : "N/A"} />
+        {
+          id2  ? <CompareSchoolHeaderBox id={id2} overallQuality={overallQuality1} showChangeSchoolButton={true} handdleChangeSchoolButtonClick={handdleChangeSchoolButtonClick}/>
+              : <CompareSchoolHeaderSearchBox />
+        }
       </div>
 
       {/* Render the category rows for comparison */}
