@@ -3,8 +3,8 @@ import { Metadata } from "next"
 import { ResetPasswordForm } from '@/components/forms'
 
 export const metadata: Metadata = {
-    title: "ratemyprofessors | password reset ",
-    description: "ratemyprofessors password reset page"
+    title: "rateteach | password reset ",
+    description: "rateteach password reset page"
 }
 export default function Page(){
     return (

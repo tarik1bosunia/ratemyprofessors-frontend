@@ -36,3 +36,4 @@ deploy.md
 docker.md
 
 .env.local
+.env.production

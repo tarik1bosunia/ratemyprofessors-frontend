@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { Footer } from "@/components/common";
 import Provider from '@/redux/provider'
@@ -11,11 +10,11 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getLocale, getMessages} from 'next-intl/server';
 
 
-const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata: Metadata = {
-  title: "ratemyprofessors",
-  description: "rate my professors",
+  title: "rateteach",
+  description: "rateteach",
 };
 
 export default async function LocaleLayout({
@@ -28,11 +27,11 @@ export default async function LocaleLayout({
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages();
-
+  
   return (
     <html lang={locale} suppressHydrationWarning>
       <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com"></meta>
-      <body className={inter.className}>
+      <body className="">
       <NextIntlClientProvider messages={messages}>
         <Script src="https://accounts.google.com/gsi/client" async/>
         <ThemeProvider>

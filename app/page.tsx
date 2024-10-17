@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 import { HomeHeaderSection, HomeHeroSection, JoinRMPFamilySection} from "@/components/sections/home";
 
 export const metadata: Metadata = {
-  title: "ratemyprofessors | Home",
-  description: "ratemyprofessors home page"
+  title: "rateteach | Home",
+  description: "rateteach home page"
 }
 
 

@@ -1,29 +1,33 @@
+import React from "react";
+import { School } from "@/types";
 import Link from "next/link";
 
 type SearchResultsProps<T> = {
   query: string;
-  useSearchQuery: (query: string) => { data?: T[]; error?: any; isLoading: boolean };
+  data?: { results: T[]; count: number; next: string | null; previous: string | null };
+  isLoading: boolean;
+  error: any;
   entityName: string;
-  renderItem: (item: T) => React.ReactNode;
   noResultsMessage: React.ReactNode;
+  renderItem: (item: T) => React.ReactNode;
 };
 
 export default function SearchResults<T>({
   query,
-  useSearchQuery,
+  data,
+  isLoading,
+  error,
   entityName,
-  renderItem,
   noResultsMessage,
+  renderItem,
 }: SearchResultsProps<T>) {
-  const { data, error, isLoading } = useSearchQuery(query);
-
   if (isLoading) return <div>Loading {entityName}...</div>;
-  if (error) return <div>Error loading {entityName}!</div>;
 
-  if (data?.length === 0) {
-    return <div>{noResultsMessage}</div>;
+  if (error) return <div>Error loading {entityName}</div>;
+
+  if (!data || data.results.length === 0) {
+    return noResultsMessage;
   }
-  // console.log("data: ", data)
 
   return (
     <div className="my-0 mx-auto max-w-[1280px] min-h-screen w-full">
@@ -31,7 +35,7 @@ export default function SearchResults<T>({
         <div className="">
           <div className="text-base text-left mb-4 mt-8 w-fit">
             <h1 className="mb-8 text-xl">
-              <strong>{data?.length}</strong>
+              <strong>{data?.results.length}</strong>
               &nbsp; {entityName} with &nbsp;
               <strong>{query}</strong>
               &nbsp; in their name
@@ -39,9 +43,12 @@ export default function SearchResults<T>({
           </div>
         </div>
         <div>
-          {data?.map((item: T) => (
+          {
+            
+          data.results.map((item: T) => (
             <Link
               href={`/school/${(item as any).id}`}
+             
               key={(item as any).id}
               className="mb-6 flex items-center bg-gray-200 px-6 py-3 relative no-underline w-full"
             >

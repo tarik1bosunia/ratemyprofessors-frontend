@@ -2,6 +2,9 @@ import { useTranslations } from 'next-intl';
 
 // site info
 export const SITE_NAME = "RateTeach"
+export const SITE_BASE_URL = 'https://rateteach.ru.ac.bd' 
+export const API_BASE_URL = process.env.NEXT_PUBLIC_HOST || 'https://apirateteach.ru.ac.bd'
+export const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || '573678907891-8b1nrjprjdqhjgoqkmnseu81jt033ohe.apps.googleusercontent.com'
 
 // auth buttons texts
 export const PROFILE_AUTH_BUTTON_TEXT = 'Profile'
@@ -33,9 +36,9 @@ export const AUTH_MENU_NAME = 'My Account'
 
 
 // social links
-export const TIKTALK_SOCIAL_LINK = 'https://tiktok.com/@ratemyprofessors'
-export const X_SOCIAL_LINK = 'https://x.com/ratemyprofessor'
-export const INSTARAM_SOCIAL_LINK = 'https://www.instagram.com/ratemyprofessors/'
+export const TIKTALK_SOCIAL_LINK = 'https://tiktok.com/@rateteach'
+export const X_SOCIAL_LINK = 'https://x.com/rateteach'
+export const INSTARAM_SOCIAL_LINK = 'https://www.instagram.com/rateteach/'
 
 // background images links
 export const BG_HEADER_LINK = '/images/bg.svg'
@@ -100,7 +103,7 @@ export const useFooterTranslatedData = () => {
     const FOOTER_LINKS = [
         {
             title: t('FOOTER_LINKS.HELP'),
-            link: 'https://help.ratemyprofessors.com/',
+            link: 'https://help.rateteach.ru.ac.bd/',
         },
         {
             title: t('FOOTER_LINKS.SITE_GUIDELINES'),

@@ -17,7 +17,7 @@ import { ThemeSwitch } from '@/components/theme';
 export default function HomeHeaderSection(){
 
   const t = useTranslations('Navigation')
-
+ 
   const pathname = usePathname()
   const isSelected = (path: string) => pathname === path ? true : false
 

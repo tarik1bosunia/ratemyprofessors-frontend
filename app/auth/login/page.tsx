@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 import { SocialButtons } from "@/components/common";
 
 export const metadata: Metadata = {
-  title: "ratemyprofessors | login",
-  description: "ratemyprofessors login page"
+  title: "rateteach | login",
+  description: "rateteach login page"
 }
 
 export default function Page(){

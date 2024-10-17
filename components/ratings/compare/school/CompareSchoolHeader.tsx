@@ -5,6 +5,7 @@ import { GrPowerReset } from "react-icons/gr";
 import { LuShare } from "react-icons/lu";
 import { RiGraduationCapLine } from "react-icons/ri";
 import { useCopyToClipBoard } from "@/hooks";
+import { SITE_BASE_URL } from "@/constants";
 interface Props {
   id1?: string;
   id2?: string;
@@ -32,7 +33,8 @@ export default function CompareSchoolHeader({id1, id2}:Props)
     }
   }, [id1, id2])
 
-  const {handleCopy } = useCopyToClipBoard({ textToCopy: `compare/school/${id1}/${id2}` });
+
+  const {handleCopy } = useCopyToClipBoard({ textToCopy: `${SITE_BASE_URL}/compare/school/${id1}/${id2}` });
 
 
     return (

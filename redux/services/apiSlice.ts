@@ -8,6 +8,9 @@ import type {
 import { setAuth, logout } from "../fetures/authSlice";
 import { Mutex } from "async-mutex";
 import { RootState } from "@/redux/store";
+import {API_BASE_URL} from "@/constants"
+
+import { School } from "@/types";
 
 
 // types for professor view page
@@ -56,20 +59,20 @@ type ProfessorRatingsType = {
   professor: Professor
 };
 
-type SchoolType = {
-  id: number;
-  name_of_school: string;
-  school_website: string;
-  location: string;
-  state: number; // Assuming state refers to an ID, adjust if it's different
-  country: number; // Assuming country refers to an ID, adjust if it's different
-  terms_privacy: boolean;
-};
+
+
+interface SearchSchoolsApiResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: School[];
+}
+
 
 // create a new mutex
 const mutex = new Mutex();
 const baseQuery = fetchBaseQuery({
-  baseUrl: `${process.env.NEXT_PUBLIC_HOST}/api`,
+  baseUrl: `${API_BASE_URL}/api`,
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.accessToken;
@@ -173,9 +176,14 @@ export const apiSlice = createApi({
     getProfessorsTags: builder.query<ProfessorsTag[], void>({
       query: () => "ratings/professors_tags/",
     }),
-    searchSchools: builder.query({
-      query: (query) => `/search/schools/?q=${query}`,
+    // searchSchools: builder.query({
+    //   query: (query) => `/search/schools/?q=${query}`,
+    // }),
+    searchSchools: builder.query<SearchSchoolsApiResponse, { q: string; page: number; pageSize: number }>({
+      query: ({ q, page, pageSize }) => `/search/schools/?q=${q}&page=${page}&page_size=${pageSize}`,
     }),
+
+
     searchProfessors: builder.query({
       query: (query) => `/search/professors/?q=${query}`,
     }),
@@ -193,7 +201,7 @@ export const apiSlice = createApi({
 
   // http://localhost:8000/api/ratings/schools/1
 
-  getSchool: builder.query<SchoolType, string>({
+  getSchool: builder.query<School, string>({
       query: (id) => `ratings/schools/${id}/`,
   }),
 

@@ -31,7 +31,7 @@ export default function ProfessorSignUpModalContent() {
             </div>
             <ProfessorSignUpModalForm />
             <div className="m-4">
-                By clicking &apos;Continue&apos; you agree to the Terms of Use and our Privacy RateMyProfessors is designed for and targeted to BD audiences and is governed by and operated in accordance with BD laws.
+                By clicking &apos;Continue&apos; you agree to the Terms of Use and our Privacy RateTeach is designed for and targeted to BD audiences and is governed by and operated in accordance with BD laws.
             </div>
             <div className="text-base mb-4 w-full">
                 Already have an account?

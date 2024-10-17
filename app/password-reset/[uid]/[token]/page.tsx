@@ -3,8 +3,8 @@ import { Metadata } from "next"
 import { ResetPasswordConfirmForm } from '@/components/forms'
 
 export const metadata: Metadata = {
-    title: "ratemyprofessors | password reset confirm",
-    description: "ratemyprofessors password reset confirm page"
+    title: "rateteach | password reset confirm",
+    description: "rateteach password reset confirm page"
 }
 
 interface Props{
