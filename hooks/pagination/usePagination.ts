@@ -44,6 +44,7 @@ export default function usePagination<T>({apiUrl, query = "", pageSize = 10, fet
   // Clear results when query changes
   useEffect(() => {
     setResults([]);
+    resetPage()
   }, [query]);
 
   // Append new results as they come in

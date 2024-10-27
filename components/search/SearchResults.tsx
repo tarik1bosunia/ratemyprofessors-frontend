@@ -1,31 +1,32 @@
 import React from "react";
-import { School } from "@/types";
 import Link from "next/link";
 
 type SearchResultsProps<T> = {
   query: string;
-  data?: { results: T[]; count: number; next: string | null | undefined; previous: string | null | undefined };
+  context?: { data: T[]; count: number; };
   isLoading: boolean;
   error: any;
   entityName: string;
   noResultsMessage: React.ReactNode;
   renderItem: (item: T) => React.ReactNode;
+  lastSchoolElementRef: (node: HTMLDivElement) => void;
 };
 
 export default function SearchResults<T>({
   query,
-  data,
+  context,
   isLoading,
   error,
   entityName,
   noResultsMessage,
   renderItem,
+  lastSchoolElementRef
 }: SearchResultsProps<T>) {
   if (isLoading) return <div>Loading {entityName}...</div>;
 
   if (error) return <div>Error loading {entityName}</div>;
 
-  if (!data || data.results.length === 0) {
+  if (context?.count === 0) {
     return noResultsMessage;
   }
 
@@ -37,7 +38,7 @@ export default function SearchResults<T>({
         <div className="">
           <div className="text-base text-left mb-4 mt-8 w-fit">
             <h1 className="mb-8 text-xl">
-              <strong>{data.count}</strong>
+              <strong>{context?.count}</strong>
               &nbsp; {entityName} with &nbsp;
               <strong>{query}</strong>
               &nbsp; in their name
@@ -47,16 +48,37 @@ export default function SearchResults<T>({
         <div>
           {
             
-          data.results.map((item: T) => (
-            <Link
-              href={`/school/${(item as any).id}`}
-             
-              key={(item as any).id}
-              className="mb-6 flex items-center bg-gray-200 px-6 py-3 relative no-underline w-full"
-            >
-              {renderItem(item)}
-            </Link>
-          ))}
+          context?.data.map((item: T, index) => {
+            if(context?.data.length === index + 1) {
+              return ( 
+                <div key={(item as any).id} ref={lastSchoolElementRef}>
+                <Link
+  
+                  href={`/school/${(item as any).id}`}
+                
+                  
+                  className="mb-6 flex items-center bg-gray-200 px-6 py-3 relative no-underline w-full"
+                >
+                  {renderItem(item)}
+                </Link>
+                </div>
+              )
+            }else{
+              return ( 
+                <div key={(item as any).id}>
+                <Link
+  
+                  href={`/school/${(item as any).id}`}
+                
+                  
+                  className="mb-6 flex items-center bg-gray-200 px-6 py-3 relative no-underline w-full"
+                >
+                  {renderItem(item)}
+                </Link>
+                </div>
+              )
+            }
+          })}
         </div>
       </div>
     </div>

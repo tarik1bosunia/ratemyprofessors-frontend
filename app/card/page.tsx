@@ -12,10 +12,10 @@ export default function SchoolSearchPage() {
     results: schools,
     isLoading,
     isError,
-    resetPage,
     lastSchoolElementRef 
   } = usePagination<School>({
     apiUrl: SCHOOL_SEARCH_API,
+    query: query,
     fetchFunction: useSearchSchoolsQuery,
   });
   
@@ -23,7 +23,6 @@ export default function SchoolSearchPage() {
 
   function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
     setQuery(e.target.value);
-    resetPage();
   }
 
   return (
