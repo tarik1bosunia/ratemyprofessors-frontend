@@ -68,6 +68,13 @@ interface SearchSchoolsApiResponse {
   results: School[];
 }
 
+interface SearchProfessorApiResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Professor[];
+}
+
 // Define a type for the search parameters
 type SearchQuery = 
   | { q: string; page: number; pageSize: number }  // Search parameters
@@ -201,9 +208,19 @@ export const apiSlice = createApi({
       },
     }),
 
-    searchProfessors: builder.query({
-      query: (query) => `/search/professors/?q=${query}`,
+    searchProfessors: builder.query<SearchProfessorApiResponse, SearchQuery>({
+      query: (queryParams) => {
+        if ('url' in queryParams) {
+          // Handle the case when a full URL is provided
+          return queryParams.url;
+        } else {
+          // Handle the case when search parameters are provided
+          const { q, page, pageSize } = queryParams;
+          return `/search/professors/?q=${q}&page=${page}&page_size=${pageSize}`;
+        }
+      }
     }),
+
     getSchoolRatings: builder.query<SchoolRatingsType[], number>({
       query: (school_id) => `/ratings/school-rating/${school_id}`,
     }),

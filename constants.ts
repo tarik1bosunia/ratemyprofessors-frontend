@@ -165,5 +165,6 @@ export const FOOTER_SOCIAL_LINKS = [
 
 /* ============================================= API URLS ============================== */
 export const SCHOOL_SEARCH_API =   `${API_BASE_URL}/api/search/schools/`
+export const PROFESSOR_SEARCH_API =   `${API_BASE_URL}/api/search/professors/`
 
 
