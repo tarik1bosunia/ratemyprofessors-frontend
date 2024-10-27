@@ -4,7 +4,7 @@ import Link from "next/link";
 
 type SearchResultsProps<T> = {
   query: string;
-  data?: { results: T[]; count: number; next: string | null; previous: string | null };
+  data?: { results: T[]; count: number; next: string | null | undefined; previous: string | null | undefined };
   isLoading: boolean;
   error: any;
   entityName: string;
@@ -29,13 +29,15 @@ export default function SearchResults<T>({
     return noResultsMessage;
   }
 
+  
+
   return (
     <div className="my-0 mx-auto max-w-[1280px] min-h-screen w-full">
       <div className="ml-10 mb-12 max-w-[860px]">
         <div className="">
           <div className="text-base text-left mb-4 mt-8 w-fit">
             <h1 className="mb-8 text-xl">
-              <strong>{data?.results.length}</strong>
+              <strong>{data.count}</strong>
               &nbsp; {entityName} with &nbsp;
               <strong>{query}</strong>
               &nbsp; in their name

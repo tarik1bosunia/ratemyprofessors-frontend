@@ -68,6 +68,11 @@ interface SearchSchoolsApiResponse {
   results: School[];
 }
 
+// Define a type for the search parameters
+type SearchQuery = 
+  | { q: string; page: number; pageSize: number }  // Search parameters
+  | { url: string };   
+
 
 // create a new mutex
 const mutex = new Mutex();
@@ -179,10 +184,22 @@ export const apiSlice = createApi({
     // searchSchools: builder.query({
     //   query: (query) => `/search/schools/?q=${query}`,
     // }),
-    searchSchools: builder.query<SearchSchoolsApiResponse, { q: string; page: number; pageSize: number }>({
-      query: ({ q, page, pageSize }) => `/search/schools/?q=${q}&page=${page}&page_size=${pageSize}`,
-    }),
+    // searchSchools: builder.query<SearchSchoolsApiResponse, { q: string; page: number; pageSize: number }>({
+    //   query: ({ q, page, pageSize }) => `/search/schools/?q=${q}&page=${page}&page_size=${pageSize}`,
+    // }),
 
+    searchSchools: builder.query<SearchSchoolsApiResponse, SearchQuery>({
+      query: (queryParams) => {
+        if ('url' in queryParams) {
+          // Handle the case when a full URL is provided
+          return queryParams.url;
+        } else {
+          // Handle the case when search parameters are provided
+          const { q, page, pageSize } = queryParams;
+          return `/search/schools/?q=${q}&page=${page}&page_size=${pageSize}`;
+        }
+      },
+    }),
 
     searchProfessors: builder.query({
       query: (query) => `/search/professors/?q=${query}`,

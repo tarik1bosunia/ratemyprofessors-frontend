@@ -22,3 +22,4 @@ export {default as useProfessorRatingsData} from './use-professor-ratings-data'
 export {default as useProfessorSignup} from './use-professor-signup'
 
 export {default as useCopyToClipBoard} from './use-copy-to-clipboard'
+export {default as useInfiniteScroll} from './use-infinite-scroll'

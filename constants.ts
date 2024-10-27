@@ -163,4 +163,7 @@ export const FOOTER_SOCIAL_LINKS = [
 ]
 // export const FOOTER_COPYRIGHT_TEXT = `© 2024 ${SITE_NAME}, LLC. All Rights Reserved`
 
+/* ============================================= API URLS ============================== */
+export const SCHOOL_SEARCH_API =   `${API_BASE_URL}/api/search/schools/`
+
 
