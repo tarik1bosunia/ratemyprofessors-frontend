@@ -12,10 +12,12 @@ type UsePaginationProps<T> = {
 };
 
 interface UsePaginationReturn<T> {
+  totalCount: number;
   results: T[];
   isLoading: boolean;
   isError: boolean;
   isFetching: boolean;
+
 
   // pagination
   pageNumber: number,
@@ -37,8 +39,9 @@ export default function usePagination<T>({apiUrl, query = "", pageSize = 10, fet
   const [hasMore, setHasMore] = useState(false);
   
   // data featching
-  const { data, isLoading, isError, isFetching } = fetchFunction({url: `${apiUrl}?page=${pageNumber}&page_size=${pageSize}&q=${query}`});
+  const {data, isLoading, isError, isFetching } = fetchFunction({url: `${apiUrl}?page=${pageNumber}&page_size=${pageSize}&q=${query}`});
   const [results, setResults] = useState<T[]>([]);
+  const [totalCount, setTotalCount] = useState(0);
   
 
   // Clear results when query changes
@@ -52,8 +55,9 @@ export default function usePagination<T>({apiUrl, query = "", pageSize = 10, fet
     if (data?.results) {
       setResults((prevResults) => Array.from(new Set([...prevResults, ...data.results])));
       setHasMore(!!data.next);
+      setTotalCount(data.count);
     }
-  }, [data?.results, data?.next]);
+  }, [data?.results, data?.next, data?.count]);
 
   // use infinite scrool 
   const lastSchoolElementRef = useInfiniteScroll({
@@ -64,6 +68,7 @@ export default function usePagination<T>({apiUrl, query = "", pageSize = 10, fet
   });
 
   return {
+    totalCount,
     results,
     isLoading,
     isError,

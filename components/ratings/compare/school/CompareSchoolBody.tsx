@@ -110,7 +110,7 @@ export default function CompareSchoolBody({ id1, id2 }: Props) {
     },
   ];
 
-  console.log(averageRatings1)
+  // console.log(averageRatings1)
 
   const handdleChangeSchoolButtonClick = ()=> {
     router.push(`/compare/schools/${id1}`)

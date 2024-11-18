@@ -9,6 +9,7 @@ import { SCHOOL_SEARCH_API } from "@/constants";
 export default function SchoolSearch({ query }: { query: string }) {
 
   const { 
+    totalCount,
     results: schools,
     isLoading,
     isError,
@@ -19,7 +20,7 @@ export default function SchoolSearch({ query }: { query: string }) {
     fetchFunction: useSearchSchoolsQuery,
   });
   
-  console.log(schools);
+console.log(schools)
 
 
     // Use the search query with the current search term and page
@@ -32,18 +33,18 @@ export default function SchoolSearch({ query }: { query: string }) {
 
 
   return (
-    <>
+
     <SearchResults<School>
       query={query}
-      context={{ data: schools, count:  10}}
       isLoading={isLoading}
+      data= {schools}
+      totalCount={totalCount}
       error={isError}
       entityName="schools"
       noResultsMessage={<NotFoundShoolMessage query={query}/>}
       renderItem={(school: School) => (<SchoolRow school={school}/>)}
       lastSchoolElementRef = {lastSchoolElementRef}
     />
-    </>
   );
 }
 

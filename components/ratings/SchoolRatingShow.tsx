@@ -39,6 +39,7 @@ export default function SchoolRatingShow() {
         internet={internet}
         social={social}
         food={food}
+        overallQuality={overallQuality}
       />
       <RatingShow ratings={schoolRatings} />
     </>

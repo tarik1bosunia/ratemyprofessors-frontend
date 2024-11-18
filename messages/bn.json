@@ -1,7 +1,10 @@
 {
   "SEARCH": {
     "SCHOOL_VIEW": "স্কুল",
-    "PROFESSOR_VIEW": "প্রফেসর"
+    "PROFESSOR_VIEW": "প্রফেসর",
+    "WithQueryInName": "<strong>{query}</strong> দিয়ে {totalCount} টি {entityName} পাওয়া গেছে",
+    "school": "স্কুল",
+    "teacher": "শিক্ষক"
   },
   "Navigation": {
     "AUTH_MENU_NAME": "আমার অ্যাকাউন্ট",

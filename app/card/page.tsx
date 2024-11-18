@@ -19,7 +19,6 @@ export default function SchoolSearchPage() {
     fetchFunction: useSearchSchoolsQuery,
   });
   
-  console.log(schools);
 
   function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
     setQuery(e.target.value);

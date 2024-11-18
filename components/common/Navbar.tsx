@@ -19,7 +19,7 @@ export default function Navbar(){
 
   return (
     <>
-    <header className="transition-all duration-200 ease-in top-0 left-0 fixed shadow-[0px_4px_12px_rgba(37,38,94,.06)] w-screen z-10 bg-white dark:bg-black">
+    <header className="transition-all duration-200 ease-in top-0 left-0 fixed shadow-[0px_4px_12px_rgba(37,38,94,.06)] w-screen z-20 bg-white dark:bg-black">
       <nav className="flex w-full items-center h-12">
         <div className="flex-1 relative w-full xl:max-w-[1172px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px] mx-auto px-2 md:px-4">
           
@@ -48,7 +48,8 @@ export default function Navbar(){
                   src={logo}
                   width={250}
                   // height={40}
-                  alt="rmp"
+                  alt="rt"
+                  priority
                 />
               </a>
 

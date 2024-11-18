@@ -29,6 +29,7 @@ type AverageRatingsProps = {
   internet: number | string;
   social: number | string;
   food: number | string;
+  overallQuality: number | string;
 };
 
 export default function AverageRatings({
@@ -42,6 +43,7 @@ export default function AverageRatings({
   internet,
   social,
   food,
+  overallQuality
 }: AverageRatingsProps) {
   const ratings: RatingType[] = [
     {
@@ -102,7 +104,7 @@ export default function AverageRatings({
         <div className="flex justify-center items-center h-full">
           <div className="flex flex-col">
             <div className="text-[80px] leading-[80px] mb-[2px] font-poppins font-black">
-              3.4
+              {overallQuality}
             </div>
             <div className="text-[#7e7e7e] text-sm font-medium leading-[17px]">
               Overall Quality

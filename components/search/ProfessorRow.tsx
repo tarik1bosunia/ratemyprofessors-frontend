@@ -1,5 +1,5 @@
 import { Professor } from "@/types";
-import Link from "next/link";
+
 
 interface Props {
   professor: Professor;

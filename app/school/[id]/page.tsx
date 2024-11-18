@@ -1,6 +1,8 @@
+'use client'
 import Link from "next/link";
 
 import { SchoolRatingShow } from "@/components/ratings";
+import { useGetSchoolQuery } from "@/redux/services/apiSlice";
 
 interface Props {
   params: {
@@ -9,10 +11,23 @@ interface Props {
 }
 
 export default function Page({ params: { id } }: Props) {
+
+  const {data: school, isError, isLoading} = useGetSchoolQuery(id);
+  if(isLoading){
+    return <div>
+      loading...
+    </div>
+  }
+  if(isError){
+    return <div>
+      error!!!!
+    </div>
+  }
+  
   return (
     <div className="flex flex-col bg-white text-black">
       <header
-        className="bg-white h-auto p-6 sticky top-16 w-full z-[60000]"
+        className="bg-white h-auto p-6 sticky top-12 w-full z-10"
         style={{ boxShadow: "rgba(126, 126, 126, 0.25) 0px 4px 4px" }}
       >
         <div className="my-0 mx-auto max-w-[1280px] flex justify-between transition-all duration-300 ease-in-out">
@@ -24,7 +39,7 @@ export default function Page({ params: { id } }: Props) {
               </span>
               <div className="flex items-center flex-row text-4xl leading-9 pb-0.5 text-left font-poppins font-black">
                 <span>
-                  Southcentral Kentucky Community and Technical College
+                  {school?.location}
                 </span>
                 <div className="flex"></div>
               </div>

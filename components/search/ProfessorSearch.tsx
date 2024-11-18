@@ -1,7 +1,6 @@
 import { useSearchProfessorsQuery } from "@/redux/services/apiSlice";
-import { Professor, School } from "@/types";
+import { Professor} from "@/types";
 import SearchResults from "./SearchResults";
-import SchoolRow from "./SchoolRow";
 import NotFoundShoolMessage from "./NotFoundSchoolMessage";
 import { usePagination } from "@/hooks/pagination";
 import { PROFESSOR_SEARCH_API } from "@/constants";
@@ -10,6 +9,7 @@ import ProfessorRow from "./ProfessorRow";
 export default function ProfessorSearch({ query }: { query: string }) {
 
   const { 
+    totalCount,
     results: professors,
     isLoading,
     isError,
@@ -24,10 +24,11 @@ export default function ProfessorSearch({ query }: { query: string }) {
 
 
   return (
-    <>
+
     <SearchResults<Professor>
       query={query}
-      context={{ data: professors, count:  10}}
+      data={professors}
+      totalCount={totalCount}
       isLoading={isLoading}
       error={isError}
       entityName="professors"
@@ -35,7 +36,6 @@ export default function ProfessorSearch({ query }: { query: string }) {
       renderItem={(professor: Professor) => (<ProfessorRow professor={professor}/>)}
       lastSchoolElementRef = {lastSchoolElementRef}
     />
-    </>
   );
 }
 

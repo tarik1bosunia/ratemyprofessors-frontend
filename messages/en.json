@@ -1,7 +1,8 @@
 {
   "SEARCH": {
     "SCHOOL_VIEW" : "Schools",
-    "PROFESSOR_VIEW" : "Professors"
+    "PROFESSOR_VIEW" : "Professors",
+    "WithQueryInName": "{totalCount} {entityName} were found with <strong> {query} </strong>"
   },
   
   "Navigation": {

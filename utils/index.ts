@@ -7,3 +7,6 @@ export function capitalizeFirstLetter(str: string) {
     if (!str) return ''; // Add this check;
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+export {default as translateNumberToBangla} from './translateNumberToBangla'
+export {default as translateEntityName} from './translateEntityName'

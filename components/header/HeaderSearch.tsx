@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PiCaretDownLight } from "react-icons/pi";
 import { CiApple } from "react-icons/ci";
 import { RiGraduationCapLine } from "react-icons/ri";
 
-import { useParams, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 
 import { useTranslations } from "next-intl";
 import { SearchType } from "@/types";
@@ -14,12 +14,14 @@ type Props = {
 }
 
 const HeaderSearch = ({isSearchSmallScreen=false}:Props) => {
-
+  const pathname = usePathname();
 
   const t = useTranslations("SEARCH");
-  const { searchtype: search_type } = useParams<{ searchtype: string }>();
-  const [search, setSearch] = useState<SearchType>(search_type as SearchType);
-  // console.log("search:: ", search);
+  const { searchtype } = useParams<{ searchtype: string }>();
+  // const [search, setSearch] = useState<SearchType>(search_type as SearchType);
+  const [search, setSearch] = useState<SearchType>("schools")
+
+  console.log("search:: ", search);
   const router = useRouter();
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -42,12 +44,24 @@ const HeaderSearch = ({isSearchSmallScreen=false}:Props) => {
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    let searchtype;
-    search === "schools" ? searchtype = 'schools' : searchtype = 'professors'
+    const searchType = search === "schools" ? "schools" : "professors";
     if (searchQuery.trim()) {
-      router.push(`/search/${searchtype}?q=${encodeURIComponent(searchQuery)}`);
+      router.push(`/search/${searchType}?q=${encodeURIComponent(searchQuery)}`);
     }
   };
+
+  useEffect(() => {
+    // Determine the initial `search` type based on route
+    if (searchtype) {
+      setSearch(searchtype as SearchType);
+    } else if (pathname.includes("/school")) {
+      console.log('now in /school path')
+      setSearch("schools");
+    } else if (pathname.includes("/professor")) {
+      setSearch("professors");
+    }
+
+  }, [searchtype, pathname]);
 
   return (
     <div className={`${isSearchSmallScreen ? 'block': 'hidden'} md:block`}>
@@ -111,19 +125,23 @@ const HeaderSearch = ({isSearchSmallScreen=false}:Props) => {
           aria-label="search"
           placeholder="Professor Name"
           className="text-[16px] leading-[24px] py-[8px] pl-[40px] pr-[20px] w-full border border-gray-300 dark:border-gray-600 rounded-[43px] text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-white bg-white dark:bg-gray-700 focus:ring-2 focus:ring-customBlue dark:focus:ring-customBrightBlue transition-shadow shadow-sm focus:shadow-lg"
-          value=""
-          onChange={() => {}}
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
       )}
+      {
+        search === "schools" && (
+          <input
+          type="text"
+          aria-label="search"
+          placeholder="School"
+          className="text-[16px] leading-[24px] py-[8px] pl-[40px] pr-[20px] w-full border border-gray-300 dark:border-gray-600 rounded-[43px] text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-100 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-customBlue dark:focus:ring-customBrightBlue transition-shadow shadow-sm focus:shadow-lg"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        )
+      }
 
-      <input
-        type="text"
-        aria-label="search"
-        placeholder="School"
-        className="text-[16px] leading-[24px] py-[8px] pl-[40px] pr-[20px] w-full border border-gray-300 dark:border-gray-600 rounded-[43px] text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-100 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-customBlue dark:focus:ring-customBrightBlue transition-shadow shadow-sm focus:shadow-lg"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
     </div>
   </div>
 </form>

@@ -131,6 +131,7 @@ export const useFooterTranslatedData = () => {
         },
     ]
 
+    
     const FOOTER_COPYRIGHT_TEXT = t('FOOTER_COPYRIGHT_TEXT', {SITE_NAME: `${SITE_NAME}`})
   
     return {
