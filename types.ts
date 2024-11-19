@@ -91,4 +91,17 @@ export interface ProssorRatingType {
   comment: string;
   created_at: string
 }
+
+export type AverageSchoolRatingsType = {
+  safety: number,
+  oppputunites: number,
+  location: number,
+  facilities: number,
+  happiness: number,
+  reputation: number,
+  clubs: number,
+  internet: number,
+  social: number,
+  food: number,
+}
   

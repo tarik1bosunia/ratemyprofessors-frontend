@@ -6,11 +6,16 @@ import { LuThumbsUp, LuThumbsDown, LuFlag } from "react-icons/lu";
 
 
 import { SchoolRatingsType } from "@/types";
+import Link from "next/link";
 
 type RatingType = {
   title: string;
   rating: number;
-};
+};       
+interface Props{
+  rating: SchoolRatingsType,
+  lastSchoolElementRef: (node: HTMLDivElement) => void;                                                       
+}
 
 export default function SchoolRating(rating: SchoolRatingsType) {
   const [isHoveredThumbsUp, setIsHoveredThumbsUp] = useState(false);
@@ -19,7 +24,7 @@ export default function SchoolRating(rating: SchoolRatingsType) {
   const ratings: RatingType[] = [
     {
       title: "Safety",
-      rating: rating.safety,
+      rating:  rating.safety,
     },
     {
       title: "Oppputunites",
@@ -75,117 +80,117 @@ export default function SchoolRating(rating: SchoolRatingsType) {
   };
 
   return (
-    <li className="">
-      <div className="bg-gray-100 flex flex-col my-4 min-w-[343px] w-full">
-        <div className="flex flex-row p-[20px_24px_32px]">
-          <div className="flex flex-col text-sm p-[10px_26px_0px_0px] font-semibold">
-            <div className="mb-2">Overall</div>
-            <div className="bg-[#ff9c9c] leading-[40px] min-h-[72px] min-w-[44px] py-4 w-[72px] text-2xl font-extrabold text-center">
-              {rating.id}
-            </div>
-          </div>
-          <div className="flex flex-col ml-4 w-full">
-            <div className="flex flex-row justify-end items-center">
-              <div className="pb-0 font-bold">Jun 23rd, 2024</div>
-            </div>
-            <div className="text-sm font-normal mt-5 text-left">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-              inventore quisquam maiores ab, in expedita aliquam illum illo iure
-              ratione deserunt! Dolores, fugit iste! Eveniet maiores quos magnam
-              autem libero.
-            </div>
-
-            <div>
-              <div
-                className="flex flex-col flex-wrap h-[190px] justify-between mt-4 pr-9 w-full"
-                style={{ columnGap: "10%" }}
-              >
-                {ratings.map((rate, index1) => (
-                  <div
-                    key={index1}
-                    className="inline-flex justify-between items-center h-[30px] mt-2 w-[45%]"
-                  >
-                    <div className="text-sm font-semibold leading-4 mr-[5px]">
-                      {rate.title}
-                    </div>
-                    <div className="flex flex-row justify-center">
-                      {ratingDegree.map((ratingD, index) => (
-                        <div
-                          
-                          key={index}
-                          className={`${getBgColor(
-                            rate.rating,
-                            index
-                          )} h-[18px] w-8 opacity-50 touch-none transition-all duration-200 ease-in-out ${
-                            index == 0 && "rounded-l-[20px]"
-                          } ${
-                            index == ratingDegree.length - 1 &&
-                            "rounded-r-[20px]"
-                          } 
-                             ${
-                            index != ratingDegree.length - 1 &&
-                            "border-r-2 border-white border-solid"
-                          }
-                            
-                          `}
-                           
-                           
-                        ></div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+      <Link href={"#"}>
+        <div className="bg-gray-100 flex flex-col my-4 min-w-[343px] w-full">
+          <div className="flex flex-row p-[20px_24px_32px]">
+            <div className="flex flex-col text-sm p-[10px_26px_0px_0px] font-semibold">
+              <div className="mb-2">Overall</div>
+              <div className="bg-[#ff9c9c] leading-[40px] min-h-[72px] min-w-[44px] py-4 w-[72px] text-2xl font-extrabold text-center">
+                {rating.id}
               </div>
             </div>
+            <div className="flex flex-col ml-4 w-full">
+              <div className="flex flex-row justify-end items-center">
+                <div className="pb-0 font-bold">Jun 23rd, 2024</div>
+              </div>
+              <div className="text-sm font-normal mt-5 text-left">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+                inventore quisquam maiores ab, in expedita aliquam illum illo iure
+                ratione deserunt! Dolores, fugit iste! Eveniet maiores quos magnam
+                autem libero.
+              </div>
 
-            <div className="flex justify-between mt-9">
-              <div className="flex items-center">
-                <div className="thumbs_up flex flex-row mr-4 font-bold">
-                  <div
-                    className={`${styles.tooltipContainer} flex items-center cursor-default `}
-                  >
-                    <div className="mr-[5px] text-black"> helpful </div>
-                    <LuThumbsUp
-                      onMouseEnter={() => setIsHoveredThumbsUp(true)}
-                      onMouseLeave={() => setIsHoveredThumbsUp(false)}
-                      className={`${styles.hoverTextThumbsUp}  h-[22px] mr-[5px]`}
-                    />
-                    {isHoveredThumbsUp && (
-                      <div className={styles.tooltipText}>Helpful</div>
-                    )}
-                  </div>
-                </div>
-                <div className="thumbs_down flex flex-row mr-4 font-bold">
-                  <div className="flex items-center cursor-default">
+              <div>
+                <div
+                  className="flex flex-col flex-wrap h-[190px] justify-between mt-4 pr-9 w-full"
+                  style={{ columnGap: "10%" }}
+                >
+                  {ratings.map((rate, index1) => (
                     <div
-                      className={`${styles.tooltipContainer} text-white mr-[5px]`}
+                      key={index1}
+                      className="inline-flex justify-between items-center h-[30px] mt-2 w-[45%]"
                     >
-                      <LuThumbsDown
-                        onMouseEnter={() => setIsHoveredThumbsDown(true)}
-                        onMouseLeave={() => setIsHoveredThumbsDown(false)}
-                        className={`${styles.hoverText} text-black transition-colors duration-200 hover:text-red-500`}
+                      <div className="text-sm font-semibold leading-4 mr-[5px]">
+                        {rate.title}
+                      </div>
+                      <div className="flex flex-row justify-center">
+                        {ratingDegree.map((ratingD, index) => (
+                          <div
+                            
+                            key={index}
+                            className={`${getBgColor(
+                              rate.rating,
+                              index
+                            )} h-[18px] w-8 opacity-50 touch-none transition-all duration-200 ease-in-out ${
+                              index == 0 && "rounded-l-[20px]"
+                            } ${
+                              index == ratingDegree.length - 1 &&
+                              "rounded-r-[20px]"
+                            } 
+                              ${
+                              index != ratingDegree.length - 1 &&
+                              "border-r-2 border-white border-solid"
+                            }
+                              
+                            `}
+                            
+                            
+                          ></div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex justify-between mt-9">
+                <div className="flex items-center">
+                  <div className="thumbs_up flex flex-row mr-4 font-bold">
+                    <div
+                      className={`${styles.tooltipContainer} flex items-center cursor-default `}
+                    >
+                      <div className="mr-[5px] text-black"> helpful </div>
+                      <LuThumbsUp
+                        onMouseEnter={() => setIsHoveredThumbsUp(true)}
+                        onMouseLeave={() => setIsHoveredThumbsUp(false)}
+                        className={`${styles.hoverTextThumbsUp}  h-[22px] mr-[5px]`}
                       />
-                      {isHoveredThumbsDown && (
-                        <div className={styles.tooltipText}>Not Helpful</div>
+                      {isHoveredThumbsUp && (
+                        <div className={styles.tooltipText}>Helpful</div>
                       )}
                     </div>
                   </div>
+                  <div className="thumbs_down flex flex-row mr-4 font-bold">
+                    <div className="flex items-center cursor-default">
+                      <div
+                        className={`${styles.tooltipContainer} text-white mr-[5px]`}
+                      >
+                        <LuThumbsDown
+                          onMouseEnter={() => setIsHoveredThumbsDown(true)}
+                          onMouseLeave={() => setIsHoveredThumbsDown(false)}
+                          className={`${styles.hoverText} text-black transition-colors duration-200 hover:text-red-500`}
+                        />
+                        {isHoveredThumbsDown && (
+                          <div className={styles.tooltipText}>Not Helpful</div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <Link
+                  className="cursor-pointer no-underline"
+                  data-tooltip="true"
+                  data-tip="Report this rating"
+                  href="/flag/school-rating/335/500811"
+                >
+                  <div className="flex items-center">
+                    <LuFlag />
+                  </div>
+                </Link>
               </div>
-              <a
-                className="cursor-pointer no-underline"
-                data-tooltip="true"
-                data-tip="Report this rating"
-                href="/flag/school-rating/335/500811"
-              >
-                <div className="flex items-center">
-                  <LuFlag />
-                </div>
-              </a>
             </div>
           </div>
         </div>
-      </div>
-    </li>
+      </Link>
   );
 }

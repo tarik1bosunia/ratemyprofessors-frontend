@@ -40,7 +40,7 @@ console.log(schools)
       data= {schools}
       totalCount={totalCount}
       error={isError}
-      entityName="schools"
+      entityName="school"
       noResultsMessage={<NotFoundShoolMessage query={query}/>}
       renderItem={(school: School) => (<SchoolRow school={school}/>)}
       lastSchoolElementRef = {lastSchoolElementRef}

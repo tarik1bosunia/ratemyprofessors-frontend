@@ -1,11 +1,13 @@
 "use client";
 
-import { useGetSchoolRatingsQuery } from "@/redux/services/apiSlice";
-import { SchoolRatingsType } from "@/types";
-import { useEffect, useState } from "react";
+import { useGetSchoolRatingsQuery, useGetAverageSchoolRatingsQuery } from "@/redux/services/apiSlice";
+import { AverageSchoolRatingsType, SchoolRatingsType } from "@/types";
+import {useEffect, useState } from "react";
+import usePagination from "./pagination/usePagination";
+import { SCHOOL_RATINGS_API } from "@/constants";
 
 // Helper function to calculate overall quality
-const calculateOverallQuality = (ratings: SchoolRatingsType): number => {
+const calculateOverallQuality = (ratings: AverageSchoolRatingsType): number => {
     const total =
       (ratings.safety || 0) +
       (ratings.oppputunites || 0) +
@@ -22,61 +24,29 @@ const calculateOverallQuality = (ratings: SchoolRatingsType): number => {
     return total / 10;
   };
 
-// Helper function to calculate average ratings from the data
-const calculateAverageRating = (schoolRatings: SchoolRatingsType[]): SchoolRatingsType => {
-  if (!schoolRatings.length) {
-    return {
-      id: 0,
-      safety: 0,
-      oppputunites: 0,
-      location: 0,
-      facilities: 0,
-      happiness: 0,
-      reputation: 0,
-      clubs: 0,
-      internet: 0,
-      social: 0,
-      food: 0,
-      comment: '',
-      created_at: '',
-      user: 0,
-    };
-  }
 
-  // For simplicity, return the first rating (this can be expanded to compute averages of multiple ratings)
-  return schoolRatings[0];
-};
 
-export default function useShowSchoolRatings(id: number) {
-  const [averageRatings, setAverageRatings] = useState<SchoolRatingsType>({
-    id: 0,
-    safety: 0,
-    oppputunites: 0,
-    location: 0,
-    facilities: 0,
-    happiness: 0,
-    reputation: 0,
-    clubs: 0,
-    internet: 0,
-    social: 0,
-    food: 0,
-    comment: '',
-    created_at: '',
-    user: 0,
-  });
+export default function useShowSchoolRatings(id: string | number) {
 
   const [overallQuality, setOverallQuality] = useState<number | "N/A">("N/A");
 
-  // Fetch school ratings using RTK Query
-  const { data: schoolRatings = [], isLoading: schoolRatingsIsLoading } = useGetSchoolRatingsQuery(id);
 
-  // Update average ratings when data is loaded
-  useEffect(() => {
-    if (schoolRatings.length > 0) {
-      const average = calculateAverageRating(schoolRatings);
-      setAverageRatings(average);
-    }
-  }, [schoolRatings]);
+  const { 
+    totalCount,
+    results: schoolRatings,
+    isLoading,
+    isError,
+    lastSchoolElementRef 
+  } = usePagination<SchoolRatingsType>({
+    apiUrl:  `${SCHOOL_RATINGS_API}${id}/`,
+    fetchFunction: useGetSchoolRatingsQuery,
+  });
+
+  const {data: averageRatings, isLoading: averageRatingsIsloading, isError: averageRatingError} = useGetAverageSchoolRatingsQuery(id);
+
+  console.log("schoolRatings", schoolRatings)
+  console.log("averageRatings", averageRatings)
+
 
   // Calculate the overall quality when average ratings change
   useEffect(() => {
@@ -90,6 +60,6 @@ export default function useShowSchoolRatings(id: number) {
     averageRatings,
     overallQuality,
     schoolRatings,
-    isLoading: schoolRatingsIsLoading,
+    isLoading,
   };
 }

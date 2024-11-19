@@ -29,7 +29,7 @@ interface UsePaginationReturn<T> {
   lastSchoolElementRef: (node: HTMLDivElement) => void
 }
 
-export default function usePagination<T>({apiUrl, query = "", pageSize = 10, fetchFunction }: UsePaginationProps<T>) : UsePaginationReturn<T>{
+export default function usePagination<T>({apiUrl, query = "", pageSize = 5, fetchFunction }: UsePaginationProps<T>) : UsePaginationReturn<T>{
   
   // pagination
   const initialPage = 1

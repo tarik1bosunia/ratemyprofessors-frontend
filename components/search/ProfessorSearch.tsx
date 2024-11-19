@@ -31,7 +31,7 @@ export default function ProfessorSearch({ query }: { query: string }) {
       totalCount={totalCount}
       isLoading={isLoading}
       error={isError}
-      entityName="professors"
+      entityName="professor"
       noResultsMessage={<NotFoundShoolMessage query={query}/>}
       renderItem={(professor: Professor) => (<ProfessorRow professor={professor}/>)}
       lastSchoolElementRef = {lastSchoolElementRef}

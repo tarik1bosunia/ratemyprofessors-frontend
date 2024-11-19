@@ -1,4 +1,4 @@
-import { Country, State, Department, ProfessorsTag, SchoolRatingsType, UsrProfileType } from "@/types";
+import { Country, State, Department, ProfessorsTag, SchoolRatingsType, UsrProfileType, AverageSchoolRatingsType } from "@/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type {
   BaseQueryFn,
@@ -75,13 +75,32 @@ interface SearchProfessorApiResponse {
   results: Professor[];
 }
 
+interface SchoolRatingsApiResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: SchoolRatingsType[];
+}
+
+interface ProfessorRatingsApiResponse{
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Rating[];
+}
+
 // Define a type for the search parameters
 type SearchQuery = 
   | { q: string; page: number; pageSize: number }  // Search parameters
   | { url: string };   
 
 
-// create a new mutex
+type RatingsQuery = 
+  | { id: string; page: number; pageSize: number }  // pagination parameters
+  | { url: string };  
+
+
+  // create a new mutex
 const mutex = new Mutex();
 const baseQuery = fetchBaseQuery({
   baseUrl: `${API_BASE_URL}/api`,
@@ -221,17 +240,30 @@ export const apiSlice = createApi({
       }
     }),
 
-    getSchoolRatings: builder.query<SchoolRatingsType[], number>({
-      query: (school_id) => `/ratings/school-rating/${school_id}`,
-    }),
+
+
     retrieveUser: builder.query<UsrProfileType, void>({
       query: () => "/user/profile/",
-      
     }),
 
     getProfessorRatings: builder.query<ProfessorRatingsType, string>({
       query: (id) => `ratings/professors/${id}/`,
   }),
+
+
+ProfessorRatings: builder.query<ProfessorRatingsApiResponse, RatingsQuery>({
+  query: (queryParams) => {
+    if ('url' in queryParams) {
+      // Handle the case when a full URL is provided
+      // http://localhost:8000/api/ratings/professors/1/ratings/?page=1&q=HI101
+      return queryParams.url;
+    } else {
+      // Handle the case when search parameters are provided
+      const { id: professor_id, page, pageSize} = queryParams;
+      return `ratings/professors/${professor_id}/ratings&page=${page}&page_size=${pageSize}`;
+    }
+  }
+}),
 
   // http://localhost:8000/api/ratings/schools/1
 
@@ -239,6 +271,30 @@ export const apiSlice = createApi({
       query: (id) => `ratings/schools/${id}/`,
   }),
 
+  getAverageSchoolRatings: builder.query<AverageSchoolRatingsType, string | number>({
+    query: (id) => `/ratings/average-ratings-school/${id}/`,
+  }),
+
+  // getSchoolRatings: builder.query<SchoolRatingsType[], number>({
+  //   query: (school_id) => `/ratings/school-rating/${school_id}`,
+  // }),
+
+  getSchoolRatings: builder.query<SchoolRatingsApiResponse, RatingsQuery>({
+    query: (queryParams) => {
+      if ('url' in queryParams) {
+        // Handle the case when a full URL is provided
+        return queryParams.url;
+      } else {
+        // Handle the case when search parameters are provided
+        const { id: school_id, page, pageSize } = queryParams;
+        return `/ratings/school-rating/${school_id}&page=${page}&page_size=${pageSize}`;
+      }
+    }
+  }),
+
+  getCourseCodesByProfessor: builder.query<string[], string>({
+    query: (professorId) => `/ratings/professors/${professorId}/course_codes/`,
+  }),
 
 
   }),
@@ -255,4 +311,7 @@ export const {
   useRetrieveUserQuery,
   useGetProfessorRatingsQuery,
   useGetSchoolQuery,
+  useGetAverageSchoolRatingsQuery,
+  useProfessorRatingsQuery,
+  useGetCourseCodesByProfessorQuery
 } = apiSlice;

@@ -23,6 +23,8 @@ export default function Page({ params: { id } }: Props) {
       error!!!!
     </div>
   }
+
+
   
   return (
     <div className="flex flex-col bg-white text-black">

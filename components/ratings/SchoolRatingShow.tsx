@@ -3,14 +3,18 @@
 import useShowSchoolRatings from "@/hooks/use-show-school-ratings";
 import AverageRatings from "./AverageRatings";
 import RatingShow from "./RatingShow";
+import { useParams } from "next/navigation";
 
 export default function SchoolRatingShow() {
+  const { id: school_id } = useParams<{ id: string }>();
+
   const {
     averageRatings,
     schoolRatings,
     overallQuality,
-  } = useShowSchoolRatings(1); 
+  } = useShowSchoolRatings(school_id); 
   // console.log("school ratings aveageRatings.tsx: ", schoolRatings);
+  console.log(schoolRatings)
 
   
   const {

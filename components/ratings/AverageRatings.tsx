@@ -10,8 +10,6 @@ import InternetIcon from "@/public/icons/ratings/internet_icon.svg";
 import SocialIcon from "@/public/icons/ratings/social_icon.svg";
 import FoodIcon from "@/public/icons/ratings/food_icon.svg";
 import AverageRating from "./AverageRating";
-import useShowSchoolRatings from "@/hooks/use-show-school-ratings";
-import SchoolRating from "./SchoolRating";
 
 type RatingType = {
   icon: string;
@@ -104,7 +102,7 @@ export default function AverageRatings({
         <div className="flex justify-center items-center h-full">
           <div className="flex flex-col">
             <div className="text-[80px] leading-[80px] mb-[2px] font-poppins font-black">
-              {overallQuality}
+              {Number(overallQuality).toFixed(1)}
             </div>
             <div className="text-[#7e7e7e] text-sm font-medium leading-[17px]">
               Overall Quality
