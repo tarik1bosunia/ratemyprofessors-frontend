@@ -1,12 +1,11 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { ProssorRatingType } from "@/types";
 
 interface Props {
-  ratings: ProssorRatingType[];
+  ratingCounts: number[];
 }
 
-export default function RatingChart({ ratings }: Props) {
+export default function RatingChart({ ratingCounts = [0, 0, 0, 0, 0] }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -14,25 +13,17 @@ export default function RatingChart({ ratings }: Props) {
     if (canvas) {
       const ctx = canvas.getContext("2d");
 
-      const ratingCounts = [0, 0, 0, 0, 0];
-
-      ratings.forEach((rating) => {
-        if (rating.rating >= 1 && rating.rating <= 5) {
-          ratingCounts[rating.rating - 1]++;
-        }
-      });
-
       if (ctx) {
         // Sample data for the chart
         const data = [
-          { label: "Awesome", count: ratingCounts[4], color: "#0055fd" },
-          { label: "Great", count: ratingCounts[3], color: "#0055fd" },
-          { label: "Good", count: ratingCounts[2], color: "#0055fd" },
-          { label: "OK", count: ratingCounts[1], color: "#0055fd" },
-          { label: "Awful", count: ratingCounts[0], color: "#0055fd" },
+          { label: "Awesome", count: ratingCounts[4] || 0, color: "#0055fd" },
+          { label: "Great", count: ratingCounts[3] || 0, color: "#0055fd" },
+          { label: "Good", count: ratingCounts[2] || 0, color: "#0055fd" },
+          { label: "OK", count: ratingCounts[1] || 0, color: "#0055fd" },
+          { label: "Awful", count: ratingCounts[0] || 0, color: "#0055fd" },
         ];
 
-        const maxCount = Math.max(...data.map((item) => item.count));
+        const maxCount = Math.max(...data.map((item) => item.count)) || 1;
 
         // Set canvas dimensions (optional, as per div size)
         canvas.width = 512; // Match div width
@@ -93,7 +84,7 @@ export default function RatingChart({ ratings }: Props) {
         requestAnimationFrame(animateBars);
       }
     }
-  }, [ratings]);
+  }, [ratingCounts]);
 
   return (
     <div className="bg-[#f7f7f7] h-auto mb-[24px] w-full max-w-[180px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] ransition-[max-width] duration-300 ease-in-out">

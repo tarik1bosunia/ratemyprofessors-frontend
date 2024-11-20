@@ -1,4 +1,4 @@
-import { Country, State, Department, ProfessorsTag, SchoolRatingsType, UsrProfileType, AverageSchoolRatingsType } from "@/types";
+import { Country, State, Department, ProfessorsTag, SchoolRatingsType, UsrProfileType, AverageSchoolRatingsType, ProfessorDetailsType } from "@/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type {
   BaseQueryFn,
@@ -13,16 +13,6 @@ import {API_BASE_URL} from "@/constants"
 import { School } from "@/types";
 
 
-// types for professor view page
-type Tag = {
-  tags__tag: string;
-  tag_count: number;
-};
-
-type RatingCount = {
-  rating: number;
-  count: number;
-};
 
 type Rating = {
   professor: number;
@@ -48,17 +38,6 @@ interface Professor {
   department: number;
   directory_listing_of_professor: string;
 }
-
-type ProfessorRatingsType = {
-  ratings: Rating[];
-  total_ratings_count: number;
-  take_again_count: number;
-  avg_difficulty: number;
-  top_tags: Tag[];
-  rating_counts: RatingCount[];
-  professor: Professor
-};
-
 
 
 interface SearchSchoolsApiResponse {
@@ -246,7 +225,7 @@ export const apiSlice = createApi({
       query: () => "/user/profile/",
     }),
 
-    getProfessorRatings: builder.query<ProfessorRatingsType, string>({
+    getProfessorRatings: builder.query<ProfessorDetailsType, string>({
       query: (id) => `ratings/professors/${id}/`,
   }),
 

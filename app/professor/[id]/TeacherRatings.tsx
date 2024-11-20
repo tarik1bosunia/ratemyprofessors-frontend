@@ -1,15 +1,15 @@
 import { ProssorRatingType } from "@/types";
 import {RatingChart} from "@/components/ratings";
 
-interface Props{
-    ratings: ProssorRatingType[]
+interface Props {
+    ratingCounts: number[];
   }
 
-export default function TeacherRatings({ ratings }: Props)
+export default function TeacherRatings({ ratingCounts }: Props)
 {
     return (
         <div className="flex flex-[1_0_60%] flex-col pr-[22px]">
-            <RatingChart ratings={ratings}/>
+            <RatingChart ratingCounts={ratingCounts}/>
        
             <div className="mt-4">
                 <h3 className="text-base font-semibold pb-2.5 text-left">

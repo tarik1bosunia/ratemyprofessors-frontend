@@ -2,21 +2,13 @@ import { FaArrowDown } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa";
 import { useProfessorRatingsData } from "@/hooks";
+import { Professor } from "@/types";
 
 interface Tag {
   tags__tag: string;
   tag_count: number;
 }
 
-interface Professor {
-  id: number;
-  name_of_school: string;
-  first_name: string;
-  middle_name: string;
-  last_name: string;
-  department: number;
-  directory_listing_of_professor: string;
-}
 
 
 interface Props{
@@ -74,7 +66,7 @@ export default function TeacherInfo({take_again_percentage=0, avg_difficulty=0, 
             >
               {" "}
               &nbsp;
-              <b>{professor.department} department</b>
+              <b>{professor.department.toString()} department</b>
             </a>{" "}
             &nbsp; at &nbsp;
           </span>

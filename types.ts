@@ -104,4 +104,38 @@ export type AverageSchoolRatingsType = {
   social: number,
   food: number,
 }
+
+// types for professor view page
+type Tag = {
+  tags__tag: string;
+  tag_count: number;
+};
+
+type RatingCount = {
+  rating: number;
+  count: number;
+};
+
+export interface CreditCounts {
+  for_credit: number;
+  not_for_credit: number;
+  none: number;
+}
+
+export interface AttendenceCounts {
+  mandatory: number;
+  not_mandatory: number;
+  none: number;
+}
+
+export type ProfessorDetailsType = {
+  professor: Professor
+  total_ratings_count: number;
+  take_again_percentage: number;
+  avg_difficulty: number;
+  top_tags: Tag[];
+  rating_counts: RatingCount[];
+  attendance_counts: AttendenceCounts;
+  credit_counts: CreditCounts;
+};
   

@@ -1,8 +1,8 @@
-import { useProfessorRatingsData } from "@/hooks";
 import { RxCross2 } from "react-icons/rx";
 import RatingChart from "../RatingChart";
 import { useRouter } from "next/navigation";
 import { CustomPieChart } from "@/components/customcharts";
+import { useGetProfessorRatingsQuery } from "@/redux/services/apiSlice";
 
 
 interface Props {
@@ -16,53 +16,31 @@ interface Props {
 
 export default function ProfessorDetails({ id, onClose }: Props) {
   const router = useRouter()
-  const { data, error, isLoading } = useProfessorRatingsData(id);
+
+  const { data, isLoading, isError } = useGetProfessorRatingsQuery(id);
 
   if (isLoading) {
-    return <div>Loading</div>;
+    return <div>Loading...</div>;
   }
-  if (error) {
-    return <div>error feaching professor data</div>;
+  if (isError) {
+    return <div>error feaching professor data!!!</div>;
   }
   const {
-    ratings,
     professor,
     take_again_percentage,
     avg_difficulty,
     rating_counts,
     total_ratings_count,
-    
-    top_tags,
-  } = data;
+    credit_counts,
+    attendance_counts,
+  } = data!;
 
-
-  const countForCredit = ratings.reduce(
-    (acc, item) => {
-      if (item.was_class_taken_for_credit) {
-        acc.takenForCredit += 1;
-      } else {
-        acc.notTakenForCredit += 1;
-      }
-      return acc;
-    },
-    { takenForCredit: 0, notTakenForCredit: 0 }
-  );
-  const countAttndenceMandatory = ratings.reduce(
-    (acc, item) => {
-      if (item.was_attendance_mandatory) {
-        acc.mendatory += 1;
-      } else {
-        acc.notMendatory += 1;
-      }
-      return acc;
-    },
-    { mendatory: 0, notMendatory: 0 }
-  );
+  const ratingCounts = rating_counts.map(rating_count => rating_count.count)
 
   const chartDataTakeAgain = [
-    { name: "yes", value: countForCredit.takenForCredit, fill: "var(--color-yes)" },
-    { name: "no", value: countForCredit.notTakenForCredit, fill: "var(--color-no)" },
-    { name: "na", value: 0, fill: "var(--color-na)" },
+    { name: "yes", value: credit_counts.for_credit, fill: "var(--color-yes)" },
+    { name: "no", value: credit_counts.not_for_credit, fill: "var(--color-no)" },
+    { name: "na", value: credit_counts.none, fill: "var(--color-na)" },
   ]
   
   const chartConfigTakeAgain = {
@@ -85,9 +63,9 @@ export default function ProfessorDetails({ id, onClose }: Props) {
 
 
   const chartDataAddendenceMendatory = [
-    { name: "yes", value: countAttndenceMandatory.mendatory, fill: "var(--color-yes)" },
-    { name: "no", value: countAttndenceMandatory.notMendatory, fill: "var(--color-no)" },
-    { name: "na", value: 0, fill: "var(--color-na)" },
+    { name: "yes", value: attendance_counts.mandatory, fill: "var(--color-yes)" },
+    { name: "no", value: attendance_counts.not_mandatory, fill: "var(--color-no)" },
+    { name: "na", value: attendance_counts.none, fill: "var(--color-na)" },
   ]
   
   const chartConfigAddendenceMendatory = {
@@ -139,7 +117,7 @@ export default function ProfessorDetails({ id, onClose }: Props) {
             className="text-black font-bold underline"
             href="/search/professors/1754?q=*&amp;did=6"
           >
-            <strong>{professor.department}</strong>
+            <strong>{professor.department.toString()}</strong>
           </a>
           at
           <a className="underline" href="/school/1754">
@@ -151,7 +129,7 @@ export default function ProfessorDetails({ id, onClose }: Props) {
       </div>
       <div className="flex flex-col items-center justify-center bg-white rounded-lg mt-3  font-medium h-full pt-4 w-full">
         <div className="text-base">{total_ratings_count} Ratings</div>
-        <RatingChart ratings={ratings}/>
+        <RatingChart ratingCounts={ratingCounts}/>
       </div>
       <div className="flex flex-col items-center justify-center w-full h-full mt-3 p-4 bg-white rounded-md font-medium">
         <div className="text-base">Level of Difficulty</div>
