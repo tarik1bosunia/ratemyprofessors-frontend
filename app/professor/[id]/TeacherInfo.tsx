@@ -1,7 +1,6 @@
 import { FaArrowDown } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa";
-import { useProfessorRatingsData } from "@/hooks";
 import { Professor } from "@/types";
 
 interface Tag {

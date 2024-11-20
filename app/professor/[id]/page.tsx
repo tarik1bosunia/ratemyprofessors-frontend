@@ -1,5 +1,4 @@
 "use client";
-import { useProfessorRatingsData } from "@/hooks";
 import TeacherInfo from "./TeacherInfo";
 import TeacherRatings from "./TeacherRatings";
 import { useGetProfessorRatingsQuery } from "@/redux/services/apiSlice";
