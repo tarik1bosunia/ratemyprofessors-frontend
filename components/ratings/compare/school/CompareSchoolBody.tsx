@@ -25,6 +25,8 @@ export default function CompareSchoolBody({ id1, id2 }: Props) {
     overallQuality: overallQuality1,
   } = useShowSchoolRatings(Number(id1) || 0); // Default to 0 if id1 is missing
 
+  
+
   const {
     averageRatings: averageRatings2,
     schoolRatings: schoolRatings2,

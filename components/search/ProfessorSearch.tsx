@@ -20,7 +20,7 @@ export default function ProfessorSearch({ query }: { query: string }) {
     fetchFunction: useSearchProfessorsQuery,
   });
   
-  console.log(professors);
+  // console.log(professors);
 
 
   return (

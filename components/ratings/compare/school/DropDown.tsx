@@ -1,7 +1,8 @@
+import { SCHOOL_SEARCH_API } from "@/constants";
+import { usePagination } from "@/hooks/pagination";
 import {useSearchSchoolsQuery } from "@/redux/services/apiSlice";
 import { School } from "@/types";
 import Link from "next/link";
-import { CiApple } from "react-icons/ci";
 
 interface Props {
   query: string;
@@ -10,15 +11,21 @@ interface Props {
 }
 
 export default function Dropdown({ query, setShowDropdown, id }: Props) {
-  const {
-    data: schools,
-    error,
+ 
+  const { 
+    results: schools,
     isLoading,
-  } = useSearchSchoolsQuery(query);
+    isError,
+    lastSchoolElementRef 
+  } = usePagination<School>({
+    apiUrl: SCHOOL_SEARCH_API,
+    query: query,
+    fetchFunction: useSearchSchoolsQuery,
+  });
 
   if (query === "") return null; // Return null instead of empty fragment
   if (isLoading) return <div>Loading school Data...</div>;
-  if (error) return <div>Error loading school Data!</div>;
+  if (isError) return <div>Error loading school Data!</div>;
 
   if (schools?.length === 0) {
     return <div>No school found</div>;

@@ -8,13 +8,13 @@ import { useParams } from "next/navigation";
 export default function SchoolRatingShow() {
   const { id: school_id } = useParams<{ id: string }>();
 
+
   const {
     averageRatings,
     schoolRatings,
     overallQuality,
   } = useShowSchoolRatings(school_id); 
-  // console.log("school ratings aveageRatings.tsx: ", schoolRatings);
-  console.log(schoolRatings)
+
 
   
   const {

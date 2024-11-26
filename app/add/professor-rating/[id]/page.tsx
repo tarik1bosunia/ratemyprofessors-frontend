@@ -17,7 +17,7 @@ export default function Page({params: {id}}: Props){
         <div>Loading</div>
       )
     }
-    if(error){
+    // if(error){
       return (
         <div>error feaching professor data</div>
       )

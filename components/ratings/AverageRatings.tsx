@@ -41,7 +41,7 @@ export default function AverageRatings({
   internet,
   social,
   food,
-  overallQuality
+  overallQuality,
 }: AverageRatingsProps) {
   const ratings: RatingType[] = [
     {
@@ -97,8 +97,8 @@ export default function AverageRatings({
   ];
 
   return (
-    <div className="flex items-center justify-between mt-[6px] md:max-w-[calc(926px)]">
-      <div className="pl-6">
+    <div className="flex items-center justify-between flex-col md:flex-row md:max-w-[calc(926px)]">
+      <div className="mb-6 md:mb-0 md:pl-6">
         <div className="flex justify-center items-center h-full">
           <div className="flex flex-col">
             <div className="text-[80px] leading-[80px] mb-[2px] font-poppins font-black">
@@ -110,20 +110,19 @@ export default function AverageRatings({
           </div>
         </div>
       </div>
-      <div className="mb-6 mr-6 flex-col flex-nowrap">
-        <div
-          style={{ columnGap: "110px" }}
-          className=" flex flex-col flex-wrap h-[264px] justify-between w-[628px]"
-        >
-          {ratings.map((rating, index) => (
-            <AverageRating
-              key={index}
-              icon={rating.icon}
-              title={rating.title}
-              rating={rating.rating}
-            />
-          ))}
-        </div>
+
+      <div
+        style={{ columnGap: "110px" }}
+        className="flex flex-col  flex-wrap gap-y-4 md:gap-y-0 h-full md:h-[264px] justify-between items-center w-[628px]"
+      >
+        {ratings.map((rating, index) => (
+          <AverageRating
+            key={index}
+            icon={rating.icon}
+            title={rating.title}
+            rating={rating.rating}
+          />
+        ))}
       </div>
     </div>
   );

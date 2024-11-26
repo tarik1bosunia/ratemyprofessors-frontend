@@ -71,8 +71,7 @@ export default function Page({ params: { id } }: Props) {
           </div>
         </div>
       </header>
-      <div className="py-10"></div>
-      <div className="my-0 mx-auto max-w-[1280px] w-full mb-14 min-h-[calc(100vh-240px)] overflow-hidden">
+      <div className="my-16 mx-auto max-w-[1280px] w-full min-h-[calc(100vh-240px)] overflow-hidden">
         <SchoolRatingShow />
 
         

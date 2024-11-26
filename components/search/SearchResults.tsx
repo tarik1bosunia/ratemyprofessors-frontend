@@ -43,7 +43,7 @@ export default function SearchResults<T>({
     // Convert the number to Bengali if the current locale is 'bn'
     const displayedCount = locale === 'bn' ? translateNumberToBangla(totalCount) : totalCount.toString();
     const translatedEntityName = translateEntityName(entityName, locale);
-    console.log("entityName: ", entityName)
+    // console.log("entityName: ", entityName)
 
   return (
     <div className="my-0 mx-auto max-w-[1280px] min-h-screen w-full">

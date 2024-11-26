@@ -244,6 +244,7 @@ ProfessorRatings: builder.query<ProfessorRatingsApiResponse, RatingsQuery>({
   }
 }),
 
+
   // http://localhost:8000/api/ratings/schools/1
 
   getSchool: builder.query<School, string>({

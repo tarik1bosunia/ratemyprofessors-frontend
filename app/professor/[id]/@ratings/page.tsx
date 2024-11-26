@@ -44,7 +44,7 @@ export default function TeacherRatingsTabs() {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = event.target.value;
     setQuery(selectedValue);
-    console.log(`Query changed to: ${selectedValue}`);
+    // console.log(`Query changed to: ${selectedValue}`);
   };
 
   return (

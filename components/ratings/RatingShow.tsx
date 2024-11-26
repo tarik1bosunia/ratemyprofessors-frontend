@@ -15,8 +15,6 @@ type RatingShowProps = {
 export default function RatingShow({ratings}: RatingShowProps) {
   const { id} = useParams<{ id: string }>();
 
-  console.log("id= ", id)
-
   const { 
     totalCount,
     results: schoolRatings,
@@ -28,10 +26,10 @@ export default function RatingShow({ratings}: RatingShowProps) {
     fetchFunction: useGetSchoolRatingsQuery,
   });
 
-  console.log("schoolRatings", schoolRatings)
+  // console.log("schoolRatings", schoolRatings)
 
   return (
-    <div className="md:max-w-[calc(926px)]">
+    <div className="md:max-w-[calc(926px)] my-8">
       <div className="text-xl font-bold text-left">104 Ratings</div>
       <ul className="list-none">
 

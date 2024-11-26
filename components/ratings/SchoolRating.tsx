@@ -7,6 +7,7 @@ import { LuThumbsUp, LuThumbsDown, LuFlag } from "react-icons/lu";
 
 import { SchoolRatingsType } from "@/types";
 import Link from "next/link";
+import { dateformater } from "../utils";
 
 type RatingType = {
   title: string;
@@ -80,7 +81,7 @@ export default function SchoolRating(rating: SchoolRatingsType) {
   };
 
   return (
-      <Link href={"#"}>
+
         <div className="bg-gray-100 flex flex-col my-4 min-w-[343px] w-full">
           <div className="flex flex-row p-[20px_24px_32px]">
             <div className="flex flex-col text-sm p-[10px_26px_0px_0px] font-semibold">
@@ -91,24 +92,22 @@ export default function SchoolRating(rating: SchoolRatingsType) {
             </div>
             <div className="flex flex-col ml-4 w-full">
               <div className="flex flex-row justify-end items-center">
-                <div className="pb-0 font-bold">Jun 23rd, 2024</div>
+                <div className="pb-0 font-bold">{ dateformater(rating.created_at)}</div>
               </div>
               <div className="text-sm font-normal mt-5 text-left">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-                inventore quisquam maiores ab, in expedita aliquam illum illo iure
-                ratione deserunt! Dolores, fugit iste! Eveniet maiores quos magnam
-                autem libero.
+               {
+                rating.comment
+               }
               </div>
 
-              <div>
+     
                 <div
-                  className="flex flex-col flex-wrap h-[190px] justify-between mt-4 pr-9 w-full"
-                  style={{ columnGap: "10%" }}
+                  className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 lg:gap-x-12"
                 >
                   {ratings.map((rate, index1) => (
                     <div
                       key={index1}
-                      className="inline-flex justify-between items-center h-[30px] mt-2 w-[45%]"
+                      className="inline-flex justify-between items-center h-[30px] mt-2 "
                     >
                       <div className="text-sm font-semibold leading-4 mr-[5px]">
                         {rate.title}
@@ -121,7 +120,8 @@ export default function SchoolRating(rating: SchoolRatingsType) {
                             className={`${getBgColor(
                               rate.rating,
                               index
-                            )} h-[18px] w-8 opacity-50 touch-none transition-all duration-200 ease-in-out ${
+                            )} 
+                              h-[18px] min-w-6 max-w-8 w-full opacity-50 touch-none transition-all duration-200 ease-in-out ${
                               index == 0 && "rounded-l-[20px]"
                             } ${
                               index == ratingDegree.length - 1 &&
@@ -141,7 +141,7 @@ export default function SchoolRating(rating: SchoolRatingsType) {
                     </div>
                   ))}
                 </div>
-              </div>
+              
 
               <div className="flex justify-between mt-9">
                 <div className="flex items-center">
@@ -191,6 +191,5 @@ export default function SchoolRating(rating: SchoolRatingsType) {
             </div>
           </div>
         </div>
-      </Link>
   );
 }
