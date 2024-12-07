@@ -1,6 +1,6 @@
 import { SCHOOL_SEARCH_API } from "@/constants";
 import { usePagination } from "@/hooks/pagination";
-import {useSearchSchoolsQuery } from "@/redux/services/apiSlice";
+import {useSearchSchoolsQuery } from "@/redux/services/public";
 import { School } from "@/types";
 import Link from "next/link";
 
@@ -16,6 +16,7 @@ export default function Dropdown({ query, setShowDropdown, id }: Props) {
     results: schools,
     isLoading,
     isError,
+    // TODO
     lastSchoolElementRef 
   } = usePagination<School>({
     apiUrl: SCHOOL_SEARCH_API,

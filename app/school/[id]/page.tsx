@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 import { SchoolRatingShow } from "@/components/ratings";
-import { useGetSchoolQuery } from "@/redux/services/apiSlice";
+import { useGetSchoolQuery } from "@/redux/services/public";
 
 interface Props {
   params: {

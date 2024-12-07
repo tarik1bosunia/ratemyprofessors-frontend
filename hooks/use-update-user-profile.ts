@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useAddDetailsMutation } from "@/redux/fetures/authApiSlice"; // Adjust the import path if needed
-import { useRetrieveUserQuery } from "@/redux/services/apiSlice";
+import { useRetrieveUserQuery } from "@/redux/services/authenticated";
 
 export default function useUpdateUserProfile() {
     const [addDetails, {isLoading}] = useAddDetailsMutation();

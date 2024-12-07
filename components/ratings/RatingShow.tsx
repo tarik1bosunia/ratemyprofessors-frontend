@@ -3,7 +3,7 @@ import { SchoolRatingsType } from "@/types";
 import SchoolRating from "./SchoolRating";
 import { usePagination } from "@/hooks/pagination";
 import { SCHOOL_RATINGS_API } from "@/constants";
-import { useGetSchoolRatingsQuery } from "@/redux/services/apiSlice";
+import { useGetSchoolRatingsQuery } from "@/redux/services/public";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 

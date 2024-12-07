@@ -2,7 +2,8 @@ import { RxCross2 } from "react-icons/rx";
 import RatingChart from "../RatingChart";
 import { useRouter } from "next/navigation";
 import { CustomPieChart } from "@/components/customcharts";
-import { useGetProfessorRatingsQuery } from "@/redux/services/apiSlice";
+import { useGetAverageProfessorRatingsQuery, useGetProfessorRatingsQuery } from "@/redux/services/apiSlice";
+import { NO_DATA_AVAILABLE } from "@/constants";
 
 
 interface Props {
@@ -18,11 +19,12 @@ export default function ProfessorDetails({ id, onClose }: Props) {
   const router = useRouter()
 
   const { data, isLoading, isError } = useGetProfessorRatingsQuery(id);
+  const {data: dataAvg, isLoading: isLoadingAvg, isError: isErrorAvg} = useGetAverageProfessorRatingsQuery(id)
 
-  if (isLoading) {
+  if (isLoading || isLoadingAvg) {
     return <div>Loading...</div>;
   }
-  if (isError) {
+  if (isError || isErrorAvg) {
     return <div>error feaching professor data!!!</div>;
   }
   const {
@@ -34,6 +36,8 @@ export default function ProfessorDetails({ id, onClose }: Props) {
     credit_counts,
     attendance_counts,
   } = data!;
+
+  const {rating, difficulty, take_again_count, total_ratings, top_tags} = dataAvg!
 
   const ratingCounts = rating_counts.map(rating_count => rating_count.count)
 
@@ -95,7 +99,7 @@ export default function ProfessorDetails({ id, onClose }: Props) {
     }
   };
   
-
+  console.log("")
   return (
     <div className="flex flex-col items-center relative mr-4 w-full font-medium">
       <div className="flex flex-col items-center justify-center bg-white rounded-lg h-full mt-3 p-4 w-full font-medium text-center">
@@ -106,8 +110,11 @@ export default function ProfessorDetails({ id, onClose }: Props) {
         <div className="h-full relative">
           <div className="font-bold text-xl">{professor.first_name } {professor.last_name}</div>
           <div className="inline-block mt-4">
+       
             <div className="bg-[#7ff6c3] leading-[40px] min-h-[72px] min-w-[44px] p-4 w-[72px] text-[32px] font-extrabold">
-              5
+              {
+                rating ?? NO_DATA_AVAILABLE
+              }
             </div>
           </div>
           <div className="text-gray-500 text-sm my-2 font-medium">
@@ -117,6 +124,7 @@ export default function ProfessorDetails({ id, onClose }: Props) {
             className="text-black font-bold underline"
             href="/search/professors/1754?q=*&amp;did=6"
           >
+            {/* TODO */}
             <strong>{professor.department.toString()}</strong>
           </a>
           at

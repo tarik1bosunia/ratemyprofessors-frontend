@@ -1,6 +1,6 @@
 'use client';
 import { RateProfessor, RatingHeader } from '@/components/ratings';
-import { useGetProfessorRatingsQuery } from '@/redux/services/apiSlice';
+import { useGetProfessorRatingsQuery } from '@/redux/services/public';
 
 interface Props {
   params: {

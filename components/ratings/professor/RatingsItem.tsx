@@ -1,4 +1,5 @@
 import { dateformater } from "@/components/utils";
+import { NO_DATA_AVAILABLE } from "@/constants";
 import { ProssorRatingType } from "@/types"
 import { MdOutlineComputer } from "react-icons/md";
 
@@ -64,10 +65,10 @@ export default function RatingsItem({rating}:  Props){
                             Grade: <span className="font-bold">{rating.grade}</span>
                         </div>
                         <div className="mb-2 text-[16px] leading-[1.54] mr-4 py-1 whitespace-nowrap">
-                            Textbook: <span className="font-bold">{rating.was_use_textbook ? "Yes" : "N/A"}</span>
+                            Textbook: <span className="font-bold">{rating.was_use_textbook ? "Yes" : NO_DATA_AVAILABLE}</span>
                         </div>
                         <div className="mb-2 text-[16px] leading-[1.54] mr-4 py-1 whitespace-nowrap">
-                            Online Class: <span className="font-bold">{rating.is_online_course ? "Yes" : "N/A"}</span>
+                            Online Class: <span className="font-bold">{rating.is_online_course ? "Yes" : NO_DATA_AVAILABLE}</span>
                         </div>
                 
                     </div>

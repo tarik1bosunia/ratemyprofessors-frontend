@@ -1,79 +1,80 @@
 // types.ts
 
 export interface School {
-    id?: number;
-    name_of_school: string;
-    school_website: string;
-    location: string;
-    state: number; // Assuming state and country are referenced by their ID
-    country: number;
-    terms_privacy: boolean;
-  }
-
-export interface Professor {
-    id?: number;
-    name_of_school: string;
-    first_name: string,
-    middle_name: string,
-    last_name: string,
-    department: Number,
-    directory_listing_of_professor: string,
-    terms_privacy: boolean;
-  }
-
-
-  export interface Country {
-    id: number;
-    name: string;
-  }
-  
-  export interface State {
-    id: number;
-    name: string;
-    country: number; // Assuming each state is referenced by its country ID
-  }
-
-  export interface Department {
-    id: number;
-    name: string;
-  }
-
-  export interface ProfessorsTag {
-    id: number;
-    tag: string;
-  }
-
-  export interface SchoolRatingsType {
-    id?: number,
-    safety: number,   
-    oppputunites: number,
-    location: number,
-    facilities: number,
-    happiness: number, 
-    reputation: number,
-    clubs: number,
-    internet: number,
-    social: number,
-    food: number,
-    comment: string,
-    created_at: string,
-    user: number,
+  id?: number;
+  name_of_school: string;
+  school_website: string;
+  location: string;
+  state: number; // Assuming state and country are referenced by their ID
+  country: number;
+  terms_privacy: boolean;
 }
 
-import {locales} from './config';
+export interface Professor {
+  id: number;
+  name_of_school: string;
+  first_name: string;
+  middle_name: string;
+  last_name: string;
+  department: Number;
+  directory_listing_of_professor: string;
+  terms_privacy: boolean;
+}
+
+
+
+export interface Country {
+  id: number;
+  name: string;
+}
+
+export interface State {
+  id: number;
+  name: string;
+  country: number; // Assuming each state is referenced by its country ID
+}
+
+export interface Department {
+  id: number;
+  name: string;
+}
+
+export interface ProfessorsTag {
+  id: number;
+  tag: string;
+}
+
+export interface SchoolRatingsType {
+  id?: number;
+  safety: number;
+  oppputunites: number;
+  location: number;
+  facilities: number;
+  happiness: number;
+  reputation: number;
+  clubs: number;
+  internet: number;
+  social: number;
+  food: number;
+  comment: string;
+  created_at: string;
+  user: number;
+}
+
+import { locales } from "./config";
 
 export type Locale = (typeof locales)[number];
 
-export type SearchType = "schools" | "professors"
+export type SearchType = "schools" | "professors";
 
-export interface UsrProfileType{
-  id: number,
-  email: string,
-  first_name: string,
-  last_name: string,
-  school: string,
-  field_of_study: string,
-  expected_year_of_graduation: string
+export interface UserProfileType {
+  id: number;
+  email: string;
+  first_name: string;
+  last_name: string;
+  school: string;
+  field_of_study: string;
+  expected_year_of_graduation: string;
 }
 
 export interface ProssorRatingType {
@@ -89,21 +90,29 @@ export interface ProssorRatingType {
   grade: string;
   tags: number[];
   comment: string;
-  created_at: string
+  created_at: string;
 }
 
 export type AverageSchoolRatingsType = {
-  safety: number,
-  oppputunites: number,
-  location: number,
-  facilities: number,
-  happiness: number,
-  reputation: number,
-  clubs: number,
-  internet: number,
-  social: number,
-  food: number,
-}
+  safety: number;
+  oppputunites: number;
+  location: number;
+  facilities: number;
+  happiness: number;
+  reputation: number;
+  clubs: number;
+  internet: number;
+  social: number;
+  food: number;
+};
+
+export type AverageProfessorRatingsType = {
+  rating: number | null; // If rating can sometimes be null, otherwise just `number`
+  difficulty: number | null; // If difficulty can sometimes be null, otherwise just `number`
+  take_again_count: number;
+  total_ratings: number;
+  top_tags: string[]; // Array of strings for top tags
+};
 
 // types for professor view page
 type Tag = {
@@ -129,7 +138,7 @@ export interface AttendenceCounts {
 }
 
 export type ProfessorDetailsType = {
-  professor: Professor
+  professor: Professor;
   total_ratings_count: number;
   take_again_percentage: number;
   avg_difficulty: number;
@@ -138,4 +147,3 @@ export type ProfessorDetailsType = {
   attendance_counts: AttendenceCounts;
   credit_counts: CreditCounts;
 };
-  

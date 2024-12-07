@@ -1,5 +1,5 @@
 'use client'
-import { useGetSchoolQuery } from "@/redux/services/apiSlice";
+import { useGetSchoolQuery } from "@/redux/services/public";
 
 type SchoolHeader = {
   name_of_school: string;

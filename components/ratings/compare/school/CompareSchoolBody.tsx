@@ -4,6 +4,7 @@ import CategoryRow from "./CategoryRow";
 import CompareSchoolHeaderBox from "./CompareSchoolHeaderBox";
 import CompareSchoolHeaderSearchBox from "./CompareSchoolSearchBox";
 import { useRouter } from "next/navigation";
+import { NO_DATA_AVAILABLE } from "@/constants";
 
 interface Props {
   id1?: string;
@@ -34,29 +35,29 @@ export default function CompareSchoolBody({ id1, id2 }: Props) {
   } = useShowSchoolRatings(Number(id2) || 0); // Default to 0 if id2 is missing
 
   const {
-    safety: safety1 = "N/A",
-    oppputunites: opppurtunites1 = "N/A",
-    location: location1 = "N/A",
-    facilities: facilities1 = "N/A",
-    happiness: happiness1 = "N/A",
-    reputation: reputation1 = "N/A",
-    clubs: clubs1 = "N/A",
-    internet: internet1 = "N/A",
-    social: social1 = "N/A",
-    food: food1 = "N/A",
+    safety: safety1 = NO_DATA_AVAILABLE,
+    oppputunites: opppurtunites1 = NO_DATA_AVAILABLE,
+    location: location1 = NO_DATA_AVAILABLE,
+    facilities: facilities1 = NO_DATA_AVAILABLE,
+    happiness: happiness1 = NO_DATA_AVAILABLE,
+    reputation: reputation1 = NO_DATA_AVAILABLE,
+    clubs: clubs1 = NO_DATA_AVAILABLE,
+    internet: internet1 = NO_DATA_AVAILABLE,
+    social: social1 = NO_DATA_AVAILABLE,
+    food: food1 = NO_DATA_AVAILABLE,
   } = averageRatings1 || {};
 
   const {
-    safety: safety2 = "N/A",
-    oppputunites: opppurtunites2 = "N/A",
-    location: location2 = "N/A",
-    facilities: facilities2 = "N/A",
-    happiness: happiness2 = "N/A",
-    reputation: reputation2 = "N/A",
-    clubs: clubs2 = "N/A",
-    internet: internet2 = "N/A",
-    social: social2 = "N/A",
-    food: food2 = "N/A",
+    safety: safety2 = NO_DATA_AVAILABLE,
+    oppputunites: opppurtunites2 = NO_DATA_AVAILABLE,
+    location: location2 = NO_DATA_AVAILABLE,
+    facilities: facilities2 = NO_DATA_AVAILABLE,
+    happiness: happiness2 = NO_DATA_AVAILABLE,
+    reputation: reputation2 = NO_DATA_AVAILABLE,
+    clubs: clubs2 = NO_DATA_AVAILABLE,
+    internet: internet2 = NO_DATA_AVAILABLE,
+    social: social2 = NO_DATA_AVAILABLE,
+    food: food2 = NO_DATA_AVAILABLE,
   } = averageRatings2 || {};
 
   const config: Config[] = [

@@ -1,10 +1,10 @@
 "use client";
 
-import { useGetSchoolRatingsQuery, useGetAverageSchoolRatingsQuery } from "@/redux/services/apiSlice";
+import { useGetSchoolRatingsQuery, useGetAverageSchoolRatingsQuery } from "@/redux/services/public";
 import { AverageSchoolRatingsType, SchoolRatingsType } from "@/types";
 import {useEffect, useState } from "react";
 import usePagination from "./pagination/usePagination";
-import { SCHOOL_RATINGS_API } from "@/constants";
+import { NO_DATA_AVAILABLE, SCHOOL_RATINGS_API } from "@/constants";
 
 // Helper function to calculate overall quality
 const calculateOverallQuality = (ratings: AverageSchoolRatingsType): number => {
@@ -28,7 +28,7 @@ const calculateOverallQuality = (ratings: AverageSchoolRatingsType): number => {
 
 export default function useShowSchoolRatings(id: string | number) {
 
-  const [overallQuality, setOverallQuality] = useState<number | "N/A">("N/A");
+  const [overallQuality, setOverallQuality] = useState<number | typeof NO_DATA_AVAILABLE>(NO_DATA_AVAILABLE);
 
 
   const { 

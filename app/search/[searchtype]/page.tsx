@@ -1,6 +1,6 @@
 'use client'
 
-import {useSearchProfessorsQuery, useSearchSchoolsQuery } from "@/redux/services/apiSlice"
+import {useSearchProfessorsQuery, useSearchSchoolsQuery } from "@/redux/services/public"
 import { useSearchParams  } from "next/navigation"
 import { useEffect } from "react"
 

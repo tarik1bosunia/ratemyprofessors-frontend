@@ -4,6 +4,7 @@ import useShowSchoolRatings from "@/hooks/use-show-school-ratings";
 import AverageRatings from "./AverageRatings";
 import RatingShow from "./RatingShow";
 import { useParams } from "next/navigation";
+import { NO_DATA_AVAILABLE } from "@/constants";
 
 export default function SchoolRatingShow() {
   const { id: school_id } = useParams<{ id: string }>();
@@ -18,16 +19,16 @@ export default function SchoolRatingShow() {
 
   
   const {
-    safety = "N/A",
-    oppputunites="N/A",
-    location = "N/A",
-    facilities ="N/A",
-    happiness = "N/A",
-    reputation = "N/A",
-    clubs = "N/A",
-    internet = "N/A",
-    social = "N/A",
-    food = "N/A",
+    safety = NO_DATA_AVAILABLE,
+    oppputunites=NO_DATA_AVAILABLE,
+    location = NO_DATA_AVAILABLE,
+    facilities =NO_DATA_AVAILABLE,
+    happiness = NO_DATA_AVAILABLE,
+    reputation = NO_DATA_AVAILABLE,
+    clubs = NO_DATA_AVAILABLE,
+    internet = NO_DATA_AVAILABLE,
+    social = NO_DATA_AVAILABLE,
+    food = NO_DATA_AVAILABLE,
   } = averageRatings || {};
 
   return (

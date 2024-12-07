@@ -1,6 +1,6 @@
 import { PROFESSOR_SEARCH_API } from "@/constants";
 import { usePagination } from "@/hooks/pagination";
-import { useSearchProfessorsQuery } from "@/redux/services/apiSlice";
+import { useSearchProfessorsQuery } from "@/redux/services/public";
 import { Professor } from "@/types";
 import Link from "next/link";
 import { CiApple } from "react-icons/ci";

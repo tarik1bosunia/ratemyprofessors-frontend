@@ -23,7 +23,7 @@ function _getColoredDiv(rating: number){
 export default function DisplaySlider({rating, isReverse = false}: Props){
     if(typeof rating === "string"){
         return (
-            <div>{rating}</div>
+            <div className="text-center">{rating}</div>
         )
     }
     if(isReverse == false) return (

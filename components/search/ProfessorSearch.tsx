@@ -1,4 +1,4 @@
-import { useSearchProfessorsQuery } from "@/redux/services/apiSlice";
+import { useSearchProfessorsQuery } from "@/redux/services/public";
 import { Professor} from "@/types";
 import SearchResults from "./SearchResults";
 import NotFoundShoolMessage from "./NotFoundSchoolMessage";

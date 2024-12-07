@@ -4,7 +4,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import { toast } from "react-toastify";
 import { useAddSchoolMutation } from "@/redux/fetures/authApiSlice";
 
-import { useGetCountriesQuery, useGetStatesByCountryQuery } from "@/redux/services/apiSlice";
+import { useGetCountriesQuery, useGetStatesByCountryQuery } from "@/redux/services/public";
 import useModal from "@/hooks/use-modal";
 import { LOGIN_MODAL_NAME } from "@/constants";
 import { useTranslations } from "next-intl";

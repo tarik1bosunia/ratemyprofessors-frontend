@@ -1,6 +1,6 @@
 'use client'
 import { RateSchool, RatingHeader } from "@/components/ratings";
-import { useGetSchoolQuery } from "@/redux/services/apiSlice";
+import { useGetSchoolQuery } from "@/redux/services/public";
 
 interface Props{
     params: {

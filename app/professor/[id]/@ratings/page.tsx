@@ -2,7 +2,7 @@
 
 import { PROFESSOR_RATINGS_API } from "@/constants";
 import { usePagination } from "@/hooks/pagination";
-import { useGetCourseCodesByProfessorQuery, useProfessorRatingsQuery } from "@/redux/services/apiSlice";
+import { useGetCourseCodesByProfessorQuery, useProfessorRatingsQuery } from "@/redux/services/public";
 import { ProssorRatingType } from "@/types";
 import { useState } from "react";
 

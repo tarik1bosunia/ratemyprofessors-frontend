@@ -4,7 +4,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import type { ProfessorsTag } from "@/types";
-import { useGetProfessorsTagsQuery } from "@/redux/services/apiSlice";
+import { useGetProfessorsTagsQuery } from "@/redux/services/public";
 
 
 type FormDataType = {

@@ -1,4 +1,4 @@
-import { useSearchSchoolsQuery } from "@/redux/services/apiSlice";
+import { useSearchSchoolsQuery } from "@/redux/services/public";
 import { School } from "@/types";
 import { useEffect, useState } from "react";
 

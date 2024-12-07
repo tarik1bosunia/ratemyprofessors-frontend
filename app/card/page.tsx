@@ -2,7 +2,7 @@
 import { SCHOOL_SEARCH_API } from '@/constants';
 import React, { useState } from 'react';
 import usePagination from '@/hooks/pagination/usePagination';
-import { useSearchSchoolsQuery } from '@/redux/services/apiSlice';
+import { useSearchSchoolsQuery } from '@/redux/services/public';
 import { School } from '@/types';
 
 export default function SchoolSearchPage() {

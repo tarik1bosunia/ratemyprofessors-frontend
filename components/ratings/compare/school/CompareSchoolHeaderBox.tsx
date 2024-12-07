@@ -1,4 +1,4 @@
-import { useGetSchoolQuery } from "@/redux/services/apiSlice";
+import { useGetSchoolQuery } from "@/redux/services/public";
 import { useRouter } from "next/navigation";
 
 interface Props {
@@ -24,11 +24,14 @@ export default function CompareSchoolHeaderBox({overallQuality, id, showChangeSc
   }
   const {name_of_school, location} = schooldetails;
 
-
   return (
     <div className="flex flex-col items-center bg-[#f7f7f7] mx-0 mb-3 mr-[3px] max-w-[444px] min-h-[205px] p-2.5 text-center w-full">
       
-      <div className="bg-[#fff170] leading-[40px] min-h-[72px] min-w-[44px] p-4 w-[72px] text-[32px] font-poppins font-extrabold">{overallQuality}</div>
+      <div className="bg-[#fff170] leading-[40px] min-h-[72px] min-w-[44px] p-4 w-[72px] text-[32px] font-poppins font-extrabold">
+      {Number(overallQuality).toFixed(1)}
+        
+        
+      </div>
       
       <div className="text-xs mt-1 font-bold">OVERALL</div>
       <div className="text-xs mt-1">187 Ratings</div>

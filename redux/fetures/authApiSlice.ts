@@ -1,5 +1,4 @@
 import { apiSlice } from "../services/apiSlice";
-
 interface User {
   first_name?: string;
   last_name?: string;
@@ -132,6 +131,26 @@ const authApiSlice = apiSlice.injectEndpoints({
             happiness: parseInt(happiness),
             safety: parseInt(safety),
             comment: comment,
+          },
+        }),
+      }),
+
+      addDetails: builder.mutation({
+        query: ({
+          first_name,
+          last_name,
+          school,
+          field_of_study,
+          expected_year_of_graduation = 2000,
+        }) => ({
+          url: "user/update-personal-info/",
+          method: "PUT",
+          body: {
+            first_name,
+            last_name,
+            school,
+            field_of_study,
+            expected_year_of_graduation,
           },
         }),
       }),

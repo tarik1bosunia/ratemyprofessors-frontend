@@ -170,6 +170,13 @@ export const PROFESSOR_SEARCH_API =   `${API_BASE_URL}/api/search/professors/`
 export const SCHOOL_RATINGS_API =   `${API_BASE_URL}/api/ratings/school-rating/`
 export const PROFESSOR_RATINGS_API  = `${API_BASE_URL}/api/ratings/professors/`
 
+// average 
+export const AVERAGE_RATING_SCHOOL_API  = `/api/ratings/professors/` 
+
+
+// Most Frequently used Strings
+export const NO_DATA_AVAILABLE = "N/A";
+
 
 
 

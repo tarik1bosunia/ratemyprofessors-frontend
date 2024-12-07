@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { useAppDispatch } from "@/redux/hooks";
 import {Professor} from '@/types'
 import { useAddProfessorMutation } from "@/redux/fetures/authApiSlice";
-import { useGetDepartmentsQuery } from "@/redux/services/apiSlice";
+import { useGetDepartmentsQuery } from "@/redux/services/public";
 import useModal from "./use-modal";
 import { LOGIN_MODAL_NAME } from "@/constants";
 import { useTranslations } from "next-intl";
@@ -20,6 +20,7 @@ export default function useAddProfessor() {
   const [addProfessor, { isLoading }] = useAddProfessorMutation();
 
   const initialFormData: Professor = {
+    id: 0,
     name_of_school: "",
     first_name: "",
     middle_name: "",

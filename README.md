@@ -36,3 +36,7 @@ https://www.chartjs.org/docs/latest/getting-started/installation.html
 yarn add chart.js
 npm install recharts
 ```
+TODO:
+1. need to check security of the api
+2. need to check in backend email activation url
+   
